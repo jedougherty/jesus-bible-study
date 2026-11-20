@@ -1,0 +1,3061 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-HgIQPQFD62jW1RiOK3I3MFjZRJj8qbCpa94bkaETxvM='; style-src 'unsafe-inline'; connect-src https://bolls.life https://bible.helloao.org; img-src data: 'self'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="data:,">
+<title>Jesus Bible Study</title>
+<meta name="apple-mobile-web-app-title" content="Bible Study">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+:root{ color-scheme:dark;
+  --bg:#0d1626; --card:#13203a; --card2:#101b30; --line:#24365a; --line2:#2e4572; --field:#0d1626;
+  --text:#e6ebf3; --dim:#9fb2d1; --dim2:#8fa3c4; --gold:#e8c26a; --gold2:#d8c38a; --blue:#7cc8f2; --red:#ff8a8a; }
+*{box-sizing:border-box}
+html,body{background:var(--bg)}
+body{margin:0;color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5}
+a{color:var(--blue)} a:hover{color:#b3e1fa}
+button,select,input,textarea{font:inherit;color:var(--text)}
+button{cursor:pointer;min-height:40px;padding:0 14px;background:#1b2b4b;border:1px solid var(--line2);border-radius:8px}
+button:hover{background:#22365c}
+button.gold{background:var(--gold);color:#1a1406;border:0;font-weight:600}
+button.gold:hover{background:#f0cf80}
+button.pill{border-radius:22px}
+button.on{background:var(--gold);color:#1a1406;border-color:var(--gold);font-weight:600}
+button:disabled{opacity:.5;cursor:default}
+select{background:#1b2b4b;border:1px solid var(--line2)}
+header{background:var(--card);border-bottom:1px solid var(--line);padding:12px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;position:sticky;top:0;z-index:5}
+.crumb{display:flex;align-items:center;gap:8px;font-size:18px;font-weight:700}
+.crumb .sep{color:var(--dim2);font-weight:400}
+.nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+button.swap{border-color:var(--gold);color:var(--gold)}
+#ref{min-height:44px;width:170px;padding:0 12px;background:var(--field);border:2px solid var(--gold);border-radius:8px;font-weight:600;font-size:17px;color:#fff}
+.vers{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-left:auto}
+.vers label{font-size:13px;color:var(--dim);font-weight:600}
+.vers select{min-height:44px;max-width:250px;padding:0 8px;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer}
+#t1{background:var(--gold);color:#1a1406;border:0}
+#t2{background:#1b2b4b;border:1px solid var(--gold)}
+.banner{display:none;max-width:1440px;margin:14px auto 0;padding:12px 18px;border:2px solid var(--gold);border-radius:12px;background:#2a2410;color:#fff;font-size:15px}
+.banner.show{display:block}
+main{max-width:1440px;margin:0 auto;padding:20px;display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start}
+.col-left{flex:2 1 520px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.col-right{flex:3 1 560px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.card h2{margin:0;font-size:17px;font-weight:600}
+.hint{font-size:13px;color:var(--dim)}
+.small{font-size:12px;color:var(--dim2)}
+.kicker{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.two{margin-top:12px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.two > div + div{border-left:1px solid var(--line);padding-left:22px}
+.vcode{font-size:14px;font-weight:700;color:var(--gold)} .vcode.b{color:var(--blue)}
+.vname{font-size:12px;color:var(--dim)}
+.vtext{margin:10px 0 0;font-family:'Times New Roman',Georgia,serif;font-size:21px;line-height:1.6;color:#fff}
+.problem{color:var(--gold2);font-size:14px}
+.words{margin-top:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.wtile{display:flex;flex-direction:column;background:var(--field);border:1px solid var(--line2);border-radius:10px;overflow:hidden}
+.wtile .wbtn{min-height:44px;text-align:left;padding:10px 12px 4px;background:transparent;border:0;border-radius:0}
+.wtile .wbtn:hover{background:#15233d}
+.wg{display:block;font-family:'Times New Roman',Georgia,serif;font-size:21px}
+.wg.rtl{direction:rtl;text-align:right;font-size:23px}
+.words.hnt{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
+.hntw{display:flex;align-items:center;justify-content:center;min-height:58px;padding:8px 10px;background:var(--field);border:1px solid var(--line2);border-radius:10px;font-family:'Times New Roman',Georgia,serif;font-size:26px;direction:rtl;color:#fff}
+button.hntw{cursor:pointer}
+button.hntw:hover{background:#15233d}
+.we{display:block;font-size:13px;color:var(--dim)}
+.wl{display:block;font-size:12px;color:var(--dim2);margin-top:2px}
+.say{min-height:38px;display:flex;align-items:center;gap:6px;text-align:left;padding:2px 12px 10px;background:transparent;border:0;border-radius:0;color:var(--gold2);font-style:italic;font-size:13px}
+.say span{text-decoration:underline dotted;text-underline-offset:3px}
+.say:hover{background:#15233d}
+.xrow{display:flex;gap:10px;flex-wrap:wrap;align-items:baseline;margin-top:10px}
+.xphrase{width:150px;color:var(--gold);font-size:14px}
+.xchips{display:flex;gap:6px;flex-wrap:wrap;flex:1;min-width:0}
+.xchips button{min-height:34px;padding:0 10px;font-size:14px;border-radius:6px}
+textarea{width:100%;padding:12px;background:var(--field);border:1px solid var(--line2);border-radius:10px;resize:vertical;min-height:110px}
+.btnrow{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+#micBtn.listening{background:#7a1f1f;border-color:var(--red);color:#fff}
+.status{margin:8px 0 0;font-size:14px;color:var(--gold2);min-height:1.2em}
+.chead{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.chead h2{font-size:20px;font-weight:700}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips button{min-height:42px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid.wide{grid-template-columns:minmax(0,1fr)}
+.cm{display:flex;flex-direction:column;gap:8px;min-width:0}
+.cm h3{margin:0;font-size:16px;font-weight:700;color:var(--blue)}
+.cm.mac{border:2px solid var(--gold)} .cm.mac h3{color:var(--gold);font-size:18px}
+.cbox{height:300px;overflow-y:scroll;padding:2px 12px 2px 0;white-space:pre-line;font-family:'Times New Roman',Georgia,serif;font-size:16px;line-height:1.65;color:var(--text);scrollbar-width:auto;scrollbar-color:var(--gold) var(--field)}
+.grid.wide .cbox{height:380px;font-size:17px}
+.cbox::-webkit-scrollbar{width:14px}
+.cbox::-webkit-scrollbar-track{background:var(--field);border-radius:7px}
+.cbox::-webkit-scrollbar-thumb{background:var(--gold);border-radius:7px;border:3px solid var(--field)}
+.cbox:focus{outline:2px solid var(--blue);outline-offset:2px}
+.covers{font-size:13px;color:#c4d0e3}
+.cmtop{display:flex;align-items:center;justify-content:space-between;gap:8px}
+button.listen{min-height:38px;padding:0 12px;font-size:14px;border-radius:20px;flex-shrink:0}
+.sermon{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:4px}
+.sermon a{display:inline-flex;align-items:center;min-height:40px;padding:0 12px;background:#1b2b4b;border:1px solid var(--line2);border-radius:8px;text-decoration:none;color:var(--text)}
+.loading{color:var(--dim);font-style:italic}
+dialog{background:var(--card);color:var(--text);border:1px solid var(--gold);border-radius:14px;max-width:min(720px,92vw);width:720px;padding:20px 22px}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+dialog h3{margin:0 0 8px;color:var(--gold)}
+#dlgBody{white-space:pre-line;max-height:60vh;overflow-y:auto;font-family:'Times New Roman',Georgia,serif;font-size:17px;line-height:1.6}
+.sr{position:absolute;left:-9999px}
+header .tools{flex-basis:100%;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+body.cm-only header .tools{display:none}
+.plancard{border-color:var(--gold)}
+.planToday{font-size:18px;font-weight:600;margin-top:6px;display:flex;gap:8px;flex-wrap:wrap}
+.chbody{max-height:62vh;overflow-y:auto;font-family:'Times New Roman',Georgia,serif;font-size:18px;line-height:1.7;scrollbar-color:var(--gold) var(--field)}
+.chv{display:block;width:100%;text-align:left;min-height:0;padding:4px 8px;background:transparent;border:0;border-radius:6px;font:inherit;color:var(--text);cursor:pointer}
+.chv:hover{background:#15233d}
+.chv.cur{background:rgba(232,194,106,.18)}
+.chv sup{color:var(--gold);font-weight:700;margin-right:6px;font-family:'Segoe UI',system-ui,sans-serif}
+.mempractice{background:var(--field);border:1px solid var(--gold);border-radius:10px;padding:14px;margin-top:10px}
+.hidw{color:var(--gold);border-bottom:2px solid var(--gold);letter-spacing:1px}
+.cmhead{display:none;align-items:center;gap:12px;flex-wrap:wrap;margin-left:auto}
+body.cm-only .nav, body.cm-only .vers, body.cm-only .col-left, body.cm-only #fileBanner{display:none}
+body.cm-only .cmhead{display:flex}
+body.cm-only .col-right{flex-basis:100%}
+body.cm-only .grid{grid-template-columns:repeat(auto-fill,minmax(440px,1fr))}
+body.cm-only .cbox{height:calc(100vh - 380px);min-height:300px}
+#awayNote{display:none}
+body.cm-away #awayNote{display:block}
+body.cm-away .col-right > :not(#awayNote){display:none}
+.sdlg{width:900px;max-width:94vw}
+.srow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+#sq,#macQ{flex:1 1 320px;min-height:44px;padding:0 12px;background:var(--field);border:2px solid var(--gold);border-radius:8px;font-size:16px}
+#sResults{max-height:58vh;overflow-y:auto;scrollbar-color:var(--gold) var(--field)}
+.sres{display:block;width:100%;text-align:left;min-height:44px;padding:8px 12px;margin:0 0 6px;border-radius:8px;background:var(--field);border:1px solid var(--line2);line-height:1.5}
+.sres b{color:var(--gold);margin-right:8px}
+.sres mark{background:rgba(232,194,106,.35);color:#fff;padding:0 2px;border-radius:3px}
+footer{max-width:1440px;margin:0 auto;padding:0 20px 30px;font-size:13px;color:var(--dim)}
+footer p{margin:6px 0}
+#printSheet{display:none}
+#toolsToggle{display:none}
+body.cm-only #toolsToggle{display:none !important}
+#toast{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:50;max-width:min(760px,calc(100vw - 32px));
+  padding:12px 44px 12px 16px;background:#2a2410;color:#fff;border:2px solid var(--gold);border-radius:12px;font-size:15px;
+  box-shadow:0 6px 24px rgba(0,0,0,.5);display:none}
+#toast.show{display:block}
+#toastClose{position:absolute;right:6px;top:6px;min-height:30px;padding:0 9px;background:transparent;border:0;color:var(--gold);font-size:18px}
+body.no-speech .needs-speech{display:none !important}
+.owrow{background:var(--field);border:1px solid var(--line2);border-radius:10px;padding:10px 12px;margin:0 0 10px}
+.owrow pre{white-space:pre-wrap;font-family:'Times New Roman',Georgia,serif;font-size:16px;margin:6px 0;max-height:30vh;overflow-y:auto}
+@media (max-width:820px){
+  /* On a phone or small tablet the top bar scrolls away, so it never covers what you read. */
+  header{position:static;padding:10px 16px;gap:8px 10px}
+  .crumb{font-size:16px}
+  header .tools{gap:6px}
+  header .tools .hint{display:none}
+  #toolsToggle{display:inline-flex;align-items:center}
+  header:not(.tools-open) .tools, header:not(.tools-open) .vers > button{display:none}
+  header .tools button, .vers button{min-height:34px;padding:0 10px;font-size:13px}
+  .vers{gap:6px 8px}
+  .vers select{min-height:40px}
+  #ref{min-height:42px}
+}
+@media (max-width:700px){
+  header{padding:10px 16px} main{padding:16px}
+  .two{grid-template-columns:minmax(0,1fr)} .two > div + div{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:14px}
+  .grid{grid-template-columns:minmax(0,1fr)} .vers{margin-left:0;max-width:100%}
+  .vers select{max-width:calc(100vw - 110px);width:calc(100vw - 110px)}
+  header > *{min-width:0;max-width:100%}
+  body.cm-only .grid{grid-template-columns:minmax(0,1fr)}
+  .card{padding:16px} .xphrase{width:100%}
+}
+@page{margin:0.7in 0.75in 0.8in;
+  @bottom-right{content:"Page " counter(page) " of " counter(pages);font-size:9pt}
+  @bottom-left{content:"Bible Study";font-size:9pt}}
+@media print{
+  html,body{background:#fff !important;color:#000 !important}
+  body > *:not(#printSheet){display:none !important}
+  #printSheet{display:block !important;color:#000;font-family:'Times New Roman',Georgia,serif;font-size:12pt;line-height:1.45}
+  #printSheet h1{font-size:20pt;margin:0 0 2pt}
+  #printSheet h2{font-size:13pt;margin:12pt 0 4pt;font-family:'Segoe UI',system-ui,sans-serif}
+  #printSheet .pv{font-size:13pt;margin:0 0 6pt}
+  #printSheet table{border-collapse:collapse;width:100%;font-size:11pt}
+  #printSheet th{text-align:left;border-bottom:1px solid #000}
+  #printSheet td{vertical-align:top;padding:2pt 6pt 2pt 0}
+  #printSheet tr:nth-child(even) td{background:#f2f2f2}
+  #printSheet .psmall{font-size:9pt;color:#444}
+  #printSheet p{margin:0 0 5pt}
+}
+</style>
+</head>
+<body>
+<noscript><div class="banner" style="display:block">This page cannot work because this web browser has turned off the part that runs pages like it (JavaScript). Open it in Chrome or Edge, or ask the person who sent it for the web link.</div></noscript>
+<header>
+  <div class="crumb" title="You are on the Jesus Bible Study page."><span>Jesus Bible Study</span></div>
+  <button type="button" id="toolsToggle" aria-expanded="false" aria-controls="studyTools" title="Shows or hides the rest of the buttons: read aloud, search, My verses, reading plan, memorize, print, and saving your notes to a file.">&#9776; More tools</button>
+  <div class="nav">
+    <button type="button" id="prevBtn" title="Goes back one verse.">&lsaquo; Back a verse</button>
+    <label for="ref" class="sr">Bible verse</label>
+    <input id="ref" value="John 3:16" autocomplete="off" title="Type any verse, like John 3:16 or Psalm 23:1, and press Enter to study it.">
+    <button type="button" id="goBtn" class="gold" title="Opens the verse you typed.">Go</button>
+    <button type="button" id="nextBtn" title="Goes forward to the next verse.">Next verse &rsaquo;</button>
+    <button type="button" id="swapBtn" class="swap" style="display:none" title="Switches the whole page back to the verse you were studying before. Press it again to switch back.">&#8644; Back to</button>
+  </div>
+  <div class="vers">
+    <label for="t1">Bible 1</label>
+    <select id="t1" title="Pick the first Bible version. It shows on the left of the verse box. The verses that go with this one also open in it."></select>
+    <label for="t2">Bible 2</label>
+    <select id="t2" title="Pick a second Bible version to read next to the first one."></select>
+    <button type="button" id="readBtn" class="pill needs-speech" title="Reads the verse out loud in Bible 1. Click again to stop.">Read aloud</button>
+    <button type="button" id="macBtn" class="pill" title="Opens the John MacArthur Sermon Index: type words or a topic and find his free sermons about it with a web search.">&#128218; MacArthur Sermons</button>
+    <button type="button" id="myBtn" class="pill" title="Shows the verses you bookmarked, the verses you wrote notes on, and every verse you have studied (you can search it). Click one to open it.">&#11088; My verses</button>
+    <button type="button" id="searchBtn" class="pill" title="Search the whole Bible for a word or phrase and see every verse that has it. Click a verse to study it.">&#128269; Search the Bible</button>
+    <button type="button" id="screen2Btn" class="pill" title="Opens the commentaries in their own window, so you can put them on a second screen. That window follows along when you change verses here. Close it to bring the commentaries back to this page.">&#128421; Commentaries on 2nd screen</button>
+  </div>
+  <div class="cmhead" id="cmHead">
+    <span class="kicker" id="cmHeadRef" title="The verse these commentaries are about. It changes by itself when you change verses in the main Bible Study window."></span>
+    <span class="hint" id="cmFollow">Follows the main Bible Study window.</span>
+    <button type="button" id="closeMeBtn" title="Closes this window. The commentaries go back to the main Bible Study page.">Close this window</button>
+  </div>
+  <div class="tools" id="studyTools" role="toolbar" aria-label="Study tools">
+    <span class="hint">Study tools:</span>
+    <button type="button" id="readStudyBtn" class="pill needs-speech" title="Reads this whole study out loud: the verse, the original words, how each teacher begins his note, and your note. Click again to stop.">&#9654; Read me this study</button>
+    <button type="button" id="printBtn" class="pill" title="Prints a study sheet for this verse: both Bible versions, the original words, how each teacher begins, and your note. Your printer window opens.">&#128424; Print sheet</button>
+    <button type="button" id="chapterBtn" class="pill" title="Shows the whole chapter with verse numbers. Click any verse to study it.">&#128214; Whole chapter</button>
+    <button type="button" id="planBtn" class="pill" title="Start or follow a daily reading plan, like a chapter a day or the whole Bible in a year.">&#128197; Reading plan</button>
+    <button type="button" id="memBtn" class="pill" title="Memorize verses: add verses to your list and practice them with words hidden.">&#129504; Memorize</button>
+    <button type="button" id="votdBtn" class="pill" title="Opens today's Verse of the Day here, to study it.">&#9728; Verse of the Day</button>
+    <button type="button" id="exportBtn" class="pill" title="Saves your notes, bookmarks, reading plans and memory verses into one file on your computer, so you can keep a safe copy or move them to another computer. Nothing is changed or removed here.">&#128190; Save my notes to a file</button>
+    <button type="button" id="importBtn" class="pill" title="Brings back notes from a file you saved before with Save my notes to a file. It asks first, then adds them to what is here. Nothing here is removed: when a verse has two different notes, the newer one is kept and the other goes to Older wordings.">&#128194; Load notes from a file</button>
+    <input type="file" id="importFile" accept=".json,application/json" class="sr" tabindex="-1" title="Pick the notes file you saved before.">
+  </div>
+</header>
+
+<div class="banner" id="fileBanner" role="alert" title="Why the Bible words cannot load right now."></div>
+<div class="banner" id="storeBanner" role="status" title="Why your notes may not be kept.">This web browser is set not to keep anything from this page, so your notes, bookmarks and plans will be gone when you close it. Use <b>Save my notes to a file</b> before you close the page.</div>
+
+<main>
+<section class="col-left" aria-label="The verse">
+  <div class="card plancard" id="planCard" style="display:none" title="Today's reading from your reading plan.">
+    <div class="chead">
+      <div><div class="kicker" id="planName"></div><div id="planToday" class="planToday"></div></div>
+      <div class="btnrow" style="margin:0">
+        <button type="button" id="planDoneBtn" class="gold" title="Marks today's reading as done and moves your plan to the next day. If you press it by mistake, Undo takes it back.">Mark today's reading done</button>
+        <button type="button" id="planUndoBtn" style="display:none" title="Takes back the last day you marked as read. It asks first.">Undo</button>
+      </div>
+    </div>
+    <p class="small" id="planInfo" style="margin:6px 0 0"></p>
+  </div>
+  <div class="card" title="The verse in the two Bible versions you picked at the top, side by side.">
+    <div class="kicker" id="verseKicker">Loading&hellip;</div>
+    <div class="two">
+      <div><div class="vcode" id="c1"></div><div class="vname" id="n1"></div><p class="vtext" id="v1">If this still says Loading after a minute, close it and open it again in Chrome or Edge, or ask the person who sent it for the web link.</p></div>
+      <div><div class="vcode b" id="c2"></div><div class="vname" id="n2"></div><p class="vtext" id="v2"></p></div>
+    </div>
+    <p class="small" style="margin:14px 0 0">This web copy shows only Bible versions that are free for everyone, like the Berean Standard Bible and the King James Version.</p>
+  </div>
+
+  <div class="card" title="The words this verse was first written in. Click a word for its full dictionary meaning. Click the yellow words to hear how to say them.">
+    <div class="chead">
+      <h2 id="wordsTitle">The original words</h2>
+      <span class="hint">Click a word for its meaning. Click the yellow words to hear them.</span>
+    </div>
+    <div class="words" id="words"><div class="loading">Loading the words&hellip;</div></div>
+    <p class="small" style="margin:12px 0 0">The meaning under each word is the King James wording when the two line up; otherwise it is the dictionary's meaning. The yellow sounds-like guide and the gray dictionary form come from Strong's Bible dictionary. They are for each word's dictionary form, which can be spelled a little differently than in this verse.</p>
+  </div>
+
+  <div class="card" id="hntCard" style="display:none" title="This New Testament verse translated into Hebrew by Franz Delitzsch in 1877, word by word, read from right to left.">
+    <div class="chead">
+      <h2>The Hebrew New Testament, word by word</h2>
+      <button type="button" id="hntSay" class="listen needs-speech" style="display:none" title="Reads the whole verse out loud in Hebrew, using your computer's Hebrew voice. Click again to stop.">&#128266; Listen in Hebrew</button>
+    </div>
+    <p class="hint" style="margin:4px 0 0">Franz Delitzsch's Hebrew translation (1877). Read right to left, starting at the top right.</p>
+    <div class="words hnt" id="hntWords" dir="rtl"></div>
+    <p class="small" id="hntNote" style="margin:12px 0 0"></p>
+  </div>
+
+  <div class="card" id="lxxCard" style="display:none" title="This Old Testament verse in the Greek Old Testament (the Septuagint), word by word. Click a word for its meaning. Click the yellow words to hear them.">
+    <div class="chead">
+      <h2>The Greek Old Testament, word by word</h2>
+      <span class="hint">Click a word for its meaning. Click the yellow words to hear them.</span>
+    </div>
+    <p class="hint" style="margin:4px 0 0">The Septuagint: the Old Testament put into Greek before Jesus was born. The New Testament writers often quoted it.</p>
+    <p class="small" id="lxxPlace" style="display:none;margin:6px 0 0"></p>
+    <div class="words" id="lxxWords"></div>
+    <p class="small" id="lxxEnglish" style="display:none;margin:12px 0 0"></p>
+    <p class="small" style="margin:12px 0 0">The Greek words are from Brenton's Septuagint. The meaning under each word comes from Thayer's Greek dictionary. Thayer's was made for the New Testament, so some Old Testament words have no meaning shown. The yellow sound-it-out guide is worked out from how the word is spelled in this verse. The Greek was translated from an older Hebrew copy, so it can say a verse a little differently than your English Bible.</p>
+  </div>
+
+  <div class="card" title="Other verses that talk about the same thing. Click one to read it in a pop-up without losing your place.">
+    <h2>Verses that go with this one</h2>
+    <p class="hint" style="margin:4px 0 0">From the Treasury of Scripture Knowledge. Click one to read it in a pop-up.</p>
+    <div id="xrefs"><div class="loading" style="margin-top:10px">Loading&hellip;</div></div>
+  </div>
+
+  <div class="card" title="Your own notes on this verse. They are kept in this web browser on this computer and come back every time you open this verse.">
+    <h2><label for="note" id="noteLabel">My notes</label></h2>
+    <p class="small" id="noteSaved" style="margin:2px 0 8px"></p>
+    <textarea id="note" autocomplete="off" title="Type your thoughts on this verse, or click Speak note and say them."></textarea>
+    <div class="btnrow">
+      <button type="button" id="micBtn" title="Turns on the microphone. Say your note out loud and it is typed into the box for you. Your web browser sends your voice to its maker (like Google or Apple) to turn it into words. Click again to stop.">&#127908; Speak note</button>
+      <button type="button" id="saveBtn" class="gold" title="Saves your note for this verse in this web browser. You can change it any time; saving again replaces the old note (the old wording is kept under Older wordings).">Save note</button>
+      <button type="button" id="bmBtn" title="Adds this verse to your bookmarks. Find it again with the My verses button at the top of the page.">Bookmark verse</button>
+      <button type="button" id="owBtn" style="display:none" title="Shows the earlier wordings of your note on this verse that you replaced or removed. You can copy one or put it back in the note box.">Older wordings</button>
+    </div>
+    <p class="status" id="noteStatus" role="status"></p>
+    <p class="small" style="margin:6px 0 0">Your notes stay only in this web browser on this computer. Save your notes to a file now and then: clearing your browser's history can erase them.</p>
+  </div>
+</section>
+
+<section class="col-right" aria-label="Commentaries">
+  <div class="card" id="awayNote" title="The commentaries are showing in their own window.">
+    <h2>The commentaries are in their own window</h2>
+    <p class="hint" style="margin:4px 0 10px">Look on your other screen. That window changes verse along with this page.</p>
+    <button type="button" id="bringBackBtn" title="Shows the commentaries on this page again. The other window stays open until you close it.">Show them here too</button>
+  </div>
+  <div class="card chead">
+    <div>
+      <h2>What the commentaries say</h2>
+      <p class="hint" style="margin:2px 0 0" id="cmCount">Loading&hellip;</p>
+    </div>
+    <div class="chips" role="group" aria-label="Which notes to show">
+      <button type="button" class="pill on" data-filter="all" title="Shows every commentary that has a note on this verse.">All</button>
+      <button type="button" class="pill" data-filter="short" title="Shows only the short notes (under 300 words).">Short notes</button>
+      <button type="button" class="pill" data-filter="long" title="Shows only the long notes (300 words or more).">Long notes</button>
+      <button type="button" class="pill" id="wideBtn" title="Makes each commentary box full width and taller, one under another, for easier reading. Click again for two side by side.">Wide boxes</button>
+    </div>
+  </div>
+
+  <article class="card cm mac" title="John MacArthur's free sermons, found with a web search of the Grace to You website.">
+    <h3>John MacArthur</h3>
+    <div class="small">Grace to You &middot; free sermons</div>
+    <div id="macBody" class="loading">Loading&hellip;</div>
+    <p class="small" style="margin:6px 0 0">This page does not copy his sermons or his study Bible notes. The link searches the web for his free sermons on this chapter and opens them in a new tab.</p>
+  </article>
+
+  <div class="grid" id="cmGrid"></div>
+</section>
+</main>
+
+<footer title="Where the words on this page come from.">
+  <p>Thank you to <a href="https://bolls.life" target="_blank" rel="noopener noreferrer" title="Opens the bolls.life Bible website in a new tab.">bolls.life</a> and <a href="https://bible.helloao.org" target="_blank" rel="noopener noreferrer" title="Opens the Free Use Bible website (bible.helloao.org) in a new tab.">bible.helloao.org</a>, the free websites that make this page possible. Bible versions, Greek and Hebrew words and the dictionary come from bolls.life. Commentaries, the Greek Old Testament and the verses that go with each one come from bible.helloao.org.</p>
+  <p>The commentaries are old and free for anyone to use (public domain), except the Tyndale study notes, which are modern and shared freely by Tyndale House (free to share with credit). Free, personal study only, not for sale. No warranty.</p>
+  <p id="versionLine">Version 1.0 web copy &middot; November 19, 2026</p>
+</footer>
+
+<div id="printSheet" aria-hidden="true"></div>
+<div id="toast" role="status" aria-live="polite" title="The latest message from this page."><span id="toastText"></span><button type="button" id="toastClose" aria-label="Hide this message" title="Hides this message.">&times;</button></div>
+
+<dialog id="owdlg" aria-labelledby="owTitle" class="sdlg" title="Earlier wordings of your note on this verse.">
+  <h3 id="owTitle">Older wordings</h3>
+  <p class="hint" style="margin:0 0 10px">Each time you change or remove a note, the wording it had before is kept here, newest first. This page keeps the last 2,000 older wordings across all your verses.</p>
+  <div id="owList"></div>
+  <p class="status" id="owStatus" role="status"></p>
+  <div class="btnrow" style="justify-content:flex-end">
+    <button type="button" id="owClose" class="gold" title="Closes this list. Nothing is changed.">Close</button>
+  </div>
+</dialog>
+
+<dialog id="chdlg" aria-labelledby="chTitle" class="sdlg" title="The whole chapter. Click any verse to study it.">
+  <div class="chead">
+    <h3 id="chTitle" style="margin:0">Whole chapter</h3>
+    <div class="btnrow" style="margin:0">
+      <button type="button" id="chPrev" title="Shows the chapter before this one.">&lsaquo; Chapter before</button>
+      <button type="button" id="chNext" title="Shows the next chapter.">Next chapter &rsaquo;</button>
+      <button type="button" id="chListen" class="listen needs-speech" title="Reads this whole chapter out loud. Click again to stop.">&#128266; Listen</button>
+    </div>
+  </div>
+  <div id="chPlaces" class="hint" style="margin:8px 0"></div>
+  <div id="chBody" class="chbody">Loading&hellip;</div>
+  <div class="btnrow" style="justify-content:flex-end">
+    <button type="button" id="chClose" class="gold" title="Closes the chapter.">Close</button>
+  </div>
+</dialog>
+
+<dialog id="pldlg" aria-labelledby="plTitle" class="sdlg" title="Your daily reading plan.">
+  <h3 id="plTitle">Reading plan</h3>
+  <div id="plNow" class="hint"></div>
+  <h4 style="margin:14px 0 6px">Start a new plan</h4>
+  <div class="srow">
+    <label for="plType" class="hint">Plan</label>
+    <select id="plType" title="Pick the kind of reading plan you want.">
+      <option value="book">One chapter a day through a book</option>
+      <option value="bible-year">The whole Bible in a year</option>
+      <option value="nt-90">The New Testament in 90 days</option>
+      <option value="psalms-proverbs">Psalms and Proverbs, one chapter a day</option>
+    </select>
+    <label for="plBook" class="hint">Book</label>
+    <select id="plBook" title="For a book plan: pick the book to read through."></select>
+  </div>
+  <div class="btnrow">
+    <button type="button" id="plStart" class="gold" title="Starts this plan today. If another plan is going, it is set aside: you can pick it back up later right where you stopped.">Start this plan</button>
+    <button type="button" id="plStop" title="Stops the plan that is going now. It is set aside, and you can pick it back up later right where you stopped.">Stop the current plan</button>
+  </div>
+  <h4 style="margin:14px 0 6px">Set-aside plans</h4>
+  <div id="plStopped" class="hint" title="Plans you stopped or set aside. Pick one back up to continue where you left off.">None.</div>
+  <p class="status" id="plStatus" role="status"></p>
+  <div class="btnrow" style="justify-content:flex-end">
+    <button type="button" id="plClose" class="gold" title="Closes the reading plan window.">Close</button>
+  </div>
+</dialog>
+
+<dialog id="memdlg" aria-labelledby="memTitle" class="sdlg" title="Practice the verses you want to know by heart.">
+  <h3 id="memTitle">Memorize verses</h3>
+  <div class="btnrow" style="margin-top:0">
+    <button type="button" id="memAdd" class="gold" title="Adds the verse you are studying to your memory list, in your Bible 1 version.">Add this verse</button>
+  </div>
+  <div id="memPractice" class="mempractice" style="display:none">
+    <div class="kicker" id="memRef"></div>
+    <p id="memText" class="vtext"></p>
+    <div class="btnrow">
+      <button type="button" id="memShow" title="Shows the whole verse with no words hidden.">Show the verse</button>
+      <button type="button" id="memSay" class="listen needs-speech" title="Reads this verse out loud.">&#128266; Read it to me</button>
+      <button type="button" id="memGot" class="gold" title="You said it right: next time more words are hidden.">I knew it</button>
+      <button type="button" id="memMiss" title="Not yet: next time fewer words are hidden.">Not yet</button>
+    </div>
+  </div>
+  <h4 style="margin:14px 0 6px">My memory verses</h4>
+  <p class="small" style="margin:0 0 6px">The stars show how well you know each verse, from 0 to 5. Each "I knew it" adds a star and hides more words next time.</p>
+  <div id="memList" class="hint">Loading&hellip;</div>
+  <p class="status" id="memStatus" role="status"></p>
+  <div class="btnrow" style="justify-content:flex-end">
+    <button type="button" id="memClose" class="gold" title="Closes the memory verses window.">Close</button>
+  </div>
+</dialog>
+
+<dialog id="macdlg" aria-labelledby="macTitle" class="sdlg" title="Find John MacArthur sermons about a word or topic.">
+  <h3 id="macTitle">John MacArthur Sermon Index</h3>
+  <p class="hint" style="margin:0 0 10px">Type words or a topic. It searches the web for John MacArthur's free sermons on the Grace to You website and opens the results in a new browser tab.</p>
+  <div class="srow">
+    <label for="macQ" class="sr">Words or topic to look for</label>
+    <input id="macQ" placeholder="Words or a topic, like forgiveness or the second coming" autocomplete="off" title="Type the words or topic you want his sermons about, then press Enter.">
+  </div>
+  <div class="srow">
+    <label for="macBook" class="hint">Only sermons on</label>
+    <select id="macBook" title="Pick a book of the Bible to find only his sermons on that book, or leave it on Any book."><option value="">Any book</option></select>
+    <button type="button" id="macDdg" class="gold" title="Searches the web with DuckDuckGo for John MacArthur sermons on the Grace to You website about these words. Opens in a new browser tab.">Search (DuckDuckGo)</button>
+    <button type="button" id="macGoogle" title="Searches the web with Google for John MacArthur sermons on the Grace to You website about these words. Opens in a new browser tab.">Search (Google)</button>
+  </div>
+  <div class="srow" id="macTopics" aria-label="Topics to try"></div>
+  <div id="macRecent" class="hint"></div>
+  <div class="btnrow" style="justify-content:flex-end">
+    <button type="button" id="macClose" class="gold" title="Closes the sermon index.">Close</button>
+  </div>
+</dialog>
+
+<dialog id="mvdlg" aria-labelledby="mvTitle" class="sdlg" title="Your bookmarks, the verses you wrote notes on, and the verses you studied.">
+  <h3 id="mvTitle">My verses</h3>
+  <h4 style="margin:6px 0">Bookmarks</h4>
+  <div id="mvBookmarks" class="hint">Loading&hellip;</div>
+  <h4 style="margin:14px 0 6px">Verses with my notes</h4>
+  <div id="mvNotes" class="hint">Loading&hellip;</div>
+  <h4 style="margin:14px 0 6px">My study history</h4>
+  <div class="srow">
+    <label for="hq" class="sr">Search your study history</label>
+    <input id="hq" placeholder="Search by verse or by words in your notes" autocomplete="off" title="Type a book, a verse or words from your notes to find verses you studied before." style="flex:1 1 260px;min-height:40px;padding:0 10px;background:var(--field);border:1px solid var(--line2);border-radius:8px">
+  </div>
+  <div id="mvHistory" class="hint" style="max-height:260px;overflow-y:auto">Loading&hellip;</div>
+  <p class="status" id="mvStatus" role="status"></p>
+  <div class="btnrow" style="justify-content:flex-end">
+    <button type="button" id="mvClose" class="gold" title="Closes this list.">Close</button>
+  </div>
+</dialog>
+
+<dialog id="sdlg" aria-labelledby="sTitle" class="sdlg" title="Search the whole Bible for a word or phrase.">
+  <h3 id="sTitle">Search the Bible</h3>
+  <div class="srow">
+    <label for="sq" class="sr">Word or phrase to search for</label>
+    <input id="sq" placeholder="A word or phrase, like shepherd or word of life" autocomplete="off" title="Type a word or a few words, then press Enter.">
+    <button type="button" id="sGo" class="gold" title="Finds every verse in the Bible that has these words.">Search</button>
+  </div>
+  <div class="srow">
+    <label class="hint" title="When ticked, searching for love will not also find lovely or beloved."><input type="checkbox" id="sWhole" checked title="When ticked, searching for love will not also find lovely or beloved."> Whole words only</label>
+    <span class="hint" id="sIn"></span>
+  </div>
+  <p class="status" id="sInfo" role="status"></p>
+  <div id="sResults"></div>
+  <div class="btnrow" style="justify-content:space-between">
+    <button type="button" id="sMore" style="display:none" title="Shows the next 100 verses that have these words.">Show more</button>
+    <button type="button" id="sClose" class="gold" title="Closes the search.">Close</button>
+  </div>
+</dialog>
+
+<dialog id="dlg" aria-labelledby="dlgTitle" title="More about what you clicked.">
+  <h3 id="dlgTitle"></h3>
+  <div id="dlgBody"></div>
+  <div class="btnrow" style="justify-content:flex-end">
+    <button type="button" id="dlgFind" style="display:none" title="Searches the whole Bible for this word and shows every verse that has it.">Find this word everywhere</button>
+    <button type="button" id="dlgStudy" class="gold" style="display:none" title="Makes this verse the main verse of the whole page: both Bible versions, the Greek or Hebrew words, the commentaries and your notes all switch to it. The gold button at the top takes you back to the verse you were on.">Study this verse</button>
+    <button type="button" id="dlgSay" class="needs-speech" style="display:none" title="Reads this out loud.">Read aloud</button>
+    <button type="button" id="dlgClose" class="gold" title="Closes this pop-up.">Close</button>
+  </div>
+</dialog>
+
+<script>
+(function(){
+'use strict';
+// ==== LOGIC START ====
+// Pure logic, no web page needed: read by selftest.mjs and run in node to check it.
+var BSL = (function(){
+var BOLLS = 'https://bolls.life';
+var HELLOAO = 'https://bible.helloao.org/api';
+function has(o, k){ return Object.prototype.hasOwnProperty.call(o, k); }
+// A message written for the reader (shown as is); any other error gets a general message.
+function userError(msg){ var e = new Error(msg); e.friendly = true; return e; }
+
+var BOOKS = ['Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth','1 Samuel','2 Samuel',
+  '1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah','Esther','Job','Psalms','Proverbs','Ecclesiastes',
+  'Song of Solomon','Isaiah','Jeremiah','Lamentations','Ezekiel','Daniel','Hosea','Joel','Amos','Obadiah','Jonah','Micah',
+  'Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Matthew','Mark','Luke','John','Acts','Romans',
+  '1 Corinthians','2 Corinthians','Galatians','Ephesians','Philippians','Colossians','1 Thessalonians','2 Thessalonians',
+  '1 Timothy','2 Timothy','Titus','Philemon','Hebrews','James','1 Peter','2 Peter','1 John','2 John','3 John','Jude','Revelation'];
+var BOOK_NUM = {};
+BOOKS.forEach(function(b, i){ BOOK_NUM[b] = i + 1; });
+var USFM = ['GEN','EXO','LEV','NUM','DEU','JOS','JDG','RUT','1SA','2SA','1KI','2KI','1CH','2CH','EZR','NEH','EST','JOB',
+  'PSA','PRO','ECC','SNG','ISA','JER','LAM','EZK','DAN','HOS','JOL','AMO','OBA','JON','MIC','NAM','HAB','ZEP','HAG','ZEC',
+  'MAL','MAT','MRK','LUK','JHN','ACT','ROM','1CO','2CO','GAL','EPH','PHP','COL','1TH','2TH','1TI','2TI','TIT','PHM','HEB',
+  'JAS','1PE','2PE','1JN','2JN','3JN','JUD','REV'];
+var CHAPTERS = [50,40,27,36,34,24,21,4,31,24,22,25,29,36,10,13,10,42,150,31,12,8,66,52,5,48,12,14,3,9,1,4,7,3,3,3,2,14,4,
+  28,16,24,21,28,16,16,13,6,6,4,4,5,3,6,4,3,1,13,5,5,3,5,1,1,1,22];
+var ALIASES = Object.create(null);
+BOOKS.forEach(function(b){ ALIASES[b.toLowerCase()] = b; ALIASES[b.toLowerCase().replace(/ /g, '')] = b; });
+var EXTRA = {gen:'Genesis', ex:'Exodus', lev:'Leviticus', num:'Numbers', deut:'Deuteronomy', josh:'Joshua', judg:'Judges',
+  ru:'Ruth', '1sam':'1 Samuel', '2sam':'2 Samuel', '1ki':'1 Kings', '2ki':'2 Kings', '1chr':'1 Chronicles',
+  '2chr':'2 Chronicles', neh:'Nehemiah', est:'Esther', ps:'Psalms', psa:'Psalms', psalm:'Psalms', prov:'Proverbs',
+  eccl:'Ecclesiastes', ecc:'Ecclesiastes', sos:'Song of Solomon', song:'Song of Solomon', isa:'Isaiah', jer:'Jeremiah',
+  lam:'Lamentations', ezek:'Ezekiel', eze:'Ezekiel', dan:'Daniel', hos:'Hosea', ob:'Obadiah', jon:'Jonah', mic:'Micah',
+  nah:'Nahum', hab:'Habakkuk', zeph:'Zephaniah', hag:'Haggai', zech:'Zechariah', mal:'Malachi', matt:'Matthew',
+  mat:'Matthew', mk:'Mark', lk:'Luke', jn:'John', joh:'John', rom:'Romans', '1cor':'1 Corinthians', '2cor':'2 Corinthians',
+  gal:'Galatians', eph:'Ephesians', phil:'Philippians', php:'Philippians', col:'Colossians', '1thess':'1 Thessalonians',
+  '2thess':'2 Thessalonians', '1tim':'1 Timothy', '2tim':'2 Timothy', tit:'Titus', phm:'Philemon', phlm:'Philemon',
+  heb:'Hebrews', jas:'James', '1pet':'1 Peter', '2pet':'2 Peter', '1jn':'1 John', '2jn':'2 John', '3jn':'3 John',
+  rev:'Revelation'};
+Object.keys(EXTRA).forEach(function(k){ ALIASES[k] = EXTRA[k]; });
+
+function resolveBook(name){
+  if (typeof name !== 'string') return null;
+  var k = name.trim().toLowerCase();
+  return ALIASES[k] || null;
+}
+function chaptersIn(book){ return CHAPTERS[BOOK_NUM[book] - 1]; }
+function okRef(book, chapter, verse){
+  if (verse === undefined) verse = 1;
+  return !!book && has(BOOK_NUM, book) && Number.isInteger(chapter) && Number.isInteger(verse) &&
+    chapter >= 1 && chapter <= chaptersIn(book) && verse >= 1 && verse <= 200;
+}
+function isNT(book){ return BOOK_NUM[book] >= 40; }
+
+// A range like "Numbers 6:24-25" opens at its first verse.
+var REF_RE = /^\s*((?:[123]\s*)?[A-Za-z][A-Za-z .]*?)\s+(\d{1,3})(?:\s*[:.]\s*(\d{1,3}))?(?:\s*-\s*\d{1,3})?\s*$/;
+function parseRef(text){
+  if (typeof text !== 'string') return null;
+  var t = text.trim().replace(/–/g, '-');
+  t = t.replace(/\s+/g, ' ');
+  t = t.replace(/(\d)\s+(\d{1,3})$/, '$1:$2');
+  var m = REF_RE.exec(t);
+  if (!m) return null;
+  var name = m[1].replace(/\./g, '').trim().replace(/\s+/g, ' ');
+  var book = resolveBook(name) || resolveBook(name.replace(/ /g, ''));
+  if (!book) return null;
+  var chapter = parseInt(m[2], 10);
+  var verse = m[3] ? parseInt(m[3], 10) : 1;
+  // One-chapter books are written "Jude 24", "3 John 2": that number is the VERSE.
+  if (!m[3] && chapter > 1 && chaptersIn(book) === 1) { verse = chapter; chapter = 1; }
+  if (chapter < 1 || verse < 1) return null;
+  return [book, chapter, verse];
+}
+
+// ---------- text clean-up ----------
+var ENT = {amp:'&', lt:'<', gt:'>', quot:'"', apos:"'", nbsp:' ', mdash:'—', ndash:'–', lsquo:'‘',
+  rsquo:'’', ldquo:'“', rdquo:'”', hellip:'…', middot:'·', laquo:'«', raquo:'»',
+  copy:'©', reg:'®', deg:'°', para:'¶', sect:'§', thinsp:' ', ensp:' ',
+  emsp:' ', shy:'­', dagger:'†', Dagger:'‡', prime:'′', bull:'•', times:'×'};
+function htmlUnescape(s){
+  return String(s).replace(/&(#\d{1,7}|#[xX][0-9a-fA-F]{1,6}|[A-Za-z][A-Za-z0-9]{1,10});/g, function(all, e){
+    if (e[0] === '#') {
+      var n = (e[1] === 'x' || e[1] === 'X') ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10);
+      if (!(n > 0 && n <= 0x10FFFF) || (n >= 0xD800 && n <= 0xDFFF)) return all;
+      return String.fromCodePoint(n);
+    }
+    return has(ENT, e) ? ENT[e] : all;
+  });
+}
+function stripChars(s, chars){
+  var a = 0, z = s.length;
+  while (a < z && chars.indexOf(s[a]) >= 0) a++;
+  while (z > a && chars.indexOf(s[z - 1]) >= 0) z--;
+  return s.slice(a, z);
+}
+var TAG_RE = /<[^>]+>/g;
+function cleanVerseText(raw){
+  if (typeof raw !== 'string') return '';
+  var t = raw.replace(/<sup\b[^>]*>[\s\S]*?<\/sup>/gi, '');
+  t = t.replace(/<h\d\b[^>]*>[\s\S]*?<\/h\d>/gi, '');
+  t = t.replace(/^\s*<b>[^<]{1,80}<\/b>\s*<br\s*\/?>/i, '');      // LSB section heading
+  t = t.split('--').join('—');                               // NASB dashes
+  t = t.replace(/<S>\d+<\/S>/gi, '');
+  t = t.replace(/<br\s*\/?>/gi, ' ');
+  t = t.replace(TAG_RE, '');
+  t = htmlUnescape(t);
+  t = t.replace(/[ⓐ-ⓩ]/g, '');                          // circled footnote letters (CSB)
+  t = t.replace(/\[(?:\d{1,3}|[A-Z]{1,3})\]/g, '');               // [1] / [AA] footnote marks
+  t = t.replace(/\{[^}]{0,80}\}/g, '');                           // {headings} (ISV)
+  t = t.replace(/\s+/g, ' ').trim();
+  return t.slice(0, 6000);
+}
+function verseFrom(verses, n){
+  if (!Array.isArray(verses)) return null;
+  for (var i = 0; i < verses.length; i++) if (verses[i] && verses[i].verse === n) return verses[i].text || '';
+  return null;
+}
+function lastVerse(verses){
+  var last = 0;
+  (verses || []).forEach(function(v){ if (Number.isInteger(v.verse) && v.verse > last) last = v.verse; });
+  return last;
+}
+
+// ---------- Greek / Hebrew words ----------
+var WORD_RE = /([^\s<]+?)\s*<S>(\d+)<\/S>/g;
+var PUNCT = '.,;:··;!?’‘\'"()[]׃־';
+function splitOriginal(raw){
+  var out = [], m;
+  var re = new RegExp(WORD_RE.source, 'g');
+  while ((m = re.exec(raw || '')) !== null) {
+    var w = stripChars(m[1], PUNCT + ' ');
+    if (w) out.push([w, m[2]]);
+  }
+  return out;
+}
+function englishByStrong(kjvRaw){
+  var gloss = {}, last = 0, text = kjvRaw || '', m;
+  var re = /<S>(\d+)<\/S>/g;
+  while ((m = re.exec(text)) !== null) {
+    var words = text.slice(last, m.index).replace(TAG_RE, '');
+    words = stripChars(htmlUnescape(words), ' ,;:.!?');
+    last = m.index + m[0].length;
+    var num = m[1];
+    if (words && !has(gloss, num)) gloss[num] = words.replace(/\s+/g, ' ');
+  }
+  return gloss;
+}
+function trimMeaning(text){ return String(text || '').replace(/\s*Frequency count based on [\s\S]*$/i, '').trim(); }
+function parseLexicon(rawHtml){
+  var h = String(rawHtml || '');
+  function grab(label){
+    var m = new RegExp(label + ':\\s*<b>([\\s\\S]*?)</b>', 'i').exec(h);
+    return m ? htmlUnescape(m[1].replace(TAG_RE, '')).trim() : '';
+  }
+  var full = h.replace(/<(?:p|br|li|ol)\b[^>]*>/gi, '\n');
+  full = htmlUnescape(full.replace(TAG_RE, ''));
+  full = full.replace(/[ \t]+/g, ' ');
+  full = full.replace(/\n\s*\n+/g, '\n').trim();
+  var meaning = '';
+  var m = /Definition[^<]*<\/(?:p|b)>([\s\S]*)/i.exec(h);
+  if (m) {
+    var pieces = m[1].split(/<(?:p|li)\b[^>]*>/i);
+    for (var i = 0; i < pieces.length; i++) {
+      var s = htmlUnescape(pieces[i].replace(TAG_RE, '')).trim();
+      s = s.replace(/^\(?[0-9a-zA-Z]{1,2}[.)]\s*/, '').trim();
+      var low = s.toLowerCase();
+      if (s.length > 1 && low.indexOf('bdb') !== 0 && low.indexOf('definition') !== 0) { meaning = s; break; }
+    }
+  }
+  meaning = trimMeaning(meaning);
+  return {lemma: grab('Original').slice(0, 200), translit: grab('Transliteration').slice(0, 200),
+          phonetic: grab('Phonetic').slice(0, 200), meaning: meaning.slice(0, 120), full: full.slice(0, 6000)};
+}
+var HEB_PUNCT = '׃׀,.;:!?"\'()[]׳״';
+function hebrewWords(text){
+  return String(text || '').split(/\s+/).map(function(w){ return stripChars(w, HEB_PUNCT); }).filter(Boolean).slice(0, 80);
+}
+
+// ---------- Greek Old Testament (Septuagint) ----------
+var LXX_CODE = {Esther:'ESG', Daniel:'DAG'};
+var LXX_STOP = new Set(('the and of to in that he she it its they them his her their him i me my mine we us our you your ' +
+  'thee thou thy thine ye a an is was be been are were am shall will unto for with not but all which ' +
+  'who whom whose this these those from by on as at have hath had has so then there when what or nor ' +
+  'upon also into out up do did doth said say saith lord god because therefore even yea now let ' +
+  'psalm david song chief musician').split(' '));
+function jeremiahLxx(ch, v){
+  if (ch <= 24 || ch === 52) return ch;
+  if (ch === 25) return v <= 13 ? 25 : 32;
+  if (ch >= 26 && ch <= 43) return ch + 7;
+  if (ch === 44 || ch === 45) return 51;
+  if (ch === 49) return v <= 6 ? 30 : v <= 22 ? 29 : v <= 33 ? 30 : 25;
+  var map = {46:26, 47:29, 48:31, 50:27, 51:28};
+  return has(map, ch) ? map[ch] : ch;
+}
+function psalmLxx(ch, v){
+  if (ch <= 9 || ch >= 148) return ch;
+  if (ch === 10) return 9;
+  if (ch <= 113) return ch - 1;
+  if (ch <= 115) return 113;
+  if (ch === 116) return v <= 9 ? 114 : 115;
+  if (ch <= 146) return ch - 1;
+  return v <= 11 ? 146 : 147;
+}
+function lxxPlace(book, chapter, verse){
+  var n = BOOK_NUM[book];
+  var code = has(LXX_CODE, book) ? LXX_CODE[book] : USFM[n - 1], bnum = n, label = book, first;
+  if (book === 'Nehemiah') { code = 'EZR'; bnum = 15; label = '2 Esdras'; first = chapter + 10; }
+  else if (book === 'Psalms') { first = psalmLxx(chapter, verse); label = 'Psalm'; }
+  else if (book === 'Jeremiah') first = jeremiahLxx(chapter, verse);
+  else first = chapter;
+  var order = [];
+  [first, first - 1, first + 1, chapter].forEach(function(c){ if (c >= 1 && order.indexOf(c) < 0) order.push(c); });
+  return [code, bnum, order, label];
+}
+function isMark(ch){ return /\p{M}/u.test(ch); }
+function bare(s){
+  var out = '';
+  for (var ch of String(s || '').toLowerCase().normalize('NFD')) if (!isMark(ch)) out += ch;
+  return out.replace(/ς/g, 'σ');
+}
+function englishKeys(text){
+  var words = String(text || '').toLowerCase().match(/[a-z]+/g) || [];
+  var out = new Set();
+  words.forEach(function(w){ if (w.length >= 3 && !LXX_STOP.has(w)) out.add(w.slice(0, 5)); });
+  return out;
+}
+// verses: Map(number -> English text). -> [number, score] or null when nothing matches well.
+function pickLxxVerse(kjvText, verses, expect, firstGuess){
+  if (firstGuess === undefined) firstGuess = true;
+  var k = englishKeys(kjvText);
+  if (!k.size || !verses || !verses.size) return null;
+  var best = null;
+  verses.forEach(function(text, num){
+    var c = englishKeys(text), hits = 0;
+    k.forEach(function(x){ if (c.has(x)) hits++; });
+    var score = 2 * hits / ((k.size + c.size) || 1) - 0.0005 * Math.abs(num - expect);
+    if (best === null || score > best[1]) best = [num, score, hits];
+  });
+  var num = best[0], score = best[1], hits = best[2], ok;
+  if (!firstGuess) ok = hits >= 3 && score >= 0.35;
+  else ok = (hits >= 2 && score >= 0.25) || (Math.abs(num - expect) <= 2 && hits >= 2 && score >= 0.15) ||
+            (k.size <= 3 && hits >= 1 && Math.abs(num - expect) <= 1);
+  return ok ? [num, Math.round(score * 100) / 100] : null;
+}
+var GREEK_PUNCT = '.,;:··;!?’‘ʼ\'"()[]—–-';
+function greekTokens(text){
+  // NFC joins loose accent marks to their letters (Brenton keeps some apart).
+  return String(text || '').normalize('NFC').split(/\s+/).map(function(t){ return stripChars(t, GREEK_PUNCT); }).filter(Boolean);
+}
+var FUNC_WORDS = {};
+'ο η το του της τω τη τον την οι αι τα των τοις ταις τους τας'.split(' ').forEach(function(f){ FUNC_WORDS[f] = 'ο'; });
+'εγω μου μοι με εμου εμοι εμε ημεις ημων ημιν ημας'.split(' ').forEach(function(f){ FUNC_WORDS[f] = 'εγω'; });
+'συ σου σοι σε υμεις υμων υμιν υμας'.split(' ').forEach(function(f){ FUNC_WORDS[f] = 'συ'; });
+function wordKey(word, lemmaKeys){
+  var b = bare(word);
+  if (has(FUNC_WORDS, b)) return FUNC_WORDS[b];
+  var tries = [b.slice(0, 3)];
+  if (b.length > 4 && b[0] === 'ε') tries.push(b.slice(1, 4));                 // past-tense e- in front
+  if (b.length > 5 && b[0] === b[2] && b[1] === 'ε') tries.push(b.slice(2, 5)); // doubled first letter
+  for (var i = 0; i < tries.length; i++) if (lemmaKeys.has(tries[i])) return tries[i];
+  return tries[0];
+}
+// A copy of Python's difflib.SequenceMatcher(None, a, b, autojunk=False).get_opcodes().
+function opcodes(a, b){
+  var b2j = new Map();
+  b.forEach(function(x, j){ if (!b2j.has(x)) b2j.set(x, []); b2j.get(x).push(j); });
+  function longest(alo, ahi, blo, bhi){
+    var besti = alo, bestj = blo, bestsize = 0, j2len = new Map();
+    for (var i = alo; i < ahi; i++) {
+      var newj2len = new Map(), js = b2j.get(a[i]) || [];
+      for (var q = 0; q < js.length; q++) {
+        var j = js[q];
+        if (j < blo) continue;
+        if (j >= bhi) break;
+        var k = (j2len.get(j - 1) || 0) + 1;
+        newj2len.set(j, k);
+        if (k > bestsize) { besti = i - k + 1; bestj = j - k + 1; bestsize = k; }
+      }
+      j2len = newj2len;
+    }
+    while (besti > alo && bestj > blo && a[besti - 1] === b[bestj - 1]) { besti--; bestj--; bestsize++; }
+    while (besti + bestsize < ahi && bestj + bestsize < bhi && a[besti + bestsize] === b[bestj + bestsize]) bestsize++;
+    return [besti, bestj, bestsize];
+  }
+  var queue = [[0, a.length, 0, b.length]], blocks = [];
+  while (queue.length) {
+    var t = queue.pop(), x = longest(t[0], t[1], t[2], t[3]);
+    if (x[2]) {
+      blocks.push(x);
+      if (t[0] < x[0] && t[2] < x[1]) queue.push([t[0], x[0], t[2], x[1]]);
+      if (x[0] + x[2] < t[1] && x[1] + x[2] < t[3]) queue.push([x[0] + x[2], t[1], x[1] + x[2], t[3]]);
+    }
+  }
+  blocks.sort(function(p, q){ return p[0] - q[0] || p[1] - q[1] || p[2] - q[2]; });
+  var i1 = 0, j1 = 0, k1 = 0, merged = [];
+  blocks.forEach(function(bk){
+    if (i1 + k1 === bk[0] && j1 + k1 === bk[1]) k1 += bk[2];
+    else { if (k1) merged.push([i1, j1, k1]); i1 = bk[0]; j1 = bk[1]; k1 = bk[2]; }
+  });
+  if (k1) merged.push([i1, j1, k1]);
+  merged.push([a.length, b.length, 0]);
+  var i = 0, j = 0, out = [];
+  merged.forEach(function(m){
+    var tag = '';
+    if (i < m[0] && j < m[1]) tag = 'replace'; else if (i < m[0]) tag = 'delete'; else if (j < m[1]) tag = 'insert';
+    if (tag) out.push([tag, i, m[0], j, m[1]]);
+    i = m[0] + m[2]; j = m[1] + m[2];
+    if (m[2]) out.push(['equal', m[0], i, m[1], j]);
+  });
+  return out;
+}
+function alignLemmas(words, lemmas){
+  var b = lemmas.map(function(x){ return bare(x).slice(0, 3); });
+  var keys = new Set(b);
+  var a = words.map(function(w){ return wordKey(w, keys); });
+  var out = words.map(function(){ return null; }), same = 0;
+  opcodes(a, b).forEach(function(op){
+    var tag = op[0], i1 = op[1], i2 = op[2], j1 = op[3], j2 = op[4];
+    if (tag === 'equal' || (tag === 'replace' && i2 - i1 === j2 - j1)) {
+      for (var k = 0; k < i2 - i1; k++) out[i1 + k] = lemmas[j1 + k];
+      if (tag === 'equal') same += i2 - i1;
+    }
+  });
+  return [out, words.length ? same / words.length : 0];
+}
+var ACCENTS = ['́', '̀', '͂'];
+var GR_VOWEL = {'α':'ah', 'ε':'eh', 'η':'ay', 'ι':'ee', 'ο':'o', 'υ':'oo', 'ω':'o'};
+var GR_DIPH = {'αι':'eye', 'ει':'ay', 'οι':'oy', 'ου':'oo', 'αυ':'ow', 'ευ':'yoo', 'ηυ':'ayoo', 'υι':'wee'};
+var GR_CONS = {'β':'b', 'γ':'g', 'δ':'d', 'ζ':'dz', 'θ':'th', 'κ':'k', 'λ':'l', 'μ':'m', 'ν':'n', 'ξ':'x', 'π':'p',
+  'ρ':'r', 'σ':'s', 'ς':'s', 'τ':'t', 'φ':'f', 'χ':'kh', 'ψ':'ps'};
+function hasAccent(marks){ return ACCENTS.some(function(a){ return marks.has(a); }); }
+// A Greek word -> a sound-it-out guide in English letters ("poy-mah'-ee-no"). The stressed part gets a '.
+function greekPhonetic(word){
+  var letters = [];
+  for (var ch of String(word || '').toLowerCase().normalize('NFD')) {
+    if (isMark(ch)) { if (letters.length) letters[letters.length - 1][1].add(ch); }
+    else if (has(GR_VOWEL, ch) || has(GR_CONS, ch)) letters.push([ch, new Set()]);
+  }
+  var units = [], i = 0;
+  while (i < letters.length) {
+    var c = letters[i][0], marks = letters[i][1], sound;
+    if (has(GR_VOWEL, c)) {
+      var rough = marks.has('̔'), stress = hasAccent(marks), nxt = letters[i + 1];
+      if (nxt && has(GR_DIPH, c + nxt[0]) && !nxt[1].has('̈')) {
+        rough = rough || nxt[1].has('̔');
+        stress = stress || hasAccent(nxt[1]);
+        sound = GR_DIPH[c + nxt[0]];
+        i += 2;
+      } else { sound = GR_VOWEL[c]; i += 1; }
+      if (rough) units.push(['c', 'h', false]);
+      units.push(['v', sound, stress]);
+      continue;
+    }
+    var nx = letters[i + 1] ? letters[i + 1][0] : '';
+    if (c === 'γ' && nx && 'γκξχ'.indexOf(nx) >= 0) sound = 'n';
+    else if (c === 'ρ' && marks.has('̔')) sound = 'rh';
+    else sound = GR_CONS[c];
+    units.push(['c', sound, false]);
+    i += 1;
+  }
+  var vowels = [];
+  units.forEach(function(u, k){ if (u[0] === 'v') vowels.push(k); });
+  if (!vowels.length) return units.map(function(u){ return u[1]; }).join('');
+  var syll = [], start = 0;
+  vowels.forEach(function(vi, n){
+    var end;
+    if (n + 1 < vowels.length) { var gap = vowels[n + 1] - vi - 1; end = vi + 1 + (gap >= 2 ? 1 : 0); }
+    else end = units.length;
+    var part = units.slice(start, end);
+    var text = part.map(function(u){ return u[1]; }).join('');
+    if (part.some(function(u){ return u[2]; })) text += "'";
+    syll.push(text);
+    start = end;
+  });
+  return syll.join('-');
+}
+var NOT_IN_THAYER = "This word is not in the Greek dictionary this page uses (Thayer's). Thayer's was made " +
+  'for the New Testament, so some Old Testament words are not in it.';
+
+// ---------- commentaries ----------
+var COMMENTARIES = [
+  ['matthew-henry', 'Matthew Henry', 'England, early 1700s · long, warm, practical'],
+  ['jamieson-fausset-brown', 'Jamieson, Fausset & Brown', '1871 · short notes, verse by verse'],
+  ['adam-clarke', 'Adam Clarke', 'England, early 1800s · Greek and Hebrew notes'],
+  ['john-gill', 'John Gill', 'England, 1700s · very detailed'],
+  ['barnes', 'Albert Barnes', 'America, 1800s · New Testament'],
+  ['john-calvin', 'John Calvin', 'Geneva, 1500s · the Reformation'],
+  ['keil-delitzsch', 'Keil & Delitzsch', 'Germany, 1800s · Old Testament'],
+  ['geneva', 'Geneva Bible notes', '1500s · the Bible the Pilgrims carried'],
+  ['tyndale', 'Tyndale study notes', 'Modern · short and clear · shared freely by Tyndale House, free to share with credit'],
+  ['pnt', "People's New Testament", '1891 · plain and short'],
+  ['scofield', 'Scofield notes', '1917 edition']
+];
+var COMMENTARY_IDS = new Set(COMMENTARIES.map(function(c){ return c[0]; }).concat(['tsk']));
+// These write ONE note per SECTION, filed under its first verse; a missing verse means "see above".
+var SECTIONAL = new Set(['matthew-henry', 'john-calvin', 'keil-delitzsch']);
+// Tyndale's Jude file also holds Judges, so a Jude verse would show notes about Judges.
+var SKIP_BOOKS = {tyndale: new Set(['Jude'])};
+// Some cover only one Testament (their book lists on bible.helloao.org, checked 2026-11-19):
+// asking for the other one only gets a "not found" answer.
+var ONLY_TESTAMENT = {'keil-delitzsch': 'old', 'barnes': 'new', 'pnt': 'new'};
+var MAX_NOTE = 20000;
+var TOO_LONG = '\n\n[The rest of this note is very long and is not shown here.]';
+function clip(text){ return text.length <= MAX_NOTE ? text : text.slice(0, MAX_NOTE).replace(/\s+$/, '') + TOO_LONG; }
+function flat(x, out){
+  if (typeof x === 'string') { var s = x.trim(); if (s) out.push(s); }
+  else if (Array.isArray(x)) x.forEach(function(i){ flat(i, out); });
+  else if (x && typeof x === 'object') {
+    if (has(x, 'text')) flat(x.text, out);
+    else if (has(x, 'heading')) flat(x.heading, out);
+    else Object.keys(x).forEach(function(k){ var v = x[k]; if (typeof v === 'string' || (v && typeof v === 'object')) flat(v, out); });
+  }
+}
+function entryText(item){ var p = []; flat(item.content, p); return p.join('\n\n'); }
+var POINTER_RE = /contained in the (\d{1,3})(?:st|nd|rd|th) verse/i;
+// -> [text, firstVerse, lastVerse or null] or null
+function noteForVerse(items, verse, sectional, intro){
+  intro = intro || '';
+  var entries = (Array.isArray(items) ? items : []).filter(function(i){
+    return i && typeof i === 'object' && i.type === 'verse' && Number.isInteger(i.number);
+  }).slice().sort(function(p, q){ return p.number - q.number; });
+  var nums = entries.map(function(e){ return e.number; });
+  var pick = null;
+  entries.forEach(function(e){ if (e.number === verse || (sectional && e.number <= verse)) pick = e; });
+  if (pick === null) {
+    if (verse === 1 && intro && intro.trim() && nums.indexOf(1) < 0) return [clip(intro.trim()), 1, 1];
+    return null;
+  }
+  var text = entryText(pick);
+  var m = POINTER_RE.exec(text.slice(-400));
+  if (m) {
+    var target = parseInt(m[1], 10);
+    for (var i = 0; i < entries.length; i++) if (entries[i].number === target) return [clip(entryText(entries[i])), pick.number, target];
+  }
+  if (/^\s*(?:THE\s|INTRODUCTION)/.test(text) && pick.number === verse) {
+    var cut = text.lastIndexOf('Verse ' + verse + '.');
+    if (cut > 0) text = text.slice(cut);
+  }
+  if (!sectional) return [clip(text), verse, verse];
+  var later = nums.filter(function(n){ return n > pick.number; });
+  return [clip(text), pick.number, later.length ? later[0] - 1 : null];
+}
+function coversLabel(first, last, verse){
+  if (first === verse && (last === null || last === verse)) return '';
+  if (last === null) return 'This note starts at verse ' + first + ' and covers the rest of the chapter.';
+  if (last === first) return 'This note is filed under verse ' + first + '.';
+  return 'This note covers verses ' + first + ' to ' + last + ' together.';
+}
+// A helloao commentary answer -> {items, intro}; 404 -> {items:[], intro:''} (not covered); else null.
+function processCommentary(status, json){
+  if (status === 404) return {items: [], intro: ''};
+  if (status !== 200 || !json || typeof json !== 'object' || !json.chapter || typeof json.chapter !== 'object' || Array.isArray(json.chapter)) return null;
+  var paras = [];
+  flat(json.chapter.introduction, paras);
+  return {items: Array.isArray(json.chapter.content) ? json.chapter.content : [], intro: paras.join('\n\n')};
+}
+// A helloao Bible chapter -> [[number, text], ...]; 404 -> []; else null.
+function processHelloaoBible(status, json){
+  if (status === 404) return [];
+  if (status !== 200 || !json || typeof json !== 'object' || !json.chapter || typeof json.chapter !== 'object') return null;
+  var out = [];
+  (Array.isArray(json.chapter.content) ? json.chapter.content : []).forEach(function(item){
+    if (!item || typeof item !== 'object' || item.type !== 'verse') return;
+    var num = parseInt(item.number, 10);
+    if (!Number.isInteger(num)) return;
+    var parts = [];
+    (Array.isArray(item.content) ? item.content : []).forEach(function(p){
+      if (typeof p === 'string') parts.push(p);
+      else if (p && typeof p === 'object' && typeof p.text === 'string') parts.push(p.text);
+    });
+    var text = parts.join(' ').replace(/\s+/g, ' ').trim();
+    if (text) out.push([num, text.slice(0, 4000)]);
+  });
+  return out;
+}
+// bolls.life chapter -> [{verse, text}] or null
+function processBollsChapter(data){
+  if (!Array.isArray(data)) return null;
+  var out = [];
+  data.forEach(function(i){
+    if (i && typeof i === 'object' && Number.isInteger(i.verse)) out.push({verse: i.verse, text: String(i.text == null ? '' : i.text).slice(0, 8000)});
+  });
+  return out;
+}
+// bolls.life LXX chapter (dictionary forms) -> [[verse, [forms]], ...] or null
+function processLxx(data){
+  if (!Array.isArray(data)) return null;
+  var out = [];
+  data.forEach(function(i){
+    if (i && typeof i === 'object' && Number.isInteger(i.verse)) out.push([i.verse, String(i.text || '').replace(TAG_RE, '').split(/\s+/).filter(Boolean).slice(0, 200)]);
+  });
+  return out;
+}
+// bolls.life dictionary answer for a Strong's number -> entry or null
+function processLexicon(data){
+  if (!Array.isArray(data) || !data.length || !data[0] || typeof data[0] !== 'object') return null;
+  return parseLexicon(String(data[0].definition || '').slice(0, 60000));
+}
+// bolls.life dictionary answer for a Greek spelling -> entry, {none:true}, or null
+function processLexiconForm(data, lemma){
+  if (!Array.isArray(data)) return null;
+  var want = bare(lemma);
+  var pick = data.filter(function(e){ return e && typeof e === 'object' && String(e.topic || '').charAt(0) === 'G' && bare(e.lexeme || '') === want; });
+  if (!pick.length) return {none: true};
+  var entry = parseLexicon(String(pick[0].definition || '').slice(0, 60000));
+  entry.strong = String(pick[0].topic).slice(0, 12);
+  return entry;
+}
+
+// ---------- cross references (Treasury of Scripture Knowledge) ----------
+var TSK_BOOKS = {Ge:'Genesis', Ex:'Exodus', Le:'Leviticus', Nu:'Numbers', De:'Deuteronomy', Jos:'Joshua', Jud:'Judges',
+  Ru:'Ruth', '1Sa':'1 Samuel', '2Sa':'2 Samuel', '1Ki':'1 Kings', '2Ki':'2 Kings', '1Ch':'1 Chronicles',
+  '2Ch':'2 Chronicles', Ezr:'Ezra', Ne:'Nehemiah', Es:'Esther', Job:'Job', Ps:'Psalms', Pr:'Proverbs',
+  Ec:'Ecclesiastes', So:'Song of Solomon', Isa:'Isaiah', Jer:'Jeremiah', La:'Lamentations', Eze:'Ezekiel', Da:'Daniel',
+  Ho:'Hosea', Joe:'Joel', Am:'Amos', Ob:'Obadiah', Jon:'Jonah', Mic:'Micah', Na:'Nahum', Hab:'Habakkuk',
+  Zep:'Zephaniah', Hag:'Haggai', Zec:'Zechariah', Mal:'Malachi', Mt:'Matthew', Mr:'Mark', Lu:'Luke', Joh:'John',
+  Ac:'Acts', Ro:'Romans', '1Co':'1 Corinthians', '2Co':'2 Corinthians', Ga:'Galatians', Eph:'Ephesians',
+  Php:'Philippians', Col:'Colossians', '1Th':'1 Thessalonians', '2Th':'2 Thessalonians', '1Ti':'1 Timothy',
+  '2Ti':'2 Timothy', Tit:'Titus', Phm:'Philemon', Heb:'Hebrews', Jas:'James', '1Pe':'1 Peter', '2Pe':'2 Peter',
+  '1Jo':'1 John', '2Jo':'2 John', '3Jo':'3 John', Jude:'Jude', Re:'Revelation'};
+var REF_LINE_RE = /^(?:[123]?[A-Z][a-z]{0,3}\s)?\d+(?::\d+)?(?:[-,]\d+(?::\d+)?)*(?:;\s*.*)?$/;
+var TOKEN_RE = /^([123]?[A-Z][a-z]{0,3})?\s*(.+)$/;
+function parseTsk(text, book, chapter){
+  var groups = [], current = null;
+  String(text || '').split(/\r\n|\r|\n/).forEach(function(line){
+    var s = line.trim();
+    if (!s) return;
+    if (REF_LINE_RE.test(s)) {
+      if (current === null) { current = {phrase: '', refs: []}; groups.push(current); }
+      var curBook = book, curCh = chapter;
+      s.split(';').forEach(function(tok){
+        tok = tok.trim();
+        if (!tok) return;
+        var m = TOKEN_RE.exec(tok);
+        if (!m) return;
+        var abbr = m[1], rest = m[2].trim();
+        if (abbr) { if (!has(TSK_BOOKS, abbr)) return; curBook = TSK_BOOKS[abbr]; }
+        rest.split(',').forEach(function(part){
+          part = part.trim();
+          var mm = /^(?:(\d+):)?(\d+)(?:-(\d+))?$/.exec(part);
+          if (!mm) return;
+          if (mm[1]) curCh = parseInt(mm[1], 10);
+          var start = parseInt(mm[2], 10), end = mm[3] ? parseInt(mm[3], 10) : start;
+          if (current.refs.length < 14) {
+            current.refs.push({label: curBook + ' ' + curCh + ':' + start + (end > start ? '-' + end : ''),
+                               book: curBook, chapter: curCh, start: start, end: end});
+          }
+        });
+      });
+    } else if (s.slice(-1) === '.' && !/^\d+\s/.test(s) && s.length < 80) {
+      current = {phrase: s.replace(/\.+$/, ''), refs: []};
+      groups.push(current);
+    }
+  });
+  return groups.filter(function(g){ return g.refs.length; });
+}
+
+// ---------- Bible versions list ----------
+var BLOCKED_VERSIONS = new Set(['NIV', 'NIV2011', 'NIVUK', 'TNIV', 'NIRV', 'LXXE', 'SPE']);
+var FIRST_VERSIONS = ['BSB', 'KJV', 'NASB', 'LSB', 'NKJV', 'ESV', 'CSB17', 'NLT', 'AMP', 'NET', 'MSG', 'WEB', 'ASV', 'YLT'];
+var FALLBACK_VERSIONS = [
+  {code: 'BSB', name: 'Berean Standard Bible'}, {code: 'KJV', name: 'King James Version'},
+  {code: 'WEB', name: 'World English Bible'}, {code: 'ASV', name: 'American Standard Version (1901)'},
+  {code: 'YLT', name: "Young's Literal Translation (1898)"}];
+// Public domain: these words may be kept on the computer between visits. Every other version
+// (NASB, LSB, ESV, NKJV, CSB, NLT, AMP, NET, MSG ...) is kept only while the page is open.
+var PUBLIC_DOMAIN = new Set(['KJV', 'ASV', 'WEB', 'YLT', 'GNV', 'DRB', 'BSB', 'TISCH', 'WLCa', 'DHNT']);
+var CODE_RE = /^[A-Za-z0-9]{2,16}$/;
+function filterVersions(data){
+  var out = [];
+  if (!Array.isArray(data)) return out;
+  data.forEach(function(lang){
+    if (!lang || typeof lang !== 'object' || String(lang.language || '').indexOf('English') < 0) return;
+    (Array.isArray(lang.translations) ? lang.translations : []).forEach(function(t){
+      if (!t || typeof t !== 'object') return;
+      var code = String(t.short_name || '');
+      if (!/^[A-Z0-9]{2,16}$/.test(code.toUpperCase()) || BLOCKED_VERSIONS.has(code.toUpperCase())) return;
+      if (!PUBLIC_DOMAIN.has(code)) return;   // web copy: free versions only
+      var name = String(t.full_name || code).slice(0, 120);
+      if (code === 'LSB') name = 'Legacy Standard Bible (the MacArthur Study Bible text)';
+      if (code === 'BSB') name = 'Berean Standard Bible (free for everyone)';
+      out.push({code: code, name: name});
+    });
+  });
+  var order = {};
+  FIRST_VERSIONS.forEach(function(c, i){ order[c] = i; });
+  out.sort(function(p, q){
+    var a = has(order, p.code) ? order[p.code] : 99, b = has(order, q.code) ? order[q.code] : 99;
+    if (a !== b) return a - b;
+    var x = p.name.toLowerCase(), y = q.name.toLowerCase();
+    return x < y ? -1 : x > y ? 1 : 0;
+  });
+  return out;
+}
+
+// ---------- reading plans ----------
+var PLAN_TYPES = {'book': 'One chapter a day through a book', 'bible-year': 'The whole Bible in a year',
+  'nt-90': 'The New Testament in 90 days', 'psalms-proverbs': 'Psalms and Proverbs, one chapter a day'};
+function buildPlan(kind, book){
+  function chaptersOf(names){
+    var out = [];
+    names.forEach(function(b){ for (var c = 1; c <= chaptersIn(b); c++) out.push([b, c]); });
+    return out;
+  }
+  function spread(chs, days){
+    var out = [];
+    for (var d = 0; d < days; d++) {
+      var a = Math.floor(d * chs.length / days), z = Math.floor((d + 1) * chs.length / days);
+      var day = chs.slice(a, z);
+      if (day.length) out.push(day);
+    }
+    return out;
+  }
+  if (kind === 'book' && book && has(BOOK_NUM, book)) return [book + ', one chapter a day', chaptersOf([book]).map(function(x){ return [x]; })];
+  if (kind === 'bible-year') return ['The whole Bible in a year', spread(chaptersOf(BOOKS), 365)];
+  if (kind === 'nt-90') return ['The New Testament in 90 days', spread(chaptersOf(BOOKS.slice(39)), 90)];
+  if (kind === 'psalms-proverbs') return ['Psalms and Proverbs, one chapter a day', chaptersOf(['Psalms', 'Proverbs']).map(function(x){ return [x]; })];
+  return null;
+}
+function pad(n){ return (n < 10 ? '0' : '') + n; }
+function dayStamp(d){ return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+function nowStamp(d){
+  d = d || new Date();
+  var ms = String(d.getMilliseconds()); while (ms.length < 3) ms = '0' + ms;
+  return dayStamp(d) + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds()) + '.' + ms;
+}
+function dayBefore(day){
+  var p = day.split('-').map(Number), d = new Date(p[0], p[1] - 1, p[2]);
+  d.setDate(d.getDate() - 1);
+  return dayStamp(d);
+}
+// Plan state: {plans:[{id, kind, book, name, total, current_day, started_at, status}], progress:[{plan_id, day, at}], next_id}
+function emptyPlans(){ return {plans: [], progress: [], next_id: 1}; }
+function planDays(p){ var b = buildPlan(p.kind, p.book); return b ? b[1] : []; }
+function readingStreak(state, planId, today){
+  var days = [];
+  state.progress.forEach(function(r){ if (r.plan_id === planId) { var d = String(r.at).slice(0, 10); if (days.indexOf(d) < 0) days.push(d); } });
+  days.sort().reverse();
+  if (!days.length) return 0;
+  var want = days[0] === today ? today : dayBefore(today), n = 0;
+  for (var i = 0; i < days.length; i++) { if (days[i] === want) { n++; want = dayBefore(want); } else break; }
+  return n;
+}
+function planView(state, p, today){
+  var data = planDays(p), total = data.length, done = p.current_day || 0;
+  var readToday = state.progress.some(function(r){ return r.plan_id === p.id && String(r.at).slice(0, 10) === today; });
+  var finished = done >= total;
+  var reading = finished ? [] : data[done].map(function(x){ return {book: x[0], chapter: x[1], label: x[0] + ' ' + x[1]}; });
+  return {id: p.id, name: p.name, day: Math.min(done + 1, total), done_days: done, total: total, today: reading,
+          read_today: readToday, finished: finished, streak: readingStreak(state, p.id, today),
+          percent: total ? Math.floor(100 * done / total) : 0, started_at: p.started_at};
+}
+function latest(list){ return list.reduce(function(best, p){ return !best || p.id > best.id ? p : best; }, null); }
+// The plan going now; or one finished TODAY (so "You finished" shows for the rest of the day).
+function currentPlan(state, today){
+  var active = latest(state.plans.filter(function(p){ return p.status === 'active'; }));
+  if (active) return active;
+  return latest(state.plans.filter(function(p){
+    return p.status === 'finished' && state.progress.some(function(r){ return r.plan_id === p.id && String(r.at).slice(0, 10) === today; });
+  }));
+}
+function stoppedPlans(state){
+  return state.plans.filter(function(p){ return p.status === 'stopped'; }).sort(function(a, b){ return b.id - a.id; }).slice(0, 10)
+    .map(function(p){ return {id: p.id, name: p.name, day: (p.current_day || 0) + 1, total: planDays(p).length, started_at: p.started_at}; });
+}
+function planStart(state, kind, book, now){
+  if (!has(PLAN_TYPES, kind) || (kind === 'book' && !(book && has(BOOK_NUM, book)))) return {error: 'Pick a reading plan (and a book, for a book plan).'};
+  var built = buildPlan(kind, kind === 'book' ? book : null);
+  state.plans.forEach(function(p){ if (p.status === 'active') p.status = 'stopped'; });   // set aside, never erased
+  var p = {id: state.next_id++, kind: kind, book: kind === 'book' ? book : null, name: built[0], total: built[1].length,
+           current_day: 0, started_at: nowStamp(now), status: 'active'};
+  state.plans.push(p);
+  return {plan: p};
+}
+function planDone(state, day, planId, now){
+  var today = dayStamp(now);
+  var row = latest(state.plans.filter(function(p){ return p.status === 'active'; }));
+  if (!row) {
+    var doneToday = currentPlan(state, today);
+    if (doneToday) return {plan: doneToday, already: true};
+    return {error: 'There is no reading plan going right now.'};
+  }
+  if (planId !== undefined && planId !== row.id) return {error: 'Your reading plan changed in another window. Close this and open Reading plan again.'};
+  if (day !== (row.current_day || 0) + 1) return {plan: row, already: true};
+  row.current_day = day;
+  row.status = day >= planDays(row).length ? 'finished' : 'active';
+  state.progress.push({plan_id: row.id, day: day, at: nowStamp(now)});
+  return {plan: row, already: false};
+}
+function planUndo(state, now){
+  var row = currentPlan(state, dayStamp(now));
+  if (!row || !(row.current_day || 0)) return {error: 'There is no marked day to take back.'};
+  for (var i = state.progress.length - 1; i >= 0; i--) if (state.progress[i].plan_id === row.id) { state.progress.splice(i, 1); break; }
+  row.current_day = (row.current_day || 1) - 1;
+  row.status = 'active';
+  return {plan: row};
+}
+function planStop(state){
+  var n = 0;
+  state.plans.forEach(function(p){ if (p.status === 'active') { p.status = 'stopped'; n++; } });
+  return n;
+}
+function planResume(state, id){
+  var row = state.plans.filter(function(p){ return p.id === id && p.status === 'stopped'; })[0];
+  if (!row) return {error: 'That plan is not one of your set-aside plans.'};
+  state.plans.forEach(function(p){ if (p.status === 'active') p.status = 'stopped'; });
+  row.status = 'active';
+  return {plan: row};
+}
+
+// ---------- Verse of the Day ----------
+var VOTD_REFS = ('Genesis 1:1|Genesis 1:27|Genesis 28:15|Genesis 50:20|Exodus 14:14|Exodus 15:2|Exodus 20:12|' +
+  'Numbers 6:24-26|Deuteronomy 6:5|Deuteronomy 31:6|Deuteronomy 31:8|Joshua 1:9|Joshua 24:15|' +
+  'Ruth 1:16|1 Samuel 16:7|2 Samuel 22:31|1 Chronicles 16:11|1 Chronicles 16:34|2 Chronicles 7:14|' +
+  'Nehemiah 8:10|Job 19:25|Psalms 1:1-2|Psalms 4:8|Psalms 16:11|Psalms 18:2|Psalms 19:1|Psalms 19:14|' +
+  'Psalms 23:1|Psalms 23:4|Psalms 27:1|Psalms 27:14|Psalms 28:7|Psalms 30:5|Psalms 31:24|Psalms 32:8|' +
+  'Psalms 34:8|Psalms 34:18|Psalms 37:4|Psalms 37:5|Psalms 40:1|Psalms 42:11|Psalms 46:1|Psalms 46:10|' +
+  'Psalms 51:10|Psalms 55:22|Psalms 56:3|Psalms 62:1|Psalms 73:26|Psalms 84:11|Psalms 86:5|' +
+  'Psalms 90:12|Psalms 91:1|Psalms 91:11|Psalms 100:4|Psalms 103:2|Psalms 103:12|Psalms 107:1|' +
+  'Psalms 118:24|Psalms 119:11|Psalms 119:105|Psalms 121:1-2|Psalms 127:1|Psalms 139:14|Psalms 143:8|' +
+  'Psalms 145:18|Psalms 147:3|Psalms 150:6|Proverbs 3:5-6|Proverbs 3:9|Proverbs 4:23|Proverbs 9:10|' +
+  'Proverbs 15:1|Proverbs 16:3|Proverbs 16:9|Proverbs 17:17|Proverbs 18:10|Proverbs 22:6|' +
+  'Proverbs 27:17|Proverbs 31:25|Ecclesiastes 3:1|Ecclesiastes 4:9|Isaiah 9:6|Isaiah 12:2|Isaiah 26:3|' +
+  'Isaiah 40:8|Isaiah 40:29|Isaiah 40:31|Isaiah 41:10|Isaiah 43:2|Isaiah 53:5|Isaiah 54:10|' +
+  'Isaiah 55:8|Isaiah 58:11|Jeremiah 17:7|Jeremiah 29:11|Jeremiah 29:13|Jeremiah 33:3|' +
+  'Lamentations 3:22-23|Ezekiel 36:26|Daniel 2:20|Micah 6:8|Micah 7:7|Nahum 1:7|Habakkuk 3:19|' +
+  'Zephaniah 3:17|Zechariah 4:6|Malachi 3:10|Matthew 5:9|Matthew 5:14|Matthew 5:16|Matthew 5:44|' +
+  'Matthew 6:33|Matthew 6:34|Matthew 7:7|Matthew 7:12|Matthew 11:28|Matthew 11:29|Matthew 16:26|' +
+  'Matthew 19:26|Matthew 22:37|Matthew 28:19|Matthew 28:20|Mark 9:23|Mark 10:27|Mark 10:45|' +
+  'Mark 11:24|Mark 12:31|Luke 1:37|Luke 6:31|Luke 6:38|Luke 11:9|Luke 12:34|John 1:1|John 1:12|' +
+  'John 3:16|John 3:17|John 8:12|John 8:32|John 10:10|John 10:11|John 11:25|John 13:34|John 14:1|' +
+  'John 14:6|John 14:27|John 15:5|John 15:13|John 16:33|Acts 1:8|Acts 2:38|Acts 4:12|Acts 16:31|' +
+  'Acts 20:35|Romans 3:23|Romans 5:1|Romans 5:8|Romans 6:23|Romans 8:1|Romans 8:18|Romans 8:28|' +
+  'Romans 8:31|Romans 8:38-39|Romans 10:9|Romans 12:1|Romans 12:2|Romans 12:12|Romans 15:13|' +
+  '1 Corinthians 2:9|1 Corinthians 10:13|1 Corinthians 13:4|1 Corinthians 13:13|1 Corinthians 15:58|' +
+  '1 Corinthians 16:14|2 Corinthians 4:16|2 Corinthians 4:18|2 Corinthians 5:7|2 Corinthians 5:17|' +
+  '2 Corinthians 9:7|2 Corinthians 12:9|Galatians 2:20|Galatians 5:22-23|Galatians 6:2|Galatians 6:9|' +
+  'Ephesians 2:8-9|Ephesians 2:10|Ephesians 3:20|Ephesians 4:2|Ephesians 4:32|Ephesians 6:10|' +
+  'Philippians 1:6|Philippians 2:3|Philippians 3:14|Philippians 4:4|Philippians 4:6-7|Philippians 4:8|' +
+  'Philippians 4:13|Philippians 4:19|Colossians 3:2|Colossians 3:15|Colossians 3:23|' +
+  '1 Thessalonians 5:11|1 Thessalonians 5:16-18|2 Thessalonians 3:3|1 Timothy 4:12|1 Timothy 6:6|' +
+  '2 Timothy 1:7|2 Timothy 3:16|2 Timothy 4:7|Titus 3:5|Hebrews 4:12|Hebrews 4:16|Hebrews 10:23|' +
+  'Hebrews 11:1|Hebrews 11:6|Hebrews 12:1|Hebrews 12:2|Hebrews 13:5|Hebrews 13:8|James 1:2-3|' +
+  'James 1:5|James 1:17|James 1:22|James 4:8|James 5:16|1 Peter 2:9|1 Peter 3:15|1 Peter 5:7|' +
+  '2 Peter 3:9|1 John 1:9|1 John 3:1|1 John 4:4|1 John 4:8|1 John 4:18|1 John 4:19|1 John 5:14|' +
+  'Jude 1:24|Revelation 3:20|Revelation 21:4|Revelation 22:13').split('|');
+// Same pick as the original page: the list item at (days since year 1) mod list length.
+function votdFor(d){
+  var ordinal = Math.round((Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) - Date.UTC(1970, 0, 1)) / 86400000) + 719163;
+  var ref = VOTD_REFS[ordinal % VOTD_REFS.length];
+  return ref.replace(/^Psalms /, 'Psalm ');
+}
+
+// ---------- John MacArthur searches (web search engines only) ----------
+function macSearchUrl(engine, words, book){
+  var q = 'site:gty.org John MacArthur sermon ' + words + (book ? ' ' + book : '');
+  return engine === 'google' ? 'https://www.google.com/search?q=' + encodeURIComponent(q)
+                             : 'https://duckduckgo.com/?q=' + encodeURIComponent(q);
+}
+function macChapterUrl(book, chapter){
+  return 'https://duckduckgo.com/?q=' + encodeURIComponent('site:gty.org John MacArthur sermon ' + book + ' ' + chapter);
+}
+
+// ---------- reading out loud ----------
+function forListening(text){
+  return String(text || '')
+    .replace(/\{[^}]{0,6}\}/g, '')
+    .replace(/\[(?:\d{1,3}|[A-Z]{1,3})\]/g, '')
+    .replace(/[Ͱ-Ͽἀ-῿֐-׿]+[Ͱ-Ͽἀ-῿֐-׿\s,.;:·]*/g, ' ')
+    .replace(/[-_=]{3,}/g, ' ')
+    .replace(/\s+/g, ' ').trim();
+}
+// Pieces of at most 240 letters (browsers stop one very long reading partway through).
+function chunks(text){
+  var parts = text.match(/[^.!?;:]+[.!?;:]+["'”’)\]]*\s*|[^.!?;:]+$/g) || [text];
+  var small = [], out = [], cur = '';
+  parts.forEach(function(p){
+    while (p.length > 240) {
+      var cut = p.lastIndexOf(', ', 240); if (cut < 80) cut = p.lastIndexOf(' ', 240); if (cut < 1) cut = 240;
+      small.push(p.slice(0, cut + 1)); p = p.slice(cut + 1);
+    }
+    small.push(p);
+  });
+  small.forEach(function(p){
+    if ((cur + p).length > 240 && cur) { out.push(cur.trim()); cur = ''; }
+    cur += p;
+  });
+  if (cur.trim()) out.push(cur.trim());
+  return out;
+}
+
+// ---------- your saved things: strict checks (for what is read back and for a loaded file) ----------
+function str(x, max){ return typeof x === 'string' ? x.slice(0, max) : ''; }
+function int(x, lo, hi){ return Number.isInteger(x) && x >= lo && x <= hi ? x : null; }
+function cleanRef(o){
+  if (!o || typeof o !== 'object') return null;
+  var book = typeof o.book === 'string' && has(BOOK_NUM, o.book) ? o.book : null;
+  var ch = int(o.chapter, 1, 150), v = int(o.verse, 1, 200);
+  if (!book || ch === null || v === null || ch > chaptersIn(book)) return null;
+  return {book: book, chapter: ch, verse: v};
+}
+function noteKey(book, chapter, verse){ return book + '|' + chapter + '|' + verse; }
+function cleanNotes(x){
+  var out = {};
+  if (!x || typeof x !== 'object' || Array.isArray(x)) return out;
+  Object.keys(x).slice(0, 5000).forEach(function(k){
+    var p = k.split('|');
+    if (p.length !== 3) return;
+    var r = cleanRef({book: p[0], chapter: parseInt(p[1], 10), verse: parseInt(p[2], 10)});
+    var n = x[k];
+    if (!r || !n || typeof n !== 'object' || typeof n.note !== 'string' || !n.note.trim()) return;
+    if (noteKey(r.book, r.chapter, r.verse) !== k) return;
+    out[k] = {note: n.note.slice(0, 20000), updated_at: str(n.updated_at, 40)};
+  });
+  return out;
+}
+function cleanList(x, max, fn){
+  var out = [];
+  if (!Array.isArray(x)) return out;
+  for (var i = 0; i < x.length && out.length < max; i++) { var c = fn(x[i]); if (c) out.push(c); }
+  return out;
+}
+var MAX_OLD_WORDINGS = 2000;
+function cleanNoteHistory(x){
+  // the newest are at the end: keep the last ones
+  return cleanList(Array.isArray(x) ? x.slice(-MAX_OLD_WORDINGS) : x, MAX_OLD_WORDINGS, function(h){
+    var r = cleanRef(h);
+    if (!r || typeof h.note !== 'string' || !h.note.trim()) return null;
+    r.note = h.note.slice(0, 20000); r.replaced_at = str(h.replaced_at, 40);
+    return r;
+  });
+}
+function cleanBookmarks(x){
+  return cleanList(x, 1000, function(b){
+    var r = cleanRef(b);
+    if (!r) return null;
+    r.translation = CODE_RE.test(String(b.translation || '')) ? b.translation : '';
+    r.created_at = str(b.created_at, 40);
+    return r;
+  });
+}
+function cleanHistory(x){
+  return cleanList(x, 500, function(h){
+    var r = cleanRef(h);
+    if (!r) return null;
+    r.day = /^\d{4}-\d{2}-\d{2}$/.test(String(h.day || '')) ? h.day : '';
+    r.viewed_at = str(h.viewed_at, 40);
+    return r.day ? r : null;
+  });
+}
+function cleanMemory(x){
+  return cleanList(x, 500, function(m){
+    var r = cleanRef(m);
+    if (!r) return null;
+    r.translation = CODE_RE.test(String(m.translation || '')) ? m.translation : 'KJV';
+    // only public-domain wording is kept; other versions are looked up again when practiced
+    r.text = PUBLIC_DOMAIN.has(r.translation) ? str(m.text, 2000) : '';
+    r.level = int(m.level, 0, 5) || 0;
+    r.tries = int(m.tries, 0, 1e6) || 0;
+    r.rights = int(m.rights, 0, 1e6) || 0;
+    r.added_at = str(m.added_at, 40);
+    r.last_practiced = str(m.last_practiced, 40);
+    return r;
+  });
+}
+function cleanPlans(x){
+  var out = emptyPlans();
+  if (!x || typeof x !== 'object') return out;
+  var ids = new Set();
+  out.plans = cleanList(x.plans, 200, function(p){
+    if (!p || typeof p !== 'object') return null;
+    var id = int(p.id, 1, 1e9), kind = has(PLAN_TYPES, p.kind) ? p.kind : null;
+    if (id === null || !kind || ids.has(id)) return null;
+    var book = kind === 'book' ? (typeof p.book === 'string' && has(BOOK_NUM, p.book) ? p.book : null) : null;
+    if (kind === 'book' && !book) return null;
+    var built = buildPlan(kind, book);
+    var status = ['active', 'stopped', 'finished'].indexOf(p.status) >= 0 ? p.status : 'stopped';
+    var cur = int(p.current_day, 0, built[1].length);
+    if (cur === null) return null;
+    ids.add(id);
+    return {id: id, kind: kind, book: book, name: built[0], total: built[1].length, current_day: cur,
+            started_at: str(p.started_at, 40), status: status};
+  });
+  var actives = out.plans.filter(function(p){ return p.status === 'active'; });
+  actives.slice(0, -1).forEach(function(p){ p.status = 'stopped'; });     // only one plan at a time
+  out.progress = cleanList(x.progress, 20000, function(r){
+    if (!r || typeof r !== 'object') return null;
+    var pid = int(r.plan_id, 1, 1e9), day = int(r.day, 1, 400);
+    if (pid === null || day === null || !ids.has(pid)) return null;
+    return {plan_id: pid, day: day, at: str(r.at, 40)};
+  });
+  var maxId = out.plans.reduce(function(m, p){ return Math.max(m, p.id); }, 0);
+  out.next_id = Math.max(maxId + 1, int(x.next_id, 1, 1e9) || 1);
+  return out;
+}
+var FILE_KIND = 'Jesus Bible Study notes';
+// A loaded file -> clean parts, or {error}. Anything unexpected is left out; nothing is ever run.
+function readNotesFile(text){
+  if (typeof text !== 'string' || text.length > 5000000) return {error: 'That file is too big to be a notes file from this page.'};
+  var obj;
+  try { obj = JSON.parse(text); } catch (e) { return {error: 'That file is not a notes file from this page.'}; }
+  if (!obj || typeof obj !== 'object' || Array.isArray(obj) || obj.kind !== FILE_KIND || obj.format !== 1) {
+    return {error: 'That file is not a notes file from this page.'};
+  }
+  return {notes: cleanNotes(obj.notes), noteHistory: cleanNoteHistory(obj.noteHistory), bookmarks: cleanBookmarks(obj.bookmarks),
+          history: cleanHistory(obj.history), plans: cleanPlans(obj.plans), memory: cleanMemory(obj.memory)};
+}
+function sameRef(a, b){ return a.book === b.book && a.chapter === b.chapter && a.verse === b.verse; }
+// Adds a loaded file to what is here. Nothing is lost: when a verse has two different notes the
+// newer one is kept and the other goes into the old-wordings list.
+function mergeNotes(cur, inc){
+  var counts = {notes: 0, bookmarks: 0, memory: 0, plans: 0, history: 0};
+  var notes = Object.assign({}, cur.notes), hist = cur.noteHistory.slice();
+  Object.keys(inc.notes).forEach(function(k){
+    var a = notes[k], b = inc.notes[k], p = k.split('|');
+    var ref = {book: p[0], chapter: parseInt(p[1], 10), verse: parseInt(p[2], 10)};
+    if (!a) { notes[k] = b; counts.notes++; return; }
+    if (a.note === b.note) return;
+    var keep = (b.updated_at || '') > (a.updated_at || '') ? b : a, old = keep === b ? a : b;
+    notes[k] = keep;
+    hist.push({book: ref.book, chapter: ref.chapter, verse: ref.verse, note: old.note, replaced_at: nowStamp()});
+    counts.notes++;
+  });
+  inc.noteHistory.forEach(function(h){
+    if (!hist.some(function(x){ return sameRef(x, h) && x.note === h.note; })) hist.push(h);
+  });
+  var bms = cur.bookmarks.slice();
+  inc.bookmarks.forEach(function(b){ if (!bms.some(function(x){ return sameRef(x, b); })) { bms.push(b); counts.bookmarks++; } });
+  var mem = cur.memory.slice();
+  inc.memory.forEach(function(m){
+    var have = mem.filter(function(x){ return sameRef(x, m); })[0];
+    if (!have) { mem.push(m); counts.memory++; }
+    else if (m.level > have.level) { have.level = m.level; counts.memory++; }
+  });
+  var histList = cur.history.slice();
+  inc.history.forEach(function(h){
+    if (!histList.some(function(x){ return x.day === h.day && sameRef(x, h); })) { histList.push(h); counts.history++; }
+  });
+  histList.sort(function(a, b){ return a.viewed_at < b.viewed_at ? 1 : a.viewed_at > b.viewed_at ? -1 : 0; });
+  var plans = cleanPlans(cur.plans);
+  inc.plans.plans.forEach(function(p){
+    if (plans.plans.some(function(x){ return x.kind === p.kind && x.book === p.book && x.started_at === p.started_at; })) return;
+    var newId = plans.next_id++;
+    var copy = Object.assign({}, p, {id: newId, status: p.status === 'active' ? 'stopped' : p.status});
+    plans.plans.push(copy);
+    inc.plans.progress.forEach(function(r){ if (r.plan_id === p.id) plans.progress.push({plan_id: newId, day: r.day, at: r.at}); });
+    counts.plans++;
+  });
+  return {merged: {notes: notes, noteHistory: hist.slice(-MAX_OLD_WORDINGS), bookmarks: bms.slice(0, 1000), memory: mem.slice(0, 500),
+                   history: histList.slice(0, 500), plans: plans}, counts: counts};
+}
+function historyAdd(list, ref, now){
+  var day = dayStamp(now);
+  var out = list.filter(function(h){ return !(h.day === day && sameRef(h, ref)); });
+  out.unshift({book: ref.book, chapter: ref.chapter, verse: ref.verse, day: day, viewed_at: nowStamp(now)});
+  return out.slice(0, 500);
+}
+function historySearch(list, notes, q){
+  q = String(q || '').replace(/\s+/g, ' ').trim().toLowerCase().slice(0, 60);
+  return list.map(function(h){
+    var n = notes[noteKey(h.book, h.chapter, h.verse)];
+    return Object.assign({}, h, {note: n ? n.note : ''});
+  }).filter(function(h){
+    if (!q) return true;
+    return (h.book + ' ' + h.chapter + ':' + h.verse).toLowerCase().indexOf(q) >= 0 || h.note.toLowerCase().indexOf(q) >= 0;
+  });
+}
+function memoryOrder(list){
+  return list.slice().sort(function(a, b){
+    if (a.level !== b.level) return a.level - b.level;
+    var x = a.last_practiced || '', y = b.last_practiced || '';
+    if (x !== y) return x < y ? -1 : 1;
+    return a.added_at < b.added_at ? -1 : a.added_at > b.added_at ? 1 : 0;
+  });
+}
+function memoryLevel(level, got){ return got ? Math.min(5, level + 1) : Math.max(0, level - 1); }
+
+// ---------- the steps behind each part of the page ----------
+// `api` fetches (and remembers) from the two Bible websites: chapter, commentary, helloaoBible,
+// lexicon, lexiconForm, lxxLemmas, search. Each answers null when the website did not answer.
+async function eachLimited(items, limit, fn){
+  var i = 0;
+  async function worker(){ while (i < items.length) { var k = i++; await fn(items[k], k); } }
+  var workers = [];
+  for (var w = 0; w < Math.min(limit, items.length); w++) workers.push(worker());
+  await Promise.all(workers);
+}
+async function verseData(api, book, chapter, verse, t1, t2){
+  var n = BOOK_NUM[book];
+  var chs = await Promise.all([api.chapter(t1, n, chapter), api.chapter(t2, n, chapter)]);
+  var out = [t1, t2].map(function(t, i){
+    var vs = chs[i];
+    if (vs === null) return {translation: t, text: '', problem: 'The Bible website did not answer for the ' + t + '. Press Go to try again in a minute.'};
+    var text = verseFrom(vs, verse);
+    if (text === null) return {translation: t, text: '', problem: 'The ' + t + ' has no ' + book + ' ' + chapter + ':' + verse + '.'};
+    return {translation: t, text: cleanVerseText(text)};
+  });
+  return {book: book, chapter: chapter, verse: verse, versions: out,
+          last_verse: lastVerse(chs[0]) || lastVerse(chs[1]), testament: n >= 40 ? 'new' : 'old'};
+}
+async function wordsData(api, book, chapter, verse){
+  var n = BOOK_NUM[book], nt = n >= 40;
+  var chs = await Promise.all([api.chapter(nt ? 'TISCH' : 'WLCa', n, chapter), api.chapter('KJV', n, chapter)]);
+  var original = verseFrom(chs[0], verse);
+  if (!original) throw userError('The Greek or Hebrew words for this verse could not be found right now. Press Go to try again in a minute.');
+  var gloss = englishByStrong(verseFrom(chs[1], verse) || '');
+  var tokens = splitOriginal(original).slice(0, 60);
+  var prefix = nt ? 'G' : 'H';
+  var numbers = Array.from(new Set(tokens.map(function(t){ return t[1]; }))).sort();
+  var lex = {};
+  await eachLimited(numbers, 6, async function(num){ lex[num] = await api.lexicon(prefix + num); });
+  var words = tokens.map(function(t){
+    var e = lex[t[1]] || {};
+    return {word: t[0], strong: prefix + t[1], english: gloss[t[1]] || e.meaning || '', lemma: e.lemma || '',
+            translit: e.translit || '', phonetic: e.phonetic || '', full: e.full || ''};
+  });
+  return {language: nt ? 'Greek' : 'Hebrew', rtl: !nt, words: words};
+}
+async function hebrewNtData(api, book, chapter, verse){
+  var n = BOOK_NUM[book];
+  if (n < 40) return {words: [], old_testament: true};
+  var raw = verseFrom(await api.chapter('DHNT', n, chapter), verse);
+  if (raw === null) throw userError('The Hebrew New Testament for this verse could not be found right now. Press Go to try again in a minute.');
+  var text = cleanVerseText(raw);
+  return {words: hebrewWords(text), text: text};
+}
+async function greekOtData(api, book, chapter, verse){
+  var n = BOOK_NUM[book];
+  if (n >= 40) return {words: [], new_testament: true};
+  var kch = await api.chapter('KJV', n, chapter);
+  var kjv = cleanVerseText(verseFrom(kch, verse) || '');
+  if (!kjv) throw userError('The King James wording of this verse could not be found right now, so this page could not find it in the Greek Old Testament. Press Go to try again in a minute.');
+  var place = lxxPlace(book, chapter, verse), code = place[0], bnum = place[1], chapters = place[2], label = place[3];
+  var down = 'The Greek Old Testament website is not answering right now. Press Go to try again in a minute.';
+  var found = null, loose = false;
+  for (var i = 0; i < chapters.length; i++) {
+    var c = chapters[i];
+    var eng = await api.helloaoBible('eng_bre', code, c);
+    if (eng === null) throw userError(down);
+    var got = pickLxxVerse(kjv, eng, verse, i === 0);
+    if (got) { found = [c, got[0], eng.get(got[0])]; break; }
+    if (i === 0) {
+      // The Greek can word a verse very differently (Job 19:25). If the verses just before and
+      // after it are found side by side, the one between them is this one.
+      var near = {};
+      [-1, 1].forEach(function(d){
+        var t = cleanVerseText(verseFrom(kch, verse + d) || '');
+        var g = t ? pickLxxVerse(t, eng, verse + d) : null;
+        if (g) near[d] = g[0];
+      });
+      if (has(near, '-1') && has(near, '1') && near[1] - near[-1] === 2 && eng.has(near[-1] + 1)) {
+        found = [c, near[-1] + 1, eng.get(near[-1] + 1)]; loose = true;
+        break;
+      }
+    }
+  }
+  var missing = {words: [], missing: true,
+    message: 'This page could not match this verse in the Greek Old Testament for sure, so it shows nothing rather than a wrong verse. ' +
+             'The Greek words some verses quite differently, numbers some differently, and leaves a few out.'};
+  if (!found) return missing;
+  var gc = found[0], gv = found[1], english = found[2];
+  var gch = await api.helloaoBible('grc_bre', code, gc);
+  if (gch === null) throw userError(down);
+  var greek = gch.get(gv);
+  if (!greek) return missing;
+  var tokens = greekTokens(greek).slice(0, 80);
+  var forms = tokens.map(function(){ return null; });
+  var lemmaCh = (await api.lxxLemmas(bnum, gc)) || new Map();
+  var best = [0, null];
+  // the whole chapter, not just this verse number: bolls.life numbers some chapters its own way
+  Array.from(lemmaCh.keys()).sort(function(a, b){ return a - b; }).sort(function(a, b){ return Math.abs(a - gv) - Math.abs(b - gv); })
+    .forEach(function(cand){
+      var r = alignLemmas(tokens, lemmaCh.get(cand));
+      if (r[1] > best[0] + 0.05) best = [r[1], r[0]];
+    });
+  if (best[1] !== null && best[0] >= 0.4) forms = best[1];
+  var uniq = Array.from(new Set(forms.filter(Boolean))).sort();
+  var lex = {};
+  await eachLimited(uniq, 6, async function(f){ lex[f] = await api.lexiconForm(f); });
+  var words = tokens.map(function(w, i){
+    var f = forms[i], e = (f && lex[f]) || {}, hasIt = !!f && !!lex[f] && !e.none, full;
+    if (hasIt) full = e.full || '';
+    else if (f && e.none) full = NOT_IN_THAYER;
+    else if (f) full = 'The dictionary website did not answer for this word just now. Try again later.';
+    else full = 'This page could not tell which dictionary word this is, so it has no meaning here.';
+    return {word: w, phonetic: greekPhonetic(w), strong: hasIt ? (e.strong || '') : '', english: hasIt ? (e.meaning || '') : '',
+            lemma: hasIt ? (e.lemma || f) : (f || ''), translit: hasIt ? (e.translit || '') : '', full: full};
+  });
+  var moved = book === 'Nehemiah' || gc !== chapter || gv !== verse;
+  return {words: words, text: greek.normalize('NFC'), english: english, place: label + ' ' + gc + ':' + gv,
+          moved: moved, worded_differently: loose};
+}
+async function commentaryData(api, book, chapter, verse){
+  var code = USFM[BOOK_NUM[book] - 1];
+  var notes = await Promise.all(COMMENTARIES.map(async function(c){
+    var cid = c[0], name = c[1], about = c[2];
+    if (has(SKIP_BOOKS, cid) && SKIP_BOOKS[cid].has(book)) return null;
+    if (has(ONLY_TESTAMENT, cid) && ONLY_TESTAMENT[cid] !== (BOOK_NUM[book] >= 40 ? 'new' : 'old')) return null;
+    var ch = await api.commentary(cid, code, chapter);
+    if (ch === null) return {id: cid, name: name, about: about, problem: 'Could not load right now. Press Go to try again in a minute.'};
+    var got = noteForVerse(ch.items, verse, SECTIONAL.has(cid), ch.intro || '');
+    if (!got || !got[0].trim()) return null;
+    return {id: cid, name: name, about: about, text: got[0], words: got[0].split(/\s+/).filter(Boolean).length,
+            covers: coversLabel(got[1], got[2], verse)};
+  }));
+  return {notes: notes.filter(Boolean), macarthur: {search_url: macChapterUrl(book, chapter)}};
+}
+async function crossrefsData(api, book, chapter, verse){
+  var ch = await api.commentary('tsk', USFM[BOOK_NUM[book] - 1], chapter);
+  if (ch === null) throw userError('The list of verses that go with this one could not be loaded right now. Press Go to try again in a minute.');
+  var text = '';
+  ch.items.forEach(function(i){ if (i && typeof i === 'object' && i.number === verse) text = entryText(i); });
+  return {groups: parseTsk(text, book, chapter)};
+}
+async function passageData(api, ref, t){
+  var book = typeof ref.book === 'string' && has(BOOK_NUM, ref.book) ? ref.book : null;
+  if (!book) throw userError('This page does not know that Bible book.');
+  var start = ref.start, end = Math.max(start, Math.min(ref.end || start, start + 30));
+  var verses = await api.chapter(t, BOOK_NUM[book], ref.chapter);
+  if (verses === null) throw userError('The Bible website did not answer. Press Go to try again in a minute.');
+  var picked = verses.filter(function(v){ return v.verse >= start && v.verse <= end; })
+    .map(function(v){ return {verse: v.verse, text: cleanVerseText(v.text)}; });
+  if (!picked.length) throw userError('The ' + t + ' has no ' + book + ' ' + ref.chapter + ':' + start + '.');
+  return {label: book + ' ' + ref.chapter + ':' + start + (end > start ? '-' + end : ''), translation: t, verses: picked};
+}
+var SEARCH_PAGE = 100;
+async function searchData(api, q, t, whole, page){
+  q = String(q || '').replace(/\s+/g, ' ').trim();
+  if (q.length < 2) throw userError('Type at least 2 letters to search for.');
+  if (q.length > 60) throw userError('That is too long to search for. Try a shorter word or phrase.');
+  var data = await api.search(t, q, whole, page);
+  if (!data || typeof data !== 'object' || !Array.isArray(data.results)) throw userError('The Bible search website is not answering right now. Press Go to try again in a minute.');
+  var out = [];
+  data.results.slice(0, SEARCH_PAGE).forEach(function(item){
+    if (!item || typeof item !== 'object') return;
+    var name = BOOKS[item.book - 1];
+    if (!Number.isInteger(item.book) || !name || !Number.isInteger(item.chapter) || !Number.isInteger(item.verse)) return;
+    var raw = String(item.text || '').slice(0, 8000).split('<mark>').join('\u0001').split('</mark>').join('\u0002');
+    out.push({book: name, chapter: item.chapter, verse: item.verse, ref: name + ' ' + item.chapter + ':' + item.verse, text: cleanVerseText(raw)});
+  });
+  var total = parseInt(data.total, 10);
+  if (!Number.isFinite(total) || total < 0) total = out.length;
+  return {q: q, translation: t, total: total, page: page, pages: Math.max(1, Math.ceil(total / SEARCH_PAGE)), results: out};
+}
+
+return {BOLLS: BOLLS, HELLOAO: HELLOAO, userError: userError, BOOKS: BOOKS, BOOK_NUM: BOOK_NUM, USFM: USFM, CHAPTERS: CHAPTERS,
+  resolveBook: resolveBook, chaptersIn: chaptersIn, okRef: okRef, isNT: isNT, parseRef: parseRef,
+  htmlUnescape: htmlUnescape, cleanVerseText: cleanVerseText, verseFrom: verseFrom, lastVerse: lastVerse,
+  splitOriginal: splitOriginal, englishByStrong: englishByStrong, trimMeaning: trimMeaning, parseLexicon: parseLexicon,
+  hebrewWords: hebrewWords, jeremiahLxx: jeremiahLxx, psalmLxx: psalmLxx, lxxPlace: lxxPlace, bare: bare,
+  pickLxxVerse: pickLxxVerse, greekTokens: greekTokens, wordKey: wordKey, opcodes: opcodes, alignLemmas: alignLemmas,
+  greekPhonetic: greekPhonetic, COMMENTARIES: COMMENTARIES, COMMENTARY_IDS: COMMENTARY_IDS, SECTIONAL: SECTIONAL,
+  SKIP_BOOKS: SKIP_BOOKS, ONLY_TESTAMENT: ONLY_TESTAMENT, MAX_NOTE: MAX_NOTE, TOO_LONG: TOO_LONG, noteForVerse: noteForVerse, coversLabel: coversLabel,
+  processCommentary: processCommentary, processHelloaoBible: processHelloaoBible, processBollsChapter: processBollsChapter,
+  processLxx: processLxx, processLexicon: processLexicon, processLexiconForm: processLexiconForm,
+  TSK_BOOKS: TSK_BOOKS, parseTsk: parseTsk, filterVersions: filterVersions, FALLBACK_VERSIONS: FALLBACK_VERSIONS,
+  PUBLIC_DOMAIN: PUBLIC_DOMAIN, CODE_RE: CODE_RE, PLAN_TYPES: PLAN_TYPES, buildPlan: buildPlan,
+  dayStamp: dayStamp, nowStamp: nowStamp, emptyPlans: emptyPlans, planView: planView, currentPlan: currentPlan,
+  stoppedPlans: stoppedPlans, planStart: planStart, planDone: planDone, planUndo: planUndo, planStop: planStop,
+  planResume: planResume, readingStreak: readingStreak, VOTD_REFS: VOTD_REFS, votdFor: votdFor,
+  macSearchUrl: macSearchUrl, macChapterUrl: macChapterUrl, forListening: forListening, chunks: chunks,
+  cleanRef: cleanRef, noteKey: noteKey, cleanNotes: cleanNotes, cleanNoteHistory: cleanNoteHistory,
+  cleanBookmarks: cleanBookmarks, cleanHistory: cleanHistory, cleanMemory: cleanMemory, cleanPlans: cleanPlans,
+  FILE_KIND: FILE_KIND, MAX_OLD_WORDINGS: MAX_OLD_WORDINGS, readNotesFile: readNotesFile, mergeNotes: mergeNotes, historyAdd: historyAdd,
+  historySearch: historySearch, memoryOrder: memoryOrder, memoryLevel: memoryLevel,
+  verseData: verseData, wordsData: wordsData, hebrewNtData: hebrewNtData, greekOtData: greekOtData,
+  commentaryData: commentaryData, crossrefsData: crossrefsData, passageData: passageData, searchData: searchData};
+})();
+// ==== LOGIC END ====
+
+// ======================================================================================
+// The page itself
+// ======================================================================================
+var L = BSL;
+var $ = function(id){ return document.getElementById(id); };
+var IS_FILE = location.protocol === 'file:';
+var VIEW_CM = /^#commentaries:/.test(location.hash || '');
+var S = {gen: 0, book: 'John', chapter: 3, verse: 16, last: 0, t1: 'BSB', t2: 'KJV', versions: [], notes: [], filter: 'all',
+         savedNote: '', savedAt: '', recog: null, listening: false, text1: '', words: [], wordsLang: '', started: false, prevPlace: null};
+
+function msgOf(e){ return e && e.friendly ? e.message : 'Something went wrong loading this part. Press Go to try again.'; }
+function el(tag, cls, text){ var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+function clear(node){ while (node.firstChild) node.removeChild(node.firstChild); }
+function refText(){ return S.book + ' ' + S.chapter + ':' + S.verse; }
+function openModal(id){ var d = $(id); try { if (!d.open) d.showModal(); } catch (e) { d.setAttribute('open', ''); } }
+function closeModal(id){ var d = $(id); try { d.close(); } catch (e) { d.removeAttribute('open'); } }
+function safeOpen(url){
+  if (!/^https:\/\//.test(url)) return;
+  try { window.open(url, '_blank', 'noopener,noreferrer'); } catch (e) {}
+}
+
+// ---------- keeping things in this web browser ----------
+var PREFIX = 'jbs.';
+var MEMSTORE = {};          // used when the browser will not keep anything
+var DIRTY = {};             // saved here, but the browser refused to keep it (out of room): read from MEMSTORE
+var STORE_OK = (function(){
+  try { localStorage.setItem(PREFIX + 'test', '1'); var ok = localStorage.getItem(PREFIX + 'test') === '1'; localStorage.removeItem(PREFIX + 'test'); return ok; }
+  catch (e) { return false; }
+})();
+function readRaw(k){
+  if (has(DIRTY, k) && has(MEMSTORE, k)) return MEMSTORE[k];
+  if (STORE_OK) { try { var v = localStorage.getItem(PREFIX + k); if (v !== null) return v; } catch (e) {} }
+  return has(MEMSTORE, k) ? MEMSTORE[k] : null;
+}
+function has(o, k){ return Object.prototype.hasOwnProperty.call(o, k); }
+function readJSON(k){ var r = readRaw(k); if (r === null) return null; try { return JSON.parse(r); } catch (e) { return null; } }
+function writeJSON(k, v){
+  var text = JSON.stringify(v);
+  MEMSTORE[k] = text;
+  if (!STORE_OK) { DIRTY[k] = true; return false; }
+  for (var attempt = 0; attempt < 3; attempt++) {
+    try { localStorage.setItem(PREFIX + k, text); delete DIRTY[k]; return true; }
+    catch (e) { if (!cacheEvict(Math.max(200000, text.length * 2))) break; }   // your notes come first: drop saved Bible pages
+  }
+  DIRTY[k] = true;
+  return false;
+}
+function readPrefs(){ var p = readJSON('prefs'); return p && typeof p === 'object' && !Array.isArray(p) ? p : {}; }
+function setPref(k, v){ var p = readPrefs(); p[k] = v; writeJSON('prefs', p); }
+var DATA = {
+  notes: function(){ return L.cleanNotes(readJSON('notes')); },
+  noteHistory: function(){ return L.cleanNoteHistory(readJSON('noteHistory')); },
+  bookmarks: function(){ return L.cleanBookmarks(readJSON('bookmarks')); },
+  history: function(){ return L.cleanHistory(readJSON('history')); },
+  memory: function(){ return L.cleanMemory(readJSON('memory')); },
+  plans: function(){ return L.cleanPlans(readJSON('plans')); }
+};
+function saveData(k, v){
+  var ok = writeJSON(k, v);
+  if (!ok) {
+    if (STORE_OK) $('storeBanner').textContent = 'This web browser is out of room for this page, so your latest changes are kept only until you close it. Use Save my notes to a file now, so nothing is lost.';
+    $('storeBanner').classList.add('show');
+  }
+  return ok;
+}
+
+// Saved Bible pages, so a verse opens fast the next time. Only public-domain Bible words,
+// the Greek/Hebrew texts, dictionary entries, commentaries and cross references are kept.
+var CACHE_PREFIX = PREFIX + 'c.';
+var CACHE_LIMIT = 2500000;    // letters
+var CACHE_DAYS = 30;          // a saved page is looked up again after this many days
+function cacheKeys(){
+  var out = [];
+  if (!STORE_OK) return out;
+  try {
+    for (var i = 0; i < localStorage.length; i++) {
+      var k = localStorage.key(i);
+      if (k && k.indexOf(CACHE_PREFIX) === 0) out.push(k);
+    }
+  } catch (e) {}
+  return out;
+}
+function cacheGet(key){
+  if (!STORE_OK) return undefined;
+  try {
+    var raw = localStorage.getItem(CACHE_PREFIX + key);
+    if (raw === null) return undefined;
+    var o = JSON.parse(raw);
+    if (!o || typeof o !== 'object' || !('d' in o)) return undefined;
+    if (!(o.t > 0) || Date.now() - o.t > CACHE_DAYS * 86400000) { localStorage.removeItem(CACHE_PREFIX + key); return undefined; }
+    return o.d;
+  } catch (e) { return undefined; }
+}
+function cacheEvict(need){
+  var items = [];
+  cacheKeys().forEach(function(k){
+    try { var raw = localStorage.getItem(k) || ''; var t = 0; try { t = JSON.parse(raw).t || 0; } catch (e) {} items.push([k, raw.length, t]); } catch (e) {}
+  });
+  if (!items.length) return false;
+  items.sort(function(a, b){ return a[2] - b[2]; });
+  var freed = 0;
+  for (var i = 0; i < items.length && freed < need; i++) { try { localStorage.removeItem(items[i][0]); freed += items[i][1]; } catch (e) {} }
+  return freed > 0;
+}
+function cachePut(key, value){
+  if (!STORE_OK) return;
+  var text;
+  try { text = JSON.stringify({t: Date.now(), d: value}); } catch (e) { return; }
+  if (text.length > 600000) return;
+  try {
+    var total = 0;
+    cacheKeys().forEach(function(k){ try { total += (localStorage.getItem(k) || '').length; } catch (e) {} });
+    if (total + text.length > CACHE_LIMIT) cacheEvict(total + text.length - CACHE_LIMIT + 100000);
+    localStorage.setItem(CACHE_PREFIX + key, text);
+  } catch (e) {
+    cacheEvict(text.length * 2);
+    try { localStorage.setItem(CACHE_PREFIX + key, text); } catch (e2) {}
+  }
+}
+
+// ---------- talking to the two Bible websites ----------
+var NET = {ok: 0, failed: 0};
+async function getJSON(url){
+  // Plain GET, no cookies, no extra headers; gives up after 15 seconds.
+  if (url.indexOf(L.BOLLS + '/') !== 0 && url.indexOf(L.HELLOAO + '/') !== 0) return null;
+  var ctl = typeof AbortController === 'function' ? new AbortController() : null;
+  var timer = ctl ? setTimeout(function(){ ctl.abort(); }, 15000) : null;
+  try {
+    var r = await fetch(url, {method: 'GET', credentials: 'omit', mode: 'cors', redirect: 'follow', referrerPolicy: 'no-referrer', signal: ctl ? ctl.signal : undefined});
+    NET.ok++;
+    hideNetBanner();
+    if (r.status === 404) return {status: 404, data: null};
+    if (!r.ok) return {status: r.status, data: null};
+    var text = await r.text();
+    if (text.length > 8000000) return {status: 0, data: null};
+    try { return {status: r.status, data: JSON.parse(text)}; } catch (e) { return {status: 0, data: null}; }
+  } catch (e) {
+    NET.failed++;
+    if (!NET.ok && NET.failed >= 2) showNetBanner();
+    return null;
+  } finally { if (timer) clearTimeout(timer); }
+}
+function showNetBanner(){
+  var b = $('fileBanner');
+  var msg;
+  if (typeof navigator !== 'undefined' && navigator.onLine === false) {
+    msg = 'You are not connected to the internet. The Bible verses come from free Bible websites, so connect to the internet and then reload this page.';
+  } else if (IS_FILE) {
+    msg = 'The Bible verses could not be reached. First check that you are connected to the internet. If you are, this web browser may not let a page opened from a file reach the Bible websites: please open Jesus_Bible_Study.html in Google Chrome or Microsoft Edge instead, or ask the person who sent you this for the web link.';
+  } else {
+    msg = 'The Bible websites are not answering right now. Check that you are connected to the internet, then reload this page in a minute.';
+  }
+  b.textContent = msg;
+  b.classList.add('show');
+}
+function hideNetBanner(){ $('fileBanner').classList.remove('show'); }
+
+var MEMC = new Map(), INFLIGHT = new Map();
+function remember(key, persist, producer){
+  if (MEMC.has(key)) return Promise.resolve(MEMC.get(key));
+  if (persist) {
+    var saved = cacheGet(key);
+    if (saved !== undefined && saved !== null) { MEMC.set(key, saved); return Promise.resolve(saved); }
+  }
+  if (INFLIGHT.has(key)) return INFLIGHT.get(key);
+  var p = producer().then(function(val){
+    INFLIGHT.delete(key);
+    if (val !== null && val !== undefined) {
+      MEMC.set(key, val);
+      if (MEMC.size > 500) MEMC.delete(MEMC.keys().next().value);
+      if (persist && !(Array.isArray(val) && !val.length)) cachePut(key, val);
+    }
+    return val;
+  }, function(){ INFLIGHT.delete(key); return null; });
+  INFLIGHT.set(key, p);
+  return p;
+}
+var API = {
+  chapter: function(t, bnum, ch){
+    if (!L.CODE_RE.test(String(t)) || !(bnum >= 1 && bnum <= 66) || !(ch >= 1 && ch <= 150)) return Promise.resolve(null);
+    return remember('b:' + t + ':' + bnum + ':' + ch, L.PUBLIC_DOMAIN.has(t), async function(){
+      var r = await getJSON(L.BOLLS + '/get-chapter/' + t + '/' + bnum + '/' + ch + '/');
+      return r && r.status === 200 ? L.processBollsChapter(r.data) : null;
+    });
+  },
+  commentary: function(cid, code, ch){
+    if (!L.COMMENTARY_IDS.has(cid)) return Promise.resolve(null);
+    return remember('c:' + cid + ':' + code + ':' + ch, true, async function(){
+      var r = await getJSON(L.HELLOAO + '/c/' + cid + '/' + code + '/' + ch + '.json');
+      return r ? L.processCommentary(r.status, r.data) : null;
+    });
+  },
+  helloaoBible: async function(tid, code, ch){
+    if (tid !== 'grc_bre' && tid !== 'eng_bre') return null;
+    var v = await remember('h:' + tid + ':' + code + ':' + ch, true, async function(){
+      var r = await getJSON(L.HELLOAO + '/' + tid + '/' + code + '/' + ch + '.json');
+      return r ? L.processHelloaoBible(r.status, r.data) : null;
+    });
+    return v === null ? null : new Map(v);
+  },
+  lexicon: function(strong){
+    if (!/^[GH]\d{1,5}$/.test(strong)) return Promise.resolve(null);
+    return remember('x:' + strong, true, async function(){
+      var r = await getJSON(L.BOLLS + '/dictionary-definition/BDBT/' + strong + '/');
+      return r && r.status === 200 ? L.processLexicon(r.data) : null;
+    });
+  },
+  lexiconForm: function(lemma){
+    lemma = String(lemma).slice(0, 40);
+    return remember('f:' + lemma, true, async function(){
+      var r = await getJSON(L.BOLLS + '/dictionary-definition/BDBT/' + encodeURIComponent(lemma) + '/');
+      return r && r.status === 200 ? L.processLexiconForm(r.data, lemma) : null;
+    });
+  },
+  lxxLemmas: async function(bnum, ch){
+    // kept only while the page is open
+    var v = await remember('l:' + bnum + ':' + ch, false, async function(){
+      var r = await getJSON(L.BOLLS + '/get-chapter/LXX/' + bnum + '/' + ch + '/');
+      return r && r.status === 200 ? L.processLxx(r.data) : null;
+    });
+    return v === null ? null : new Map(v);
+  },
+  search: async function(t, q, whole, page){
+    if (!L.CODE_RE.test(String(t))) return null;
+    var url = L.BOLLS + '/v2/find/' + t + '?search=' + encodeURIComponent(q) + '&match_case=false&match_whole=' +
+              (whole ? 'true' : 'false') + '&limit=100&page=' + page;
+    var r = await getJSON(url);
+    return r && r.status === 200 ? r.data : null;
+  }
+};
+
+// ---------- speaking ----------
+var CAN_SPEAK = !!(window.speechSynthesis && typeof SpeechSynthesisUtterance === 'function');
+if (!CAN_SPEAK) document.body.classList.add('no-speech');
+var RD = {id: 0, btn: null, label: ''};
+function stopReading(){
+  RD.id++;
+  if (RD.btn) { RD.btn.textContent = RD.label; RD.btn.classList.remove('on'); RD.btn = null; }
+  try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (e) {}
+}
+function voicesReady(){
+  return new Promise(function(resolve){
+    try {
+      if (!window.speechSynthesis) return resolve();
+      if ((window.speechSynthesis.getVoices() || []).length) return resolve();
+      var done = false;
+      var finish = function(){ if (!done) { done = true; resolve(); } };
+      window.speechSynthesis.addEventListener('voiceschanged', finish, {once: true});
+      setTimeout(finish, 1200);
+    } catch (e) { resolve(); }
+  });
+}
+async function readAloud(text, btn, doneLabel, rate){
+  if (btn && RD.btn === btn) { stopReading(); return; }      // second click = stop
+  stopReading();
+  if (!window.speechSynthesis || typeof SpeechSynthesisUtterance !== 'function') { setNoteStatus('This web browser cannot speak out loud.'); return; }
+  var list = L.chunks(L.forListening(text));
+  if (!list.length) return;
+  var my = RD.id;
+  if (btn) { RD.btn = btn; RD.label = doneLabel || btn.textContent; btn.textContent = '■ Stop reading'; btn.classList.add('on'); }
+  await voicesReady();
+  if (my !== RD.id) return;
+  var i = 0;
+  (function next(){
+    if (my !== RD.id) return;
+    if (i >= list.length) { stopReading(); return; }
+    try {
+      var u = new SpeechSynthesisUtterance(list[i++]);
+      u.lang = 'en-US'; u.rate = rate || 0.9;
+      u.onend = next; u.onerror = function(){ if (my === RD.id) stopReading(); };
+      window.speechSynthesis.speak(u);
+    } catch (e) { stopReading(); }
+  })();
+}
+function sayPhonetic(p){
+  if (!window.speechSynthesis) return false;
+  readAloud(String(p || '').replace(/['ʼ’]/g, '').replace(/-/g, ' '), null, '', 0.7);
+  return true;
+}
+
+// ---------- versions ----------
+function fillVersions(){
+  [$('t1'), $('t2')].forEach(function(sel){
+    clear(sel);
+    S.versions.forEach(function(v){ var o = el('option', null, v.code + ' — ' + v.name); o.value = v.code; sel.appendChild(o); });
+  });
+  var hasV = function(c){ return S.versions.some(function(v){ return v.code === c; }); };
+  var first = S.versions.length ? S.versions[0].code : 'KJV';
+  if (!hasV(S.t1)) S.t1 = hasV('BSB') ? 'BSB' : first;
+  if (!hasV(S.t2)) S.t2 = hasV('KJV') ? 'KJV' : first;
+  $('t1').value = S.t1; $('t2').value = S.t2;
+}
+function versionName(code){ for (var i = 0; i < S.versions.length; i++) if (S.versions[i].code === code) return S.versions[i].name; return ''; }
+async function loadVersions(){
+  var saved = readJSON('versions');
+  var clean = saved && Array.isArray(saved.list) ? saved.list.filter(function(v){ return v && L.CODE_RE.test(String(v.code)) && typeof v.name === 'string' && L.PUBLIC_DOMAIN.has(v.code); })
+    .map(function(v){ return {code: v.code, name: v.name.slice(0, 120)}; }).slice(0, 200) : [];
+  if (clean.length && Date.now() - (saved.at || 0) < 30 * 86400000) return clean;
+  var r = await getJSON(L.BOLLS + '/static/bolls/app/views/languages.json');
+  var list = r && r.status === 200 ? L.filterVersions(r.data) : [];
+  if (list.length) { writeJSON('versions', {at: Date.now(), list: list}); return list; }
+  if (clean.length) return clean;          // an old list beats no list
+  return L.FALLBACK_VERSIONS.slice();
+}
+
+// ---------- the verse ----------
+async function loadVerse(){
+  $('verseKicker').textContent = refText() + ' · two versions side by side';
+  ['v1', 'v2'].forEach(function(id){ $(id).textContent = 'Loading…'; $(id).className = 'vtext loading'; });
+  var g = S.gen;
+  try {
+    var j = await L.verseData(API, S.book, S.chapter, S.verse, S.t1, S.t2);
+    if (g !== S.gen) return;
+    S.last = j.last_verse || 0;
+    j.versions.forEach(function(v, i){
+      var n = i + 1;
+      $('c' + n).textContent = v.translation;
+      $('n' + n).textContent = versionName(v.translation);
+      $('v' + n).textContent = v.text || v.problem || '';
+      $('v' + n).className = v.text ? 'vtext' : 'vtext problem';
+    });
+    S.text1 = (j.versions[0] && j.versions[0].text) || '';
+  } catch (e) {
+    if (g !== S.gen) return;
+    $('v1').textContent = msgOf(e); $('v1').className = 'vtext problem'; $('v2').textContent = '';
+  }
+}
+
+// ---------- original words ----------
+async function loadWords(){
+  var box = $('words'); clear(box); box.appendChild(el('div', 'loading', 'Loading the words…'));
+  var g = S.gen;
+  try {
+    var j = await L.wordsData(API, S.book, S.chapter, S.verse);
+    if (g !== S.gen) return;
+    $('wordsTitle').textContent = 'The ' + j.language + ', word by word';
+    S.words = j.words; S.wordsLang = j.language;
+    clear(box);
+    j.words.forEach(function(w){ box.appendChild(wordTile(w, j.rtl)); });
+    if (!j.words.length) box.appendChild(el('div', 'hint', 'No words were found for this verse.'));
+  } catch (e) { if (g !== S.gen) return; clear(box); box.appendChild(el('div', 'problem', msgOf(e))); }
+}
+function speakerIcon(){
+  var NS = 'http://www.w3.org/2000/svg';
+  var svg = document.createElementNS(NS, 'svg');
+  [['width', '16'], ['height', '16'], ['viewBox', '0 0 24 24'], ['fill', 'none'], ['stroke', 'currentColor'], ['stroke-width', '2'],
+   ['stroke-linecap', 'round'], ['stroke-linejoin', 'round'], ['aria-hidden', 'true']].forEach(function(a){ svg.setAttribute(a[0], a[1]); });
+  ['M11 5 6 9H3v6h3l5 4V5z', 'M15.5 8.5a5 5 0 0 1 0 7', 'M18.5 5.5a9 9 0 0 1 0 13'].forEach(function(d){
+    var p = document.createElementNS(NS, 'path'); p.setAttribute('d', d); svg.appendChild(p);
+  });
+  return svg;
+}
+function wordTile(w, rtl){
+  var tile = el('div', 'wtile');
+  var b = el('button', 'wbtn'); b.type = 'button';
+  b.title = 'Shows the full dictionary meaning of this word.';
+  b.appendChild(el('span', 'wg' + (rtl ? ' rtl' : ''), w.word));
+  b.appendChild(el('span', 'we', w.english || ''));
+  var form = [w.lemma, w.translit].filter(Boolean).join(' · ');
+  if (form) b.appendChild(el('span', 'wl', 'dictionary form: ' + form));
+  b.addEventListener('click', function(){
+    var head = w.translit || w.strong || w.phonetic || '';
+    openDialog(w.word + (head ? '  (' + head + ')' : ''),
+      (w.full || 'No dictionary entry was found for this word.') + (w.strong ? '\n\nStrong’s dictionary number ' + w.strong : ''),
+      false, (w.english || '').replace(/^(the|a|an|of|and|that|which|is|my|we have|have)\s+/i, '').trim());
+  });
+  tile.appendChild(b);
+  if (w.phonetic && !CAN_SPEAK) {
+    var sp = el('span', 'say', w.phonetic); sp.title = 'How to say this word, spelled out in English letters.';
+    tile.appendChild(sp);
+  } else if (w.phonetic) {
+    var s = el('button', 'say'); s.type = 'button';
+    s.title = 'Says this word out loud so you can hear how it sounds.';
+    s.setAttribute('aria-label', 'Hear how to say ' + w.phonetic);
+    s.appendChild(speakerIcon());
+    s.appendChild(el('span', null, w.phonetic));
+    s.addEventListener('click', function(){ if (!sayPhonetic(w.phonetic)) setNoteStatus('This web browser cannot speak out loud.'); });
+    tile.appendChild(s);
+  }
+  return tile;
+}
+
+// ---------- Greek Old Testament ----------
+async function loadGreekOT(){
+  var card = $('lxxCard'), box = $('lxxWords');
+  clear(box); $('lxxPlace').style.display = 'none'; $('lxxEnglish').style.display = 'none';
+  var g = S.gen;
+  if (L.isNT(S.book)) { card.style.display = 'none'; return; }
+  card.style.display = '';
+  box.appendChild(el('div', 'loading', 'Loading the Greek words…'));
+  try {
+    var j = await L.greekOtData(API, S.book, S.chapter, S.verse);
+    if (g !== S.gen) return;
+    clear(box);
+    if (j.missing || !j.words.length) { box.appendChild(el('div', 'hint', j.message || 'No Greek words were found for this verse.')); return; }
+    j.words.forEach(function(w){ box.appendChild(wordTile(w, false)); });
+    var notes = [];
+    if (j.moved) notes.push('The Greek Old Testament numbers this verse ' + j.place + '.');
+    if (j.worded_differently) notes.push('The Greek words this verse quite differently from your English Bible. This page found it by the verses on each side of it.');
+    if (notes.length) { $('lxxPlace').textContent = notes.join(' '); $('lxxPlace').style.display = ''; }
+    if (j.english) { $('lxxEnglish').textContent = 'This Greek in English (Brenton, 1851): ' + j.english; $('lxxEnglish').style.display = ''; }
+  } catch (e) { if (g !== S.gen) return; clear(box); box.appendChild(el('div', 'problem', msgOf(e))); }
+}
+
+// ---------- Hebrew New Testament ----------
+function hebrewVoice(){
+  try { return (window.speechSynthesis.getVoices() || []).filter(function(v){ return /^he/i.test(v.lang); })[0] || null; } catch (e) { return null; }
+}
+function sayHebrew(text, btn){
+  var v = hebrewVoice(); if (!v) return;
+  if (btn && RD.btn === btn) { stopReading(); return; }
+  stopReading();
+  try {
+    var u = new SpeechSynthesisUtterance(text); u.voice = v; u.lang = v.lang; u.rate = 0.75;
+    if (btn) {
+      RD.btn = btn; RD.label = btn.textContent; btn.textContent = '■ Stop reading'; btn.classList.add('on');
+      var my = RD.id; u.onend = u.onerror = function(){ if (my === RD.id) stopReading(); };
+    }
+    window.speechSynthesis.speak(u);
+  } catch (e) {}
+}
+var HNT_BASE = 'The New Testament was written in Greek; this is a Hebrew translation of it. These words have no meanings or sound-it-out guides under them, because this translation does not have the word numbers this page uses to look them up.';
+async function loadHebrewNT(){
+  var card = $('hntCard'), box = $('hntWords');
+  clear(box); $('hntSay').style.display = 'none'; box.setAttribute('dir', 'rtl');
+  var g = S.gen;
+  if (!L.isNT(S.book)) { card.style.display = 'none'; return; }
+  try {
+    var j = await L.hebrewNtData(API, S.book, S.chapter, S.verse);
+    if (g !== S.gen) return;
+    if (!j.words.length) { card.style.display = 'none'; return; }
+    card.style.display = '';
+    var canSay = !!hebrewVoice();
+    j.words.forEach(function(w){
+      var t;
+      if (canSay) {
+        t = el('button', 'hntw', w); t.type = 'button';
+        t.title = 'Says this Hebrew word out loud with your computer’s Hebrew voice.';
+        t.addEventListener('click', function(){ sayHebrew(w); });
+      } else {
+        t = el('span', 'hntw', w);
+        t.title = 'One Hebrew word of this verse.';
+      }
+      t.setAttribute('lang', 'he');
+      box.appendChild(t);
+    });
+    if (canSay) { $('hntSay').style.display = ''; S.hntText = j.text; }
+    $('hntNote').textContent = HNT_BASE + (canSay ? ' Click a word to hear it in your computer’s Hebrew voice, which says it the way Hebrew is spoken in Israel today.'
+                                                   : ' Your computer has no Hebrew voice installed, so these words cannot be read out loud.');
+  } catch (e) { if (g !== S.gen) return; card.style.display = ''; box.setAttribute('dir', 'ltr'); box.appendChild(el('div', 'problem', msgOf(e))); }
+}
+$('hntSay').addEventListener('click', function(){ sayHebrew(S.hntText || '', $('hntSay')); });
+try { if (window.speechSynthesis) window.speechSynthesis.addEventListener('voiceschanged', function(){ if (S.started && L.isNT(S.book) && !VIEW_CM) loadHebrewNT(); }); } catch (e) {}
+
+// ---------- cross references ----------
+async function loadXrefs(){
+  var box = $('xrefs'); clear(box); box.appendChild(el('div', 'loading', 'Loading…'));
+  var g = S.gen;
+  try {
+    var j = await L.crossrefsData(API, S.book, S.chapter, S.verse);
+    if (g !== S.gen) return;
+    clear(box);
+    if (!j.groups.length) { box.appendChild(el('p', 'hint', 'No verses are listed for this one.')); return; }
+    j.groups.forEach(function(grp){
+      var row = el('div', 'xrow');
+      row.appendChild(el('span', 'xphrase', grp.phrase ? '“' + grp.phrase + '”' : 'This verse'));
+      var chips = el('span', 'xchips');
+      grp.refs.forEach(function(r){
+        var b = el('button', null, r.label); b.type = 'button';
+        b.title = 'Opens ' + r.label + ' in a pop-up, in your Bible 1 version.';
+        b.addEventListener('click', function(){ openPassage(r); });
+        chips.appendChild(b);
+      });
+      row.appendChild(chips); box.appendChild(row);
+    });
+  } catch (e) { if (g !== S.gen) return; clear(box); box.appendChild(el('div', 'problem', msgOf(e))); }
+}
+async function openPassage(r){
+  openDialog(r.label, 'Loading…');
+  try {
+    var j = await L.passageData(API, r, S.t1);
+    var lines = j.verses.map(function(v){ return (j.verses.length > 1 ? v.verse + '  ' : '') + v.text; });
+    var study = L.okRef(r.book, r.chapter, r.start || 1) ? {book: r.book, chapter: r.chapter, verse: r.start || 1} : null;
+    openDialog(j.label + ' (' + j.translation + ')', lines.join('\n\n'), true, '', study);
+  } catch (e) { openDialog(r.label, msgOf(e)); }
+}
+
+// ---------- commentaries ----------
+async function loadCommentary(){
+  $('cmCount').textContent = 'Loading the commentaries…';
+  clear($('cmGrid')); $('macBody').textContent = 'Loading…'; $('macBody').className = 'loading';
+  var g = S.gen;
+  try {
+    var j = await L.commentaryData(API, S.book, S.chapter, S.verse);
+    if (g !== S.gen) return;
+    S.notes = j.notes;
+    drawMac(j.macarthur);
+    drawNotes();
+  } catch (e) { if (g !== S.gen) return; $('cmCount').textContent = msgOf(e); $('macBody').textContent = ''; }
+}
+function drawMac(m){
+  var box = $('macBody'); clear(box); box.className = '';
+  var row = el('div', 'sermon');
+  var a = el('a', null, 'Look for his sermons on ' + S.book + ' ' + S.chapter);
+  a.href = m.search_url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+  a.title = 'Searches the web (DuckDuckGo) for John MacArthur’s free sermons on this chapter on the Grace to You website. Opens in a new browser tab.';
+  row.appendChild(a); box.appendChild(row);
+}
+function drawNotes(){
+  stopReading();
+  var grid = $('cmGrid'); clear(grid);
+  var shown = S.notes.filter(function(n){
+    if (!n.text) return S.filter === 'all';
+    if (S.filter === 'short') return n.words < 300;
+    if (S.filter === 'long') return n.words >= 300;
+    return true;
+  });
+  var haveN = S.notes.filter(function(n){ return n.text; }).length;
+  $('cmCount').textContent = haveN === 0 ? 'No commentary has a note on this verse.' :
+    (haveN + ' commentar' + (haveN === 1 ? 'y has' : 'ies have') + ' a note on this verse. Each box holds the whole note: use its scroll bar.');
+  shown.forEach(function(n){
+    var a = el('article', 'card cm');
+    a.title = n.name + '’s whole note on this verse. Use the scroll bar on the right of the box to read all of it.';
+    var head = el('div', 'cmtop');
+    head.appendChild(el('h3', null, n.name));
+    if (n.text) {
+      var lb = el('button', 'listen needs-speech', '🔊 Listen'); lb.type = 'button';
+      lb.title = 'Reads ' + n.name + '’s whole note on this verse out loud. Click again to stop.';
+      lb.setAttribute('aria-label', 'Listen to ' + n.name + '’s note');
+      lb.addEventListener('click', function(){ readAloud(n.name + ' says. ' + n.text, lb, '🔊 Listen'); });
+      head.appendChild(lb);
+    }
+    a.appendChild(head);
+    a.appendChild(el('div', 'small', n.about));
+    if (n.problem) { a.appendChild(el('div', 'problem', n.problem)); grid.appendChild(a); return; }
+    if (n.covers) a.appendChild(el('div', 'covers', n.covers));
+    var box = el('div', 'cbox', n.text); box.tabIndex = 0;
+    box.title = 'Use the scroll bar on the right to read this teacher’s whole note.';
+    a.appendChild(box);
+    a.appendChild(el('div', 'small', n.words.toLocaleString() + ' words' + (n.words > 120 ? ' · scroll down inside the box to read all of it' : '')));
+    grid.appendChild(a);
+  });
+}
+document.querySelectorAll('[data-filter]').forEach(function(b){
+  b.addEventListener('click', function(){
+    S.filter = b.getAttribute('data-filter');
+    document.querySelectorAll('[data-filter]').forEach(function(x){ x.classList.toggle('on', x === b); });
+    drawNotes();
+  });
+});
+$('wideBtn').addEventListener('click', function(){
+  var on = !$('cmGrid').classList.contains('wide');
+  $('cmGrid').classList.toggle('wide', on); $('wideBtn').classList.toggle('on', on); setPref('wide', on);
+});
+if (readPrefs().wide === true) { $('cmGrid').classList.add('wide'); $('wideBtn').classList.add('on'); }
+
+// ---------- my notes ----------
+var toastTimer = null;
+function showToast(t){
+  if (!t) return;
+  $('toastText').textContent = t; $('toast').classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ $('toast').classList.remove('show'); }, Math.max(6000, t.length * 70));
+}
+$('toolsToggle').addEventListener('click', function(){
+  var hdr = document.querySelector('header'), open = !hdr.classList.contains('tools-open');
+  hdr.classList.toggle('tools-open', open);
+  this.setAttribute('aria-expanded', open ? 'true' : 'false');
+  this.textContent = open ? '✕ Fewer tools' : '☰ More tools';
+});
+$('toastClose').addEventListener('click', function(){ clearTimeout(toastTimer); $('toast').classList.remove('show'); });
+function setNoteStatus(t){ $('noteStatus').textContent = t || ''; if (t) showToast(t); }
+function noteLocked(on){ $('note').disabled = on; $('saveBtn').disabled = on; $('micBtn').disabled = on; }
+function shownStamp(s){ return String(s || '').slice(0, 16); }
+function loadNote(){
+  $('noteLabel').textContent = 'My notes on ' + refText();
+  setNoteStatus('');
+  var n = DATA.notes()[L.noteKey(S.book, S.chapter, S.verse)];
+  $('note').value = n ? n.note : ''; S.savedNote = n ? n.note : ''; S.savedAt = n ? n.updated_at : '';
+  noteLocked(false);
+  $('noteSaved').textContent = n ? ('Last saved ' + shownStamp(n.updated_at)) : 'No note saved for this verse yet.';
+  drawOwBtn();
+}
+function myOlderWordings(){
+  return DATA.noteHistory().filter(function(h){ return h.book === S.book && h.chapter === S.chapter && h.verse === S.verse; }).reverse();
+}
+function drawOwBtn(){
+  var n = myOlderWordings().length;
+  $('owBtn').style.display = n ? '' : 'none';
+  $('owBtn').textContent = 'Older wordings (' + n + ')';
+}
+function copyText(text, container){
+  function fallback(){
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.left = '-9999px';
+    ta.title = 'Copy helper';
+    container.appendChild(ta); ta.select();
+    var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+    container.removeChild(ta);
+    return ok;
+  }
+  try {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text).then(function(){ return true; }, fallback);
+  } catch (e) {}
+  return Promise.resolve(fallback());
+}
+$('owBtn').addEventListener('click', function(){
+  var list = myOlderWordings(), box = $('owList');
+  clear(box); $('owStatus').textContent = '';
+  $('owTitle').textContent = 'Older wordings of your note on ' + refText();
+  if (!list.length) box.textContent = 'There are no older wordings for this verse.';
+  list.forEach(function(h){
+    var row = el('div', 'owrow');
+    row.appendChild(el('div', 'small', h.replaced_at ? 'Replaced ' + shownStamp(h.replaced_at) : 'Replaced earlier'));
+    row.appendChild(el('pre', null, h.note));
+    var br = el('div', 'btnrow');
+    var c = el('button', null, 'Copy'); c.type = 'button';
+    c.title = 'Copies this wording so you can paste it somewhere else. Nothing is changed.';
+    c.addEventListener('click', function(){
+      copyText(h.note, $('owdlg')).then(function(ok){
+        $('owStatus').textContent = ok ? 'Copied.' : 'This web browser would not copy it. Select the words with your mouse and copy them instead.';
+      });
+    });
+    var put = el('button', null, 'Put back in the note box'); put.type = 'button';
+    put.title = 'Puts this wording into your note box. It is not saved until you press Save note; what was in the box is kept under Older wordings when you save.';
+    put.addEventListener('click', function(){
+      $('note').value = h.note; closeModal('owdlg');
+      setNoteStatus('The older wording is in the note box. Press Save note to keep it.');
+    });
+    br.appendChild(c); br.appendChild(put); row.appendChild(br);
+    box.appendChild(row);
+  });
+  openModal('owdlg');
+});
+$('owClose').addEventListener('click', function(){ closeModal('owdlg'); });
+function saveNote(){
+  var key = L.noteKey(S.book, S.chapter, S.verse);
+  var notes = DATA.notes(), old = notes[key];
+  // Another window may have changed this note since it was opened here: never wipe its words.
+  if ((old ? old.updated_at : '') !== (S.savedAt || '')) {
+    setNoteStatus('This note was changed in another window since you opened it, so it was NOT saved. Copy your words, then open the verse again.');
+    return false;
+  }
+  var text = $('note').value;
+  if (text.length > 20000) { setNoteStatus('That note is too long to save (over 20,000 letters).'); return false; }
+  if (!text.trim() && old && old.note.trim() &&
+      !confirm('Remove your note on ' + refText() + '?\n\nThe removed wording is kept under Older wordings for this verse, so you can bring it back from there.')) {
+    setNoteStatus('Nothing was changed. Your note on ' + refText() + ' is still saved.');
+    return false;
+  }
+  if (!old && text.trim() && Object.keys(notes).length >= 5000) {
+    setNoteStatus('You have 5,000 notes, the most this page keeps. Save your notes to a file, then remove some notes you no longer need.');
+    return false;
+  }
+  if (old && old.note.trim() && old.note !== text) {           // the replaced wording is kept, never lost
+    var hist = DATA.noteHistory();
+    hist.push({book: S.book, chapter: S.chapter, verse: S.verse, note: old.note, replaced_at: L.nowStamp()});
+    saveData('noteHistory', hist.slice(-L.MAX_OLD_WORDINGS));
+  }
+  var stamp = L.nowStamp();
+  if (text.trim()) notes[key] = {note: text, updated_at: stamp}; else { delete notes[key]; stamp = ''; }
+  var ok = saveData('notes', notes);
+  S.savedNote = text; S.savedAt = stamp;
+  $('noteSaved').textContent = stamp ? 'Last saved ' + shownStamp(stamp) : 'No note saved for this verse.';
+  setNoteStatus(ok ? (stamp ? 'Saved.' : 'Your note on ' + refText() + ' was removed. Its wording is under Older wordings.')
+                  : 'Saved for now, but this web browser will not keep it after you close the page. Use Save my notes to a file.');
+  drawOwBtn();
+  return true;
+}
+$('saveBtn').addEventListener('click', saveNote);
+$('bmBtn').addEventListener('click', function(){
+  var list = DATA.bookmarks();
+  var here = {book: S.book, chapter: S.chapter, verse: S.verse};
+  if (list.some(function(b){ return b.book === here.book && b.chapter === here.chapter && b.verse === here.verse; })) {
+    setNoteStatus(refText() + ' is already in your bookmarks (see My verses at the top).'); return;
+  }
+  if (list.length >= 1000) { setNoteStatus('You have 1,000 bookmarks, the most this page keeps. Remove one under My verses first.'); return; }
+  list.unshift({book: S.book, chapter: S.chapter, verse: S.verse, translation: S.t1, created_at: L.nowStamp()});
+  saveData('bookmarks', list);
+  setNoteStatus(refText() + ' is now in your bookmarks. Find it with My verses at the top.');
+});
+
+// ---------- My verses ----------
+function mvRow(label, sub, onOpen, onRemove){
+  var row = el('div', 'xrow');
+  var b = el('button', null, label); b.type = 'button'; b.title = 'Opens ' + label + ' here.';
+  b.addEventListener('click', function(){ closeModal('mvdlg'); onOpen(); });
+  row.appendChild(b);
+  if (sub) row.appendChild(el('span', 'small', sub));
+  if (onRemove) {
+    var x = el('button', null, 'Remove'); x.type = 'button';
+    x.title = 'Removes this bookmark. Your note on the verse is not touched. This cannot be undone.';
+    x.addEventListener('click', onRemove);
+    row.appendChild(x);
+  }
+  return row;
+}
+function openMyVerses(){
+  $('mvStatus').textContent = '';
+  openModal('mvdlg');
+  var bm = $('mvBookmarks'), nt = $('mvNotes');
+  clear(bm); clear(nt);
+  var list = DATA.bookmarks();
+  if (!list.length) bm.textContent = 'No bookmarks yet. Use Bookmark verse under your notes.';
+  list.forEach(function(b){
+    var label = b.book + ' ' + b.chapter + ':' + b.verse;
+    bm.appendChild(mvRow(label, 'saved ' + String(b.created_at || '').slice(0, 10),
+      function(){ goTo(b.book, b.chapter, b.verse); },
+      function(){
+        if (!confirm('Remove the bookmark for ' + label + '?\n\nYour note on this verse is not touched. This cannot be undone.')) return;
+        saveData('bookmarks', DATA.bookmarks().filter(function(x){ return !(x.book === b.book && x.chapter === b.chapter && x.verse === b.verse); }));
+        openMyVerses();
+      }));
+  });
+  var notes = DATA.notes();
+  var keys = Object.keys(notes).sort(function(a, b){ return notes[a].updated_at < notes[b].updated_at ? 1 : -1; }).slice(0, 300);
+  if (!keys.length) nt.textContent = 'No notes yet.';
+  keys.forEach(function(k){
+    var p = k.split('|'), label = p[0] + ' ' + p[1] + ':' + p[2], text = notes[k].note;
+    nt.appendChild(mvRow(label, text.slice(0, 70) + (text.length > 70 ? '…' : ''),
+      function(){ goTo(p[0], parseInt(p[1], 10), parseInt(p[2], 10)); }, null));
+  });
+  $('hq').value = '';
+  loadHistory();
+}
+$('myBtn').addEventListener('click', openMyVerses);
+$('mvClose').addEventListener('click', function(){ closeModal('mvdlg'); });
+function loadHistory(){
+  var box = $('mvHistory'); clear(box);
+  var q = $('hq').value.trim();
+  var list = L.historySearch(DATA.history(), DATA.notes(), q);
+  if (!list.length) { box.textContent = q ? 'Nothing matches that.' : 'Nothing yet. Verses you open are listed here.'; return; }
+  list.forEach(function(h){
+    var label = h.book + ' ' + h.chapter + ':' + h.verse;
+    box.appendChild(mvRow(label, shownStamp(h.viewed_at) + (h.note ? ' · ' + h.note.slice(0, 60) + (h.note.length > 60 ? '…' : '') : ''),
+      function(){ goTo(h.book, h.chapter, h.verse); }, null));
+  });
+}
+var hqTimer = null;
+$('hq').addEventListener('input', function(){ clearTimeout(hqTimer); hqTimer = setTimeout(loadHistory, 300); });
+function recordHistory(){
+  if (VIEW_CM) return;
+  saveData('history', L.historyAdd(DATA.history(), {book: S.book, chapter: S.chapter, verse: S.verse}, new Date()));
+}
+
+// ---------- notes file ----------
+function plural(n, one, many){ return n.toLocaleString() + ' ' + (n === 1 ? one : (many || one + 's')); }
+function allMyData(){
+  return {notes: DATA.notes(), noteHistory: DATA.noteHistory(), bookmarks: DATA.bookmarks(), history: DATA.history(),
+          plans: DATA.plans(), memory: DATA.memory()};
+}
+$('exportBtn').addEventListener('click', function(){
+  var d = allMyData();
+  var out = {kind: L.FILE_KIND, format: 1, saved_at: L.nowStamp()};
+  Object.keys(d).forEach(function(k){ out[k] = d[k]; });
+  try {
+    var blob = new Blob([JSON.stringify(out, null, 1)], {type: 'application/json'});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = 'My_Bible_Study_Notes_' + L.dayStamp(new Date()) + '.json';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+    setNoteStatus('Your notes file is saved in your Downloads folder (' + a.download + '). Keep it somewhere safe.');
+  } catch (e) { setNoteStatus('The notes file could not be made in this web browser.'); }
+});
+$('importBtn').addEventListener('click', function(){ $('importFile').value = ''; $('importFile').click(); });
+$('importFile').addEventListener('change', function(){
+  var f = this.files && this.files[0];
+  if (!f) return;
+  if (f.size > 5000000) { setNoteStatus('That file is too big to be a notes file from this page.'); return; }
+  var reader = new FileReader();
+  reader.onload = function(){
+    var got = L.readNotesFile(String(reader.result || ''));
+    if (got.error) { setNoteStatus(got.error); return; }
+    var cur = allMyData();
+    var keys = Object.keys(got.notes);
+    var differ = keys.filter(function(k){ return cur.notes[k] && cur.notes[k].note !== got.notes[k].note; }).length;
+    var ask = 'This file has ' + plural(keys.length, 'note') + ', ' + plural(got.bookmarks.length, 'bookmark') + ', ' +
+      plural(got.memory.length, 'memory verse') + ' and ' + plural(got.plans.plans.length, 'reading plan') + '.\n\n' +
+      (differ ? plural(differ, 'of your verses has', 'of your verses have') + ' a different note here; the newer one will be kept and the other wording goes to Older wordings.\n\n' : '') +
+      'Nothing here is removed. Go on?';
+    if (!confirm(ask)) { setNoteStatus('Nothing was loaded from the file.'); return; }
+    var m = L.mergeNotes(cur, got);
+    var ok = true;
+    ['notes', 'noteHistory', 'bookmarks', 'history', 'plans', 'memory'].forEach(function(k){ ok = saveData(k, m.merged[k]) && ok; });
+    var c = m.counts;
+    if ($('note').value === S.savedNote) loadNote();     // first, so the message below stays on screen
+    drawPlanFromStore();
+    setNoteStatus('Loaded from the file: ' + c.notes + ' note' + (c.notes === 1 ? '' : 's') + ', ' + c.bookmarks + ' bookmark' + (c.bookmarks === 1 ? '' : 's') +
+      ', ' + c.memory + ' memory verse' + (c.memory === 1 ? '' : 's') + ', ' + c.plans + ' reading plan' + (c.plans === 1 ? '' : 's') + '.' +
+      (ok ? '' : ' This web browser will not keep them after you close the page.'));
+  };
+  reader.onerror = function(){ setNoteStatus('That file could not be read.'); };
+  reader.readAsText(f);
+});
+
+// ---------- John MacArthur Sermon Index ----------
+var MAC_TOPICS = ['Salvation', 'Grace', 'Faith', 'Prayer', 'Forgiveness', 'Holy Spirit', 'Heaven', 'Suffering',
+                  'Sin', 'Repentance', 'Second coming', 'Marriage', 'Worship', 'Assurance of salvation'];
+L.BOOKS.forEach(function(b){ var o = el('option', null, b); o.value = b; $('macBook').appendChild(o); });
+function macRecent(){ var r = readJSON('macRecent'); return Array.isArray(r) ? r.filter(function(x){ return typeof x === 'string'; }).map(function(x){ return x.slice(0, 80); }).slice(0, 10) : []; }
+function drawMacRecent(){
+  var box = $('macRecent'); clear(box);
+  var list = macRecent(); if (!list.length) return;
+  box.appendChild(el('span', null, 'Your recent searches: '));
+  list.forEach(function(r){
+    var b = el('button', null, r); b.type = 'button'; b.style.margin = '2px';
+    b.title = 'Puts “' + r + '” back in the search box.';
+    b.addEventListener('click', function(){ $('macQ').value = r; $('macQ').focus(); });
+    box.appendChild(b);
+  });
+}
+function macSearch(engine){
+  var words = $('macQ').value.trim().slice(0, 80);
+  if (!words) { $('macQ').focus(); return; }
+  safeOpen(L.macSearchUrl(engine, words, $('macBook').value));
+  var list = macRecent().filter(function(r){ return r !== words; }); list.unshift(words);
+  writeJSON('macRecent', list.slice(0, 10));
+  drawMacRecent();
+}
+MAC_TOPICS.forEach(function(t){
+  var b = el('button', 'pill', t); b.type = 'button';
+  b.title = 'Searches the web for John MacArthur’s sermons about ' + t.toLowerCase() + '. Opens in a new browser tab.';
+  b.addEventListener('click', function(){ $('macQ').value = t; macSearch('ddg'); });
+  $('macTopics').appendChild(b);
+});
+$('macBtn').addEventListener('click', function(){ drawMacRecent(); openModal('macdlg'); $('macQ').focus(); });
+$('macDdg').addEventListener('click', function(){ macSearch('ddg'); });
+$('macGoogle').addEventListener('click', function(){ macSearch('google'); });
+$('macQ').addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); macSearch('ddg'); } });
+$('macClose').addEventListener('click', function(){ closeModal('macdlg'); });
+
+// ---------- microphone ----------
+var Recog = window.SpeechRecognition || window.webkitSpeechRecognition;
+if (!Recog) $('micBtn').style.display = 'none';
+function micOff(msg){
+  if (S.recog) { S.recog.onresult = null; S.recog.onend = null; S.recog.onerror = null; }
+  S.listening = false; $('micBtn').classList.remove('listening'); $('micBtn').textContent = '🎤 Speak note';
+  if (msg) setNoteStatus(msg);
+}
+$('micBtn').addEventListener('click', function(){
+  if (S.listening) { try { if (S.recog) S.recog.stop(); } catch (e) {} micOff('Stopped. What you said is in the box. Click Save note to keep it.'); return; }
+  if (!Recog) { setNoteStatus('This web browser cannot listen. Chrome or Edge can.'); return; }
+  try {
+    var r = new Recog(); r.lang = 'en-US'; r.continuous = true; r.interimResults = false;
+    r.onresult = function(ev){
+      var heard = '';
+      for (var i = ev.resultIndex; i < ev.results.length; i++) if (ev.results[i].isFinal) heard += ev.results[i][0].transcript;
+      heard = heard.trim(); if (!heard) return;
+      var cur = $('note').value.replace(/\s+$/, '');
+      $('note').value = cur ? cur + ' ' + heard : heard;
+    };
+    r.onerror = function(e){
+      var why = e && e.error;
+      var msg;
+      if (why === 'not-allowed' || why === 'service-not-allowed') {
+        msg = IS_FILE ? 'The microphone works in the web-link version, not when the file is opened from your computer.'
+                      : 'The microphone is blocked. Click the lock next to the web address and allow the microphone, then try again.';
+      } else if (why === 'no-speech') msg = 'I did not hear anything. Click Speak note and try again.';
+      else if (why === 'network') msg = 'Your web browser could not reach its speech service. Check the internet and try again.';
+      else msg = 'The microphone stopped. Click Speak note to try again.';
+      micOff(msg);
+    };
+    r.onend = function(){ if (S.listening) micOff('Stopped listening. What you said is in the box. Click Save note to keep it.'); };
+    S.recog = r; r.start(); S.listening = true;
+    $('micBtn').classList.add('listening'); $('micBtn').textContent = '● Stop listening';
+    setNoteStatus('Listening… say your note. Click Stop listening when you are done.');
+  } catch (e) { micOff(IS_FILE ? 'The microphone works in the web-link version, not when the file is opened from your computer.' : 'The microphone could not start.'); }
+});
+
+// ---------- pop-up ----------
+var dlgText = '', dlgFindText = '', dlgStudyRef = null;
+function openDialog(title, body, sayable, findText, studyRef){
+  $('dlgTitle').textContent = title; $('dlgBody').textContent = body; dlgText = body;
+  dlgStudyRef = studyRef || null;
+  $('dlgStudy').style.display = dlgStudyRef ? '' : 'none';
+  if (dlgStudyRef) $('dlgStudy').textContent = 'Study ' + dlgStudyRef.book + ' ' + dlgStudyRef.chapter + ':' + dlgStudyRef.verse + ' on this page';
+  $('dlgSay').style.display = sayable ? '' : 'none';
+  dlgFindText = findText || '';
+  $('dlgFind').style.display = dlgFindText ? '' : 'none';
+  if (dlgFindText) $('dlgFind').textContent = 'Find “' + dlgFindText + '” everywhere';
+  openModal('dlg');
+}
+$('dlgClose').addEventListener('click', function(){ stopReading(); closeModal('dlg'); });
+$('dlgSay').addEventListener('click', function(){ readAloud(dlgText.replace(/^\d+\s+/gm, ''), $('dlgSay'), 'Read aloud'); });
+$('dlgFind').addEventListener('click', function(){ closeModal('dlg'); openSearch(dlgFindText); });
+$('dlgStudy').addEventListener('click', function(){
+  var r = dlgStudyRef; if (!r) return;
+  stopReading(); closeModal('dlg');
+  goTo(r.book, r.chapter, r.verse);
+});
+
+// ---------- search the whole Bible ----------
+var SR = {q: '', page: 1, pages: 1, t: ''};
+function openSearch(text){
+  $('sIn').textContent = 'Searching in Bible 1: ' + S.t1 + ' — ' + versionName(S.t1);
+  if (text) $('sq').value = text;
+  openModal('sdlg');
+  if (text) runSearch(true); else $('sq').focus();
+}
+function markedText(t){
+  var frag = document.createDocumentFragment();
+  String(t).split('\u0001').forEach(function(part, i){
+    if (i === 0) { frag.appendChild(document.createTextNode(part)); return; }
+    var bits = part.split('\u0002');
+    frag.appendChild(el('mark', null, bits[0]));
+    frag.appendChild(document.createTextNode(bits.slice(1).join('')));
+  });
+  return frag;
+}
+async function runSearch(fresh){
+  var text = $('sq').value.trim();
+  if (text.length < 2) { $('sInfo').textContent = 'Type at least 2 letters.'; return; }
+  if (fresh) { SR = {q: text, page: 1, pages: 1, t: S.t1}; clear($('sResults')); }
+  $('sInfo').textContent = 'Searching…'; $('sMore').style.display = 'none';
+  try {
+    var j = await L.searchData(API, SR.q, SR.t, $('sWhole').checked, SR.page);
+    SR.pages = j.pages;
+    j.results.forEach(function(r){
+      var b = el('button', 'sres'); b.type = 'button';
+      b.title = 'Opens ' + r.ref + ' here, with its commentaries.';
+      b.appendChild(el('b', null, r.ref));
+      b.appendChild(markedText(r.text));
+      b.addEventListener('click', function(){ closeModal('sdlg'); goTo(r.book, r.chapter, r.verse); });
+      $('sResults').appendChild(b);
+    });
+    var shown = $('sResults').children.length;
+    $('sInfo').textContent = j.total === 0 ? ('No verses in the ' + j.translation + ' have “' + j.q + '”.') :
+      ('“' + j.q + '” is in ' + j.total.toLocaleString() + ' verse' + (j.total === 1 ? '' : 's') + ' of the ' + j.translation + '. Showing ' + shown.toLocaleString() + '. Click one to study it.');
+    $('sMore').style.display = SR.page < SR.pages ? '' : 'none';
+  } catch (e) { $('sInfo').textContent = msgOf(e); }
+}
+$('searchBtn').addEventListener('click', function(){ openSearch(''); });
+$('sGo').addEventListener('click', function(){ runSearch(true); });
+$('sq').addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); runSearch(true); } });
+$('sWhole').addEventListener('change', function(){ if ($('sq').value.trim()) runSearch(true); });
+$('sMore').addEventListener('click', function(){ SR.page += 1; runSearch(false); });
+$('sClose').addEventListener('click', function(){ closeModal('sdlg'); });
+
+// ---------- commentaries on a second screen ----------
+// The same file opened again with #commentaries:<verse>. The two windows talk with postMessage;
+// each one only listens to the other window (checked by event.source) and to the expected shape.
+var CMW = null, cmTimer = null;
+function cmMessage(m){
+  return m && typeof m === 'object' && m.jbs === 1 && (m.type === 'hello' || m.type === 'bye' || m.type === 'verse');
+}
+function postToCm(){
+  try { if (CMW && !CMW.closed) CMW.postMessage({jbs: 1, type: 'verse', book: S.book, chapter: S.chapter, verse: S.verse}, '*'); } catch (e) {}
+}
+function cmBack(){
+  CMW = null; if (cmTimer) { clearInterval(cmTimer); cmTimer = null; }
+  if (document.body.classList.contains('cm-away')) { document.body.classList.remove('cm-away'); loadCommentary(); }
+}
+function openSecondScreen(){
+  var base = location.href.split('#')[0];
+  var w = null;
+  try { w = window.open(base + '#commentaries:' + encodeURIComponent(refText()), 'jbsCommentaries', 'popup,width=1280,height=1000'); } catch (e) { w = null; }
+  if (!w) { setNoteStatus('The browser blocked the new window. Allow pop-ups for this page, then try again.'); return; }
+  CMW = w;
+  setNoteStatus('The commentaries opened in their own window. If it is not on your other screen, drag it there.');
+  document.body.classList.add('cm-away');
+  setTimeout(postToCm, 500);
+  if (cmTimer) clearInterval(cmTimer);
+  cmTimer = setInterval(function(){ if (!CMW || CMW.closed) cmBack(); }, 1000);
+}
+$('screen2Btn').addEventListener('click', openSecondScreen);
+$('bringBackBtn').addEventListener('click', function(){ document.body.classList.remove('cm-away'); loadCommentary(); });
+$('closeMeBtn').addEventListener('click', function(){ window.close(); });
+window.addEventListener('message', function(ev){
+  var m = ev.data;
+  if (!cmMessage(m)) return;
+  if (VIEW_CM) {
+    if (!window.opener || ev.source !== window.opener || m.type !== 'verse') return;
+    var book = L.resolveBook(String(m.book || ''));
+    if (!book || !L.okRef(book, m.chapter, m.verse)) return;
+    S.book = book; S.chapter = m.chapter; S.verse = m.verse; showCmOnly();
+  } else {
+    if (!CMW || ev.source !== CMW) return;
+    if (m.type === 'hello') { document.body.classList.add('cm-away'); postToCm(); }
+    if (m.type === 'bye') cmBack();
+  }
+});
+function showCmOnly(){
+  stopReading();
+  S.gen++;
+  $('cmHeadRef').textContent = 'Commentaries on ' + refText();
+  document.title = refText() + ' - Commentaries';
+  loadCommentary();
+}
+
+// ---------- Read me this study ----------
+function teacherOpenings(){
+  return (S.notes || []).filter(function(n){ return n.text; }).map(function(n){
+    var s = (n.text.replace(/\s+/g, ' ').match(/[^.!?]+[.!?]+/g) || [n.text]).slice(0, 2).join(' ');
+    return {name: n.name, text: s.slice(0, 600)};
+  });
+}
+$('readStudyBtn').addEventListener('click', function(){
+  var btn = this;
+  if (RD.btn === btn) { stopReading(); return; }
+  var parts = [S.book + ' chapter ' + S.chapter + ', verse ' + S.verse + '. ' + (S.text1 || $('v1').textContent)];
+  var w = (S.words || []).filter(function(x){ return x.phonetic && x.english; }).slice(0, 25);
+  if (w.length) parts.push('The ' + (S.wordsLang || 'original') + ' words. ' + w.map(function(x){
+    return x.phonetic.replace(/['ʼ’]/g, '').replace(/-/g, ' ') + ', meaning ' + x.english + '.';
+  }).join(' '));
+  var t = teacherOpenings();
+  if (t.length) parts.push('How each teacher begins. ' + t.map(function(x){ return x.name + ' says. ' + x.text; }).join(' '));
+  var mine = $('note').value.trim();
+  if (mine) parts.push('Your note. ' + mine);
+  readAloud(parts.join(' '), btn, '▶ Read me this study');
+});
+
+// ---------- Print sheet ----------
+$('printBtn').addEventListener('click', function(){
+  var ps = $('printSheet'); clear(ps);
+  ps.appendChild(el('h1', null, refText()));
+  ps.appendChild(el('p', 'psmall', 'Bible Study sheet · printed ' + new Date().toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: 'numeric'})));
+  [1, 2].forEach(function(n){
+    ps.appendChild(el('h2', null, $('c' + n).textContent + (versionName($('c' + n).textContent) ? ' — ' + versionName($('c' + n).textContent) : '')));
+    ps.appendChild(el('p', 'pv', $('v' + n).textContent));
+  });
+  if (S.words && S.words.length) {
+    ps.appendChild(el('h2', null, 'The ' + (S.wordsLang || 'original') + ', word by word'));
+    var tbl = el('table'), head = el('tr');
+    ['Word', 'Sounds like', 'Meaning'].forEach(function(h){ head.appendChild(el('th', null, h)); });
+    tbl.appendChild(head);
+    S.words.slice(0, 40).forEach(function(x){
+      var tr = el('tr');
+      tr.appendChild(el('td', null, x.word + (x.translit ? ' (' + x.translit + ')' : '')));
+      tr.appendChild(el('td', null, x.phonetic || ''));
+      tr.appendChild(el('td', null, x.english || ''));
+      tbl.appendChild(tr);
+    });
+    ps.appendChild(tbl);
+  }
+  var t = teacherOpenings();
+  if (t.length) {
+    ps.appendChild(el('h2', null, 'How each teacher begins his note'));
+    t.forEach(function(x){ var p = el('p'); p.appendChild(el('b', null, x.name + ': ')); p.appendChild(document.createTextNode(x.text)); ps.appendChild(p); });
+  }
+  var mine = $('note').value.trim();
+  if (mine) { ps.appendChild(el('h2', null, 'My notes')); var mp = el('p', null, mine); mp.style.whiteSpace = 'pre-line'; ps.appendChild(mp); }
+  ps.appendChild(el('p', 'psmall', 'Bible words from bolls.life; commentaries from bible.helloao.org. Only Bible versions that are free for everyone are shown.'));
+  try { window.print(); } catch (e) { setNoteStatus('This web browser could not open its printer window.'); }
+});
+
+// ---------- Whole chapter ----------
+var CH = {book: '', chapter: 0, chapters: 0, text: '', gen: 0};
+function places(){ var p = readJSON('places'); return p && typeof p === 'object' && !Array.isArray(p) ? p : {}; }
+function rememberPlace(){
+  if (VIEW_CM) return;
+  var p = places(); p[S.book] = {chapter: S.chapter, verse: S.verse, at: Date.now()};
+  writeJSON('places', p);
+}
+function drawPlaces(){
+  var box = $('chPlaces'); clear(box);
+  var p = places();
+  var keys = Object.keys(p).filter(function(k){ return L.okRef(k, p[k] && p[k].chapter, p[k] && p[k].verse); })
+    .sort(function(a, b){ return (p[b].at || 0) - (p[a].at || 0); }).slice(0, 8);
+  if (!keys.length) return;
+  box.appendChild(el('span', null, 'Pick up where you left off: '));
+  keys.forEach(function(k){
+    var r = k + ' ' + p[k].chapter + ':' + p[k].verse;
+    var b = el('button', null, r); b.type = 'button'; b.style.margin = '2px';
+    b.title = 'Opens ' + r + ', the last place you were in ' + k + '.';
+    b.addEventListener('click', function(){ closeModal('chdlg'); goTo(k, p[k].chapter, p[k].verse); });
+    box.appendChild(b);
+  });
+}
+async function showChapter(book, chapter){
+  stopReading();
+  CH.book = book; CH.chapter = chapter; CH.chapters = L.chaptersIn(book);
+  var my = ++CH.gen;
+  $('chTitle').textContent = book + ' ' + chapter + ' (' + S.t1 + ')';
+  var body = $('chBody'); body.textContent = 'Loading…';
+  $('chPrev').disabled = chapter <= 1; $('chNext').disabled = chapter >= CH.chapters;
+  var verses = await API.chapter(S.t1, L.BOOK_NUM[book], chapter);
+  if (my !== CH.gen) return;
+  if (!verses || !verses.length) { body.textContent = 'The Bible website did not answer. Press Go to try again in a minute.'; return; }
+  clear(body);
+  var clean = verses.map(function(v){ return {verse: v.verse, text: L.cleanVerseText(v.text)}; });
+  clean.forEach(function(v){
+    var b = el('button', 'chv' + (book === S.book && chapter === S.chapter && v.verse === S.verse ? ' cur' : '')); b.type = 'button';
+    b.title = 'Opens ' + book + ' ' + chapter + ':' + v.verse + ' to study it.';
+    b.appendChild(el('sup', null, String(v.verse)));
+    b.appendChild(document.createTextNode(v.text));
+    b.addEventListener('click', function(){ closeModal('chdlg'); goTo(book, chapter, v.verse); });
+    body.appendChild(b);
+  });
+  CH.text = clean.map(function(v){ return v.text; }).join(' ');
+  var cur = body.querySelector('.cur'); if (cur) cur.scrollIntoView({block: 'center'});
+}
+$('chapterBtn').addEventListener('click', function(){ drawPlaces(); openModal('chdlg'); showChapter(S.book, S.chapter); });
+$('chPrev').addEventListener('click', function(){ if (CH.chapter > 1) showChapter(CH.book, CH.chapter - 1); });
+$('chNext').addEventListener('click', function(){ if (CH.chapter < CH.chapters) showChapter(CH.book, CH.chapter + 1); });
+$('chListen').addEventListener('click', function(){ readAloud(CH.book + ' chapter ' + CH.chapter + '. ' + CH.text, $('chListen'), '🔊 Listen'); });
+$('chClose').addEventListener('click', function(){ stopReading(); closeModal('chdlg'); });
+
+// ---------- Reading plan ----------
+var PLAN = null, STOPPED = [];
+L.BOOKS.forEach(function(b){ var o = el('option', null, b); o.value = b; $('plBook').appendChild(o); });
+function planState(){ return DATA.plans(); }
+function drawPlanFromStore(){
+  var st = planState(), today = L.dayStamp(new Date());
+  var cur = L.currentPlan(st, today);
+  PLAN = cur ? L.planView(st, cur, today) : null;
+  STOPPED = L.stoppedPlans(st);
+  drawPlan(); drawStopped();
+}
+function drawPlan(){
+  var card = $('planCard');
+  if (!PLAN || VIEW_CM) { card.style.display = 'none'; $('plNow').textContent = 'No reading plan is going right now.'; return; }
+  card.style.display = '';
+  $('planName').textContent = PLAN.name + ' · day ' + PLAN.day + ' of ' + PLAN.total;
+  var box = $('planToday'); clear(box);
+  $('planUndoBtn').style.display = PLAN.done_days > 0 && (PLAN.read_today || PLAN.finished) ? '' : 'none';
+  if (PLAN.finished) { box.textContent = 'You finished this plan. Well done!'; $('planDoneBtn').style.display = 'none'; }
+  else {
+    box.appendChild(el('span', null, PLAN.read_today ? 'Done for today ✓ Next time: ' : 'Today: '));
+    PLAN.today.forEach(function(r){
+      var b = el('button', null, r.label); b.type = 'button';
+      b.title = 'Opens ' + r.label + ' as a whole chapter to read.';
+      b.addEventListener('click', function(){ drawPlaces(); openModal('chdlg'); showChapter(r.book, r.chapter); });
+      box.appendChild(b);
+    });
+    $('planDoneBtn').style.display = PLAN.read_today ? 'none' : '';
+    $('planDoneBtn').disabled = false;
+  }
+  $('planInfo').textContent = PLAN.percent + '% done' + (PLAN.streak ? ' · ' + PLAN.streak + ' day' + (PLAN.streak === 1 ? '' : 's') + ' in a row' : '') +
+    (PLAN.read_today ? ' · you read today' : '');
+  $('plNow').textContent = 'Going now: ' + PLAN.name + ', day ' + PLAN.day + ' of ' + PLAN.total + ' (' + PLAN.percent + '% done).';
+}
+function drawStopped(){
+  var box = $('plStopped'); clear(box);
+  if (!STOPPED.length) { box.textContent = 'None.'; return; }
+  STOPPED.forEach(function(s){
+    var row = el('div', 'xrow');
+    row.appendChild(el('span', null, s.name + ' — next is day ' + s.day + ' of ' + s.total));
+    var b = el('button', null, 'Pick it back up'); b.type = 'button';
+    b.title = 'Goes back to this plan exactly where you stopped. The plan going now (if any) is set aside the same way.';
+    b.addEventListener('click', function(){
+      var st = planState(), r = L.planResume(st, s.id);
+      if (r.error) { $('plStatus').textContent = r.error; return; }
+      saveData('plans', st); drawPlanFromStore();
+      $('plStatus').textContent = 'Back on: ' + PLAN.name + ', day ' + PLAN.day + '.';
+    });
+    row.appendChild(b); box.appendChild(row);
+  });
+}
+$('planBtn').addEventListener('click', function(){ $('plStatus').textContent = ''; drawPlanFromStore(); $('plBook').disabled = $('plType').value !== 'book'; openModal('pldlg'); });
+$('plType').addEventListener('change', function(){ $('plBook').disabled = this.value !== 'book'; });
+$('plStart').addEventListener('click', function(){
+  if (PLAN && !PLAN.finished && !confirm('Start a new plan? The plan going now (' + PLAN.name + ') will be set aside. You can pick it back up later, right where you stopped, under Reading plan.')) return;
+  var st = planState(), r = L.planStart(st, $('plType').value, $('plBook').value, new Date());
+  if (r.error) { $('plStatus').textContent = r.error; return; }
+  saveData('plans', st); drawPlanFromStore();
+  $('plStatus').textContent = 'Started: ' + PLAN.name + '. Today’s reading is at the top of the page.';
+});
+$('plStop').addEventListener('click', function(){
+  if (!PLAN || PLAN.finished) { $('plStatus').textContent = 'No reading plan is going right now.'; return; }
+  if (!confirm('Stop the plan "' + PLAN.name + '"? You can pick it back up later, right where you stopped, under Reading plan.')) return;
+  var st = planState(); L.planStop(st); saveData('plans', st); drawPlanFromStore();
+  $('plStatus').textContent = 'Stopped. It is listed under "Set-aside plans" if you want it back.';
+});
+$('planUndoBtn').addEventListener('click', function(){
+  if (!confirm('Take back the last day you marked as read?')) return;
+  var st = planState(), r = L.planUndo(st, new Date());
+  if (r.error) { setNoteStatus(r.error); return; }
+  saveData('plans', st); drawPlanFromStore();
+  setNoteStatus('Taken back. Day ' + PLAN.day + ' is not marked done now.');
+});
+$('plClose').addEventListener('click', function(){ closeModal('pldlg'); });
+$('planDoneBtn').addEventListener('click', function(){
+  if (!PLAN) return;
+  var st = planState(), r = L.planDone(st, PLAN.day, PLAN.id, new Date());
+  if (r.error) { setNoteStatus(r.error); return; }
+  saveData('plans', st); drawPlanFromStore();
+  setNoteStatus(r.already ? 'That day was already marked done.' : (PLAN.finished ? 'Plan finished. Well done!' : 'Marked done. Next time: day ' + PLAN.day + '.'));
+});
+
+// ---------- Verse of the Day ----------
+$('votdBtn').addEventListener('click', async function(){
+  var ref = L.votdFor(new Date());
+  var p = L.parseRef(ref);
+  if (!p) return;
+  if (!(await goTo(p[0], p[1], p[2]))) return;
+  setNoteStatus('Today’s Verse of the Day: ' + ref + ', shown in your ' + S.t1 +
+    (/-\d+\s*$/.test(ref) ? ' (opened at its first verse; use Next verse for the rest).' : '.'));
+});
+
+// ---------- Memorize ----------
+var MEM = {list: [], cur: null};
+function hideWords(text, level){
+  var words = text.split(/\s+/), frac = Math.min(1, 0.2 * (level + 1)), out = [];
+  words.forEach(function(w, i){
+    var hide = ((i * 37 + level * 11) % 100) / 100 < frac;
+    if (!hide) { out.push(document.createTextNode(w + ' ')); return; }
+    var m = /^([^A-Za-z]*)([A-Za-z’']+)(.*)$/.exec(w);
+    if (!m) { out.push(document.createTextNode(w + ' ')); return; }
+    var hint = level >= 3 && level < 5 ? m[2][0] : '';
+    out.push(document.createTextNode(m[1]));
+    var s = el('span', 'hidw', hint + '_'.repeat(Math.max(2, m[2].length - hint.length)));
+    s.title = 'A hidden word. Say it, then click Show the verse to check.';
+    out.push(s); out.push(document.createTextNode(m[3] + ' '));
+  });
+  return out;
+}
+function memId(v){ return v.book + '|' + v.chapter + '|' + v.verse; }
+async function memText(v){
+  if (v.text) return v.text;
+  var verses = await API.chapter(v.translation, L.BOOK_NUM[v.book], v.chapter);
+  var t = L.verseFrom(verses, v.verse);
+  return t ? L.cleanVerseText(t) : '';
+}
+async function practice(v){
+  MEM.cur = v;
+  $('memPractice').style.display = '';
+  $('memRef').textContent = v.book + ' ' + v.chapter + ':' + v.verse + ' (' + v.translation + ') · ' + '★'.repeat(v.level) + '☆'.repeat(5 - v.level);
+  var p = $('memText'); p.textContent = 'Loading…';
+  var text = await memText(v);
+  if (MEM.cur !== v) return;
+  v.shownText = text;
+  clear(p);
+  if (!text) { p.textContent = 'The words of this verse could not be loaded right now. Press Go to try again in a minute.'; return; }
+  hideWords(text, v.level).forEach(function(n){ p.appendChild(n); });
+}
+function loadMemory(){
+  var box = $('memList'); clear(box);
+  MEM.list = L.memoryOrder(DATA.memory());
+  if (!MEM.list.length) { box.textContent = 'No memory verses yet. Click Add this verse to start.'; $('memPractice').style.display = 'none'; return; }
+  MEM.list.forEach(function(v){
+    var r = v.book + ' ' + v.chapter + ':' + v.verse;
+    var row = el('div', 'xrow');
+    var b = el('button', null, r + '  ' + '★'.repeat(v.level) + '☆'.repeat(5 - v.level)); b.type = 'button';
+    b.title = 'Practice ' + r + ' now.';
+    b.addEventListener('click', function(){ practice(v); });
+    row.appendChild(b);
+    var x = el('button', null, 'Remove'); x.type = 'button';
+    x.title = 'Takes this verse off your memory list. Your notes are not touched. This cannot be undone.';
+    x.addEventListener('click', function(){
+      if (!confirm('Take ' + r + ' off your memory list? This cannot be undone.')) return;
+      saveData('memory', DATA.memory().filter(function(m){ return memId(m) !== memId(v); }));
+      if (MEM.cur && memId(MEM.cur) === memId(v)) { $('memPractice').style.display = 'none'; MEM.cur = null; }
+      loadMemory();
+    });
+    row.appendChild(x);
+    box.appendChild(row);
+  });
+}
+$('memBtn').addEventListener('click', function(){
+  $('memStatus').textContent = ''; openModal('memdlg'); loadMemory();
+  if (MEM.list.length && !MEM.cur) practice(MEM.list[0]);
+});
+$('memAdd').addEventListener('click', async function(){
+  var list = DATA.memory();
+  var here = {book: S.book, chapter: S.chapter, verse: S.verse};
+  var have = list.filter(function(m){ return memId(m) === memId(here); })[0];
+  if (have) { $('memStatus').textContent = refText() + ' is already on your list.'; loadMemory(); practice(have); return; }
+  if (list.length >= 500) { $('memStatus').textContent = 'You have 500 memory verses, the most this page keeps. Remove one first.'; return; }
+  var verses = await API.chapter(S.t1, L.BOOK_NUM[S.book], S.chapter);
+  var t = L.verseFrom(verses, S.verse);
+  if (!t) { $('memStatus').textContent = 'The words of that verse could not be loaded right now. Press Go to try again in a minute.'; return; }
+  var item = {book: S.book, chapter: S.chapter, verse: S.verse, translation: S.t1,
+              text: L.PUBLIC_DOMAIN.has(S.t1) ? L.cleanVerseText(t) : '', level: 0, tries: 0, rights: 0, added_at: L.nowStamp(), last_practiced: ''};
+  list = DATA.memory(); list.push(item); saveData('memory', list);
+  $('memStatus').textContent = refText() + ' is on your memory list.';
+  loadMemory();
+  var v = MEM.list.filter(function(x){ return memId(x) === memId(item); })[0]; if (v) practice(v);
+});
+$('memShow').addEventListener('click', function(){ if (MEM.cur) $('memText').textContent = MEM.cur.shownText || MEM.cur.text || ''; });
+$('memSay').addEventListener('click', function(){ if (MEM.cur) readAloud(MEM.cur.shownText || MEM.cur.text || '', $('memSay'), '🔊 Read it to me'); });
+function memResult(got){
+  if (!MEM.cur) return;
+  var list = DATA.memory(), id = memId(MEM.cur);
+  var row = list.filter(function(m){ return memId(m) === id; })[0];
+  if (!row) { $('memStatus').textContent = 'That memory verse is not on your list.'; return; }
+  row.level = L.memoryLevel(row.level, got); row.tries++; if (got) row.rights++; row.last_practiced = L.nowStamp();
+  saveData('memory', list);
+  $('memStatus').textContent = got ? (row.level >= 5 ? 'You know this one by heart!' : 'Good! Next time more words are hidden.') : 'That is fine. Next time fewer words are hidden.';
+  loadMemory();
+  var next = MEM.list.filter(function(x){ return memId(x) !== id; })[0] || MEM.list[0];
+  if (next) practice(next);
+}
+$('memGot').addEventListener('click', function(){ memResult(true); });
+$('memMiss').addEventListener('click', function(){ memResult(false); });
+$('memClose').addEventListener('click', function(){ stopReading(); closeModal('memdlg'); });
+
+// ---------- moving around ----------
+async function noteGuard(){
+  // Before the first verse is open the box belongs to no verse: nothing to save (Firefox can
+  // refill the box on reload, which once saved one verse's note onto another - found in testing).
+  if (!S.started) return true;
+  if ($('note').value === S.savedNote) return true;
+  if (confirm('You changed your note on ' + refText() + ' but did not save it.\n\nOK = save it now.  Cancel = leave without saving.')) return saveNote();
+  return true;
+}
+async function goTo(book, chapter, verse, step){
+  if (!L.okRef(book, chapter, verse)) return false;
+  if (!(await noteGuard())) return false;
+  var here = {book: S.book, chapter: S.chapter, verse: S.verse};
+  var moving = here.book !== book || here.chapter !== chapter || here.verse !== verse;
+  if (S.started && moving && !step) S.prevPlace = here;
+  if (S.listening) { try { S.recog.stop(); } catch (e) {} micOff(''); }
+  stopReading();
+  S.gen++;
+  S.text1 = '';
+  S.book = book; S.chapter = chapter; S.verse = verse;
+  $('ref').value = refText(); setPref('ref', refText());
+  try { history.replaceState(null, '', '#' + encodeURIComponent(refText())); } catch (e) {}
+  S.words = []; S.notes = [];
+  loadVerse(); loadWords(); loadHebrewNT(); loadGreekOT(); loadXrefs(); loadNote();
+  if (!document.body.classList.contains('cm-away')) loadCommentary();
+  postToCm();
+  rememberPlace(); recordHistory();
+  S.started = true; showSwap();
+  return true;
+}
+function placeText(p){ return p.book + ' ' + p.chapter + ':' + p.verse; }
+function showSwap(){
+  var p = S.prevPlace, b = $('swapBtn');
+  if (!p || placeText(p) === refText()) { b.style.display = 'none'; return; }
+  b.textContent = '⇄ Back to ' + placeText(p);
+  b.style.display = '';
+}
+$('swapBtn').addEventListener('click', function(){ var p = S.prevPlace; if (p) goTo(p.book, p.chapter, p.verse); });
+function goTyped(){
+  var t = $('ref').value.trim(); if (!t) return;
+  var p = L.parseRef(t);
+  if (!p || !L.okRef(p[0], p[1], p[2])) {
+    $('v1').textContent = 'This page could not read that verse. Type it like John 3:16 or 1 John 1:1.'; $('v1').className = 'vtext problem';
+    return;
+  }
+  goTo(p[0], p[1], p[2]);
+}
+$('goBtn').addEventListener('click', goTyped);
+$('ref').addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); goTyped(); } });
+$('nextBtn').addEventListener('click', function(){
+  if (!(S.last && S.verse >= S.last)) { goTo(S.book, S.chapter, S.verse + 1, true); return; }
+  if (S.chapter < L.chaptersIn(S.book)) { goTo(S.book, S.chapter + 1, 1, true); return; }
+  setNoteStatus('This is the last verse of ' + S.book + '. Type another book in the verse box to go on.');
+});
+$('prevBtn').addEventListener('click', async function(){
+  if (S.verse > 1) { goTo(S.book, S.chapter, S.verse - 1, true); return; }
+  if (S.chapter <= 1) { setNoteStatus('This is the first verse of ' + S.book + '.'); return; }
+  var vs = await API.chapter(S.t1, L.BOOK_NUM[S.book], S.chapter - 1);
+  goTo(S.book, S.chapter - 1, L.lastVerse(vs) || 1, true);
+});
+$('t1').addEventListener('change', function(){ S.t1 = this.value; setPref('t1', S.t1); loadVerse(); });
+$('t2').addEventListener('change', function(){ S.t2 = this.value; setPref('t2', S.t2); loadVerse(); });
+$('readBtn').addEventListener('click', function(){
+  if (RD.btn === $('readBtn')) { stopReading(); return; }
+  if (!S.text1) { setNoteStatus('Please wait until the verse has loaded, then try again.'); return; }
+  readAloud(S.text1, $('readBtn'), 'Read aloud');
+});
+document.querySelectorAll('dialog').forEach(function(d){ d.addEventListener('close', stopReading); });
+window.addEventListener('pagehide', function(){
+  stopReading();
+  if (VIEW_CM) { try { if (window.opener) window.opener.postMessage({jbs: 1, type: 'bye'}, '*'); } catch (e) {} }
+});
+window.addEventListener('hashchange', function(){
+  var raw = ''; try { raw = decodeURIComponent((location.hash || '').slice(1)); } catch (e) {}
+  if (VIEW_CM) {
+    var cp = L.parseRef(raw.replace(/^commentaries:/, ''));
+    if (cp && L.okRef(cp[0], cp[1], cp[2])) { S.book = cp[0]; S.chapter = cp[1]; S.verse = cp[2]; showCmOnly(); }
+    return;
+  }
+  if (!raw || raw === refText()) return;
+  var p = L.parseRef(raw);
+  if (p) goTo(p[0], p[1], p[2]);
+});
+window.addEventListener('beforeunload', function(e){
+  if (!VIEW_CM && S.started && $('note').value !== S.savedNote) { e.preventDefault(); e.returnValue = ''; }
+});
+
+// ---------- start ----------
+(async function start(){
+  $('note').value = ''; S.savedNote = ''; noteLocked(true);    // unlocked once a verse's note is loaded
+  if (!STORE_OK) $('storeBanner').classList.add('show');
+  if (VIEW_CM) {
+    document.body.classList.add('cm-only');
+    var raw = ''; try { raw = decodeURIComponent((location.hash || '').slice('#commentaries:'.length)); } catch (e) {}
+    var cp = L.parseRef(raw);
+    if (!cp || !L.okRef(cp[0], cp[1], cp[2])) cp = ['John', 3, 16];
+    S.book = cp[0]; S.chapter = cp[1]; S.verse = cp[2];
+    showCmOnly();
+    try { if (window.opener) window.opener.postMessage({jbs: 1, type: 'hello'}, '*'); } catch (e) {}
+    if (!window.opener) $('cmFollow').textContent = 'The main Bible Study window is not open, so this window will not change verses by itself.';
+    return;
+  }
+  var prefs = readPrefs();
+  S.t1 = L.CODE_RE.test(String(prefs.t1 || '')) ? prefs.t1 : 'BSB';
+  S.t2 = L.CODE_RE.test(String(prefs.t2 || '')) ? prefs.t2 : 'KJV';
+  S.versions = await loadVersions();
+  fillVersions();
+  drawPlanFromStore();
+  var startAt = '';
+  try { startAt = decodeURIComponent((location.hash || '').slice(1)); } catch (e) {}
+  var p = L.parseRef(startAt) || L.parseRef(String(prefs.ref || '')) || ['John', 3, 16];
+  if (!L.okRef(p[0], p[1], p[2])) p = ['John', 3, 16];
+  goTo(p[0], p[1], p[2]);
+})();
+})();
+</script>
+</body></html>
