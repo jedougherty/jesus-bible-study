@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-HgIQPQFD62jW1RiOK3I3MFjZRJj8qbCpa94bkaETxvM='; style-src 'unsafe-inline'; connect-src https://bolls.life https://bible.helloao.org; img-src data: 'self'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-5X/NAa7y5xm5VM6O9xEV02lvnP3EV+pnEaZa5gR34Dg='; style-src 'unsafe-inline'; connect-src https://bolls.life https://bible.helloao.org; img-src data: 'self'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <link rel="icon" href="data:,">
 <title>Jesus Bible Study</title>
@@ -246,7 +246,7 @@ body.no-speech .needs-speech{display:none !important}
       <div><div class="vcode" id="c1"></div><div class="vname" id="n1"></div><p class="vtext" id="v1">If this still says Loading after a minute, close it and open it again in Chrome or Edge, or ask the person who sent it for the web link.</p></div>
       <div><div class="vcode b" id="c2"></div><div class="vname" id="n2"></div><p class="vtext" id="v2"></p></div>
     </div>
-    <p class="small" style="margin:14px 0 0">This web copy shows only Bible versions that are free for everyone, like the Berean Standard Bible and the King James Version.</p>
+    <p class="small" style="margin:14px 0 0">Each Bible version belongs to its publisher. Free, personal study only. The NIV is not in the list: its publisher does not allow free use.</p>
   </div>
 
   <div class="card" title="The words this verse was first written in. Click a word for its full dictionary meaning. Click the yellow words to hear how to say them.">
@@ -1048,7 +1048,7 @@ var FIRST_VERSIONS = ['BSB', 'KJV', 'NASB', 'LSB', 'NKJV', 'ESV', 'CSB17', 'NLT'
 var FALLBACK_VERSIONS = [
   {code: 'BSB', name: 'Berean Standard Bible'}, {code: 'KJV', name: 'King James Version'},
   {code: 'WEB', name: 'World English Bible'}, {code: 'ASV', name: 'American Standard Version (1901)'},
-  {code: 'YLT', name: "Young's Literal Translation (1898)"}];
+  {code: 'YLT', name: "Young's Literal Translation (1898)"}, {code: 'NASB', name: 'New American Standard Bible (1995)'}];
 // Public domain: these words may be kept on the computer between visits. Every other version
 // (NASB, LSB, ESV, NKJV, CSB, NLT, AMP, NET, MSG ...) is kept only while the page is open.
 var PUBLIC_DOMAIN = new Set(['KJV', 'ASV', 'WEB', 'YLT', 'GNV', 'DRB', 'BSB', 'TISCH', 'WLCa', 'DHNT']);
@@ -1062,7 +1062,6 @@ function filterVersions(data){
       if (!t || typeof t !== 'object') return;
       var code = String(t.short_name || '');
       if (!/^[A-Z0-9]{2,16}$/.test(code.toUpperCase()) || BLOCKED_VERSIONS.has(code.toUpperCase())) return;
-      if (!PUBLIC_DOMAIN.has(code)) return;   // web copy: free versions only
       var name = String(t.full_name || code).slice(0, 120);
       if (code === 'LSB') name = 'Legacy Standard Bible (the MacArthur Study Bible text)';
       if (code === 'BSB') name = 'Berean Standard Bible (free for everyone)';
@@ -1949,13 +1948,13 @@ function fillVersions(){
 }
 function versionName(code){ for (var i = 0; i < S.versions.length; i++) if (S.versions[i].code === code) return S.versions[i].name; return ''; }
 async function loadVersions(){
-  var saved = readJSON('versions');
-  var clean = saved && Array.isArray(saved.list) ? saved.list.filter(function(v){ return v && L.CODE_RE.test(String(v.code)) && typeof v.name === 'string' && L.PUBLIC_DOMAIN.has(v.code); })
+  var saved = readJSON('versions2');
+  var clean = saved && Array.isArray(saved.list) ? saved.list.filter(function(v){ return v && L.CODE_RE.test(String(v.code)) && typeof v.name === 'string'; })
     .map(function(v){ return {code: v.code, name: v.name.slice(0, 120)}; }).slice(0, 200) : [];
   if (clean.length && Date.now() - (saved.at || 0) < 30 * 86400000) return clean;
   var r = await getJSON(L.BOLLS + '/static/bolls/app/views/languages.json');
   var list = r && r.status === 200 ? L.filterVersions(r.data) : [];
-  if (list.length) { writeJSON('versions', {at: Date.now(), list: list}); return list; }
+  if (list.length) { writeJSON('versions2', {at: Date.now(), list: list}); return list; }
   if (clean.length) return clean;          // an old list beats no list
   return L.FALLBACK_VERSIONS.slice();
 }
@@ -2697,7 +2696,7 @@ $('printBtn').addEventListener('click', function(){
   }
   var mine = $('note').value.trim();
   if (mine) { ps.appendChild(el('h2', null, 'My notes')); var mp = el('p', null, mine); mp.style.whiteSpace = 'pre-line'; ps.appendChild(mp); }
-  ps.appendChild(el('p', 'psmall', 'Bible words from bolls.life; commentaries from bible.helloao.org. Only Bible versions that are free for everyone are shown.'));
+  ps.appendChild(el('p', 'psmall', 'Bible words from bolls.life; commentaries from bible.helloao.org. Each Bible version belongs to its publisher. Free, personal study only.'));
   try { window.print(); } catch (e) { setNoteStatus('This web browser could not open its printer window.'); }
 });
 
