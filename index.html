@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-5X/NAa7y5xm5VM6O9xEV02lvnP3EV+pnEaZa5gR34Dg='; style-src 'unsafe-inline'; connect-src https://bolls.life https://bible.helloao.org; img-src data: 'self'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-XIBAw66LamYWuEIr4IM/NfqOuM/v13u1zhWImUx2i5M='; style-src 'unsafe-inline'; connect-src https://bolls.life https://bible.helloao.org; img-src data: 'self'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <link rel="icon" href="data:,">
 <title>Jesus Bible Study</title>
@@ -1661,7 +1661,7 @@ var L = BSL;
 var $ = function(id){ return document.getElementById(id); };
 var IS_FILE = location.protocol === 'file:';
 var VIEW_CM = /^#commentaries:/.test(location.hash || '');
-var S = {gen: 0, book: 'John', chapter: 3, verse: 16, last: 0, t1: 'BSB', t2: 'KJV', versions: [], notes: [], filter: 'all',
+var S = {gen: 0, book: 'John', chapter: 3, verse: 16, last: 0, t1: 'NASB', t2: 'CEB', versions: [], notes: [], filter: 'all',
          savedNote: '', savedAt: '', recog: null, listening: false, text1: '', words: [], wordsLang: '', started: false, prevPlace: null};
 
 function msgOf(e){ return e && e.friendly ? e.message : 'Something went wrong loading this part. Press Go to try again.'; }
@@ -1942,8 +1942,8 @@ function fillVersions(){
   });
   var hasV = function(c){ return S.versions.some(function(v){ return v.code === c; }); };
   var first = S.versions.length ? S.versions[0].code : 'KJV';
-  if (!hasV(S.t1)) S.t1 = hasV('BSB') ? 'BSB' : first;
-  if (!hasV(S.t2)) S.t2 = hasV('KJV') ? 'KJV' : first;
+  if (!hasV(S.t1)) S.t1 = hasV('NASB') ? 'NASB' : hasV('BSB') ? 'BSB' : first;
+  if (!hasV(S.t2)) S.t2 = hasV('CEB') ? 'CEB' : hasV('KJV') ? 'KJV' : first;
   $('t1').value = S.t1; $('t2').value = S.t2;
 }
 function versionName(code){ for (var i = 0; i < S.versions.length; i++) if (S.versions[i].code === code) return S.versions[i].name; return ''; }
@@ -3044,8 +3044,8 @@ window.addEventListener('beforeunload', function(e){
     return;
   }
   var prefs = readPrefs();
-  S.t1 = L.CODE_RE.test(String(prefs.t1 || '')) ? prefs.t1 : 'BSB';
-  S.t2 = L.CODE_RE.test(String(prefs.t2 || '')) ? prefs.t2 : 'KJV';
+  S.t1 = L.CODE_RE.test(String(prefs.t1 || '')) ? prefs.t1 : 'NASB';
+  S.t2 = L.CODE_RE.test(String(prefs.t2 || '')) ? prefs.t2 : 'CEB';
   S.versions = await loadVersions();
   fillVersions();
   drawPlanFromStore();
