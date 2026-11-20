@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-XIBAw66LamYWuEIr4IM/NfqOuM/v13u1zhWImUx2i5M='; style-src 'unsafe-inline'; connect-src https://bolls.life https://bible.helloao.org; img-src data: 'self'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-GddniQKtbqcTP0MM3lo1x5I0WMzEOHddwHLNJp3E1ls='; style-src 'unsafe-inline'; connect-src https://bolls.life https://bible.helloao.org; img-src data: 'self'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <link rel="icon" href="data:,">
 <title>Jesus Bible Study</title>
@@ -94,6 +94,7 @@ textarea{width:100%;padding:12px;background:var(--field);border:1px solid var(--
 .cmtop{display:flex;align-items:center;justify-content:space-between;gap:8px}
 button.listen{min-height:38px;padding:0 12px;font-size:14px;border-radius:20px;flex-shrink:0}
 .sermon{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:4px}
+.sermon a.gogty{background:var(--gold);color:#1a1406;border-color:var(--gold);font-weight:600}
 .sermon a{display:inline-flex;align-items:center;min-height:40px;padding:0 12px;background:#1b2b4b;border:1px solid var(--line2);border-radius:8px;text-decoration:none;color:var(--text)}
 .loading{color:var(--dim);font-style:italic}
 dialog{background:var(--card);color:var(--text);border:1px solid var(--gold);border-radius:14px;max-width:min(720px,92vw);width:720px;padding:20px 22px}
@@ -427,7 +428,8 @@ body.no-speech .needs-speech{display:none !important}
   <div class="srow">
     <label for="macBook" class="hint">Only sermons on</label>
     <select id="macBook" title="Pick a book of the Bible to find only his sermons on that book, or leave it on Any book."><option value="">Any book</option></select>
-    <button type="button" id="macDdg" class="gold" title="Searches the web with DuckDuckGo for John MacArthur sermons on the Grace to You website about these words. Opens in a new browser tab.">Search (DuckDuckGo)</button>
+    <button type="button" id="macGo" class="gold" title="Jumps straight to the John MacArthur sermon on the Grace to You website that best fits these words. It is a best guess. Opens in a new browser tab.">Go to Grace to You</button>
+    <button type="button" id="macDdg" title="Searches the web with DuckDuckGo for John MacArthur sermons on the Grace to You website about these words. Opens in a new browser tab.">Search (DuckDuckGo)</button>
     <button type="button" id="macGoogle" title="Searches the web with Google for John MacArthur sermons on the Grace to You website about these words. Opens in a new browser tab.">Search (Google)</button>
   </div>
   <div class="srow" id="macTopics" aria-label="Topics to try"></div>
@@ -1240,8 +1242,13 @@ function votdFor(d){
 // ---------- John MacArthur searches (web search engines only) ----------
 function macSearchUrl(engine, words, book){
   var q = 'site:gty.org John MacArthur sermon ' + words + (book ? ' ' + book : '');
+  // 'go': DuckDuckGo's backslash jumps straight to its top answer - a sermon page on gty.org
+  if (engine === 'go') return 'https://duckduckgo.com/?q=' + encodeURIComponent('\\site:gty.org/sermons John MacArthur sermon ' + words + (book ? ' ' + book : ''));
   return engine === 'google' ? 'https://www.google.com/search?q=' + encodeURIComponent(q)
                              : 'https://duckduckgo.com/?q=' + encodeURIComponent(q);
+}
+function macGoUrl(book, chapter, verse){
+  return macSearchUrl('go', book + ' ' + chapter + ':' + verse, '');
 }
 function macChapterUrl(book, chapter){
   return 'https://duckduckgo.com/?q=' + encodeURIComponent('site:gty.org John MacArthur sermon ' + book + ' ' + chapter);
@@ -1589,7 +1596,7 @@ async function commentaryData(api, book, chapter, verse){
     return {id: cid, name: name, about: about, text: got[0], words: got[0].split(/\s+/).filter(Boolean).length,
             covers: coversLabel(got[1], got[2], verse)};
   }));
-  return {notes: notes.filter(Boolean), macarthur: {search_url: macChapterUrl(book, chapter)}};
+  return {notes: notes.filter(Boolean), macarthur: {search_url: macChapterUrl(book, chapter), go_url: macGoUrl(book, chapter, verse)}};
 }
 async function crossrefsData(api, book, chapter, verse){
   var ch = await api.commentary('tsk', USFM[BOOK_NUM[book] - 1], chapter);
@@ -1644,7 +1651,7 @@ return {BOLLS: BOLLS, HELLOAO: HELLOAO, userError: userError, BOOKS: BOOKS, BOOK
   dayStamp: dayStamp, nowStamp: nowStamp, emptyPlans: emptyPlans, planView: planView, currentPlan: currentPlan,
   stoppedPlans: stoppedPlans, planStart: planStart, planDone: planDone, planUndo: planUndo, planStop: planStop,
   planResume: planResume, readingStreak: readingStreak, VOTD_REFS: VOTD_REFS, votdFor: votdFor,
-  macSearchUrl: macSearchUrl, macChapterUrl: macChapterUrl, forListening: forListening, chunks: chunks,
+  macSearchUrl: macSearchUrl, macChapterUrl: macChapterUrl, macGoUrl: macGoUrl, forListening: forListening, chunks: chunks,
   cleanRef: cleanRef, noteKey: noteKey, cleanNotes: cleanNotes, cleanNoteHistory: cleanNoteHistory,
   cleanBookmarks: cleanBookmarks, cleanHistory: cleanHistory, cleanMemory: cleanMemory, cleanPlans: cleanPlans,
   FILE_KIND: FILE_KIND, MAX_OLD_WORDINGS: MAX_OLD_WORDINGS, readNotesFile: readNotesFile, mergeNotes: mergeNotes, historyAdd: historyAdd,
@@ -2157,6 +2164,10 @@ async function loadCommentary(){
 function drawMac(m){
   var box = $('macBody'); clear(box); box.className = '';
   var row = el('div', 'sermon');
+  var go = el('a', 'gogty', '➜ Go to Grace to You');
+  go.href = m.go_url; go.target = '_blank'; go.rel = 'noopener noreferrer';
+  go.title = 'Jumps straight to the John MacArthur sermon on the Grace to You website that best fits ' + refText() + '. It is a best guess, so it may open a sermon on a nearby passage or a whole sermon series. Opens in a new browser tab.';
+  row.appendChild(go);
   var a = el('a', null, 'Look for his sermons on ' + S.book + ' ' + S.chapter);
   a.href = m.search_url; a.target = '_blank'; a.rel = 'noopener noreferrer';
   a.title = 'Searches the web (DuckDuckGo) for John MacArthur’s free sermons on this chapter on the Grace to You website. Opens in a new browser tab.';
@@ -2481,6 +2492,7 @@ MAC_TOPICS.forEach(function(t){
   $('macTopics').appendChild(b);
 });
 $('macBtn').addEventListener('click', function(){ drawMacRecent(); openModal('macdlg'); $('macQ').focus(); });
+$('macGo').addEventListener('click', function(){ macSearch('go'); });
 $('macDdg').addEventListener('click', function(){ macSearch('ddg'); });
 $('macGoogle').addEventListener('click', function(){ macSearch('google'); });
 $('macQ').addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); macSearch('ddg'); } });
